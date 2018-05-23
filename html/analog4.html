@@ -6,7 +6,7 @@
   <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
   />
   <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-  <title>模拟交易-持仓</title>
+  <title>模拟交易-查询</title>
   <script src="../script/flexible.js"></script>
   <link rel="stylesheet" href="../css/api.css" />
   <link rel="stylesheet" href="../css/base.css">
@@ -15,45 +15,21 @@
 </head>
 
 <body>
-  <section class="cancel-boxs">
-    <div class="webkit">
-      <span>名称/市值</span>
-      <span>委托价格</span>
-      <span>持仓/可用</span>
-      <span>成本/现价</span>
-    </div>
-    <ul class="vip-list">
-      <li>
-        <h2>华锋股份</h2>
-        <p>2018-3-26</p>
+  <section class="entrust-box">
+    <ul>
+      <li onclick="openWindow('todayEntrust',{},'push')">
+        <a href="">今日委托</a>
       </li>
-      <li class="red">
-        <div class="num">9.213</div>
-      </li>
-      <li>
-        <p>10000</p>
-        <p>10000</p>
-      </li>
-      <li>
-        <p>卖出</p>
-        <p>已成</p>
+      <li onclick="openWindow('todayDeal',{},'push')">
+        <a href="">今日成交</a>
       </li>
     </ul>
-    <ul class="vip-list">
-      <li>
-        <h2>华锋股份</h2>
-        <p>2.020万</p>
+    <ul>
+      <li onclick="openWindow('historyEntrust',{},'push')">
+        <a href="">历史委托</a>
       </li>
-      <li class="red">
-        <div class="num">9.213</div>
-      </li>
-      <li>
-        <p>10000</p>
-        <p>10000</p>
-      </li>
-      <li>
-        <p class="buy">买入</p>
-        <p>已成</p>
+      <li onclick="openWindow('historyDeal',{},'push')">
+        <a href="">历史成交</a>
       </li>
     </ul>
   </section>
@@ -61,12 +37,4 @@
 <script src="../script/zepto.js"></script>
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
-<script src="../script/loginIf_leon.js"></script>
-<script>
-  apiready = function () {
-    $.binLib.loginUser();
-    this.downRefresh();
-  }
-</script>
-
 </html>

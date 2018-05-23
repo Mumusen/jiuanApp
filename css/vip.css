@@ -11,9 +11,13 @@ section {
   width: 100%;
   -webkit-box-sizing: border-box;
   background-color: #eee;
+  height: 0.90667rem;
+  line-height: 0.90667rem;
 }
 
 .header-title li {
+  height: 0.90667rem;
+  line-height: 0.90667rem;
   -webkit-box-flex: 1;
   width: 100%;
   text-align: center;
@@ -28,6 +32,7 @@ section {
   line-height: 0.90667rem;
   font-size: 0.37333rem;
   color: #999;
+  box-sizing: border-box;
 }
 
 .header-title li .active {

@@ -6,7 +6,7 @@
   <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
   />
   <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-  <title>模拟交易-查询</title>
+  <title>模拟交易</title>
   <script src="../script/flexible.js"></script>
   <link rel="stylesheet" href="../css/api.css" />
   <link rel="stylesheet" href="../css/base.css">
@@ -15,21 +15,29 @@
 </head>
 
 <body>
-  <section class="entrust-box">
-    <ul>
-      <li>
-        <a href="">今日委托</a>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" id="exitWindow"></i>
+      <span>模拟交易</span>
+    </div>
+  </header>
+  <section class="vip-app">
+    <ul class="header-title">
+      <li data-index="0">
+        <a href="#" class="active">买入</a>
       </li>
-      <li>
-        <a href="">今日成交</a>
+      <li data-index="1">
+        <a href="#">卖出</a>
       </li>
-    </ul>
-    <ul>
-      <li>
-        <a href="">历史委托</a>
+      <li data-index="2">
+        <a href="#">持仓</a>
       </li>
-      <li>
-        <a href="">历史成交</a>
+      <li data-index="3">
+        <a href="#">撤单</a>
+      </li>
+      <li data-index="4">
+        <a href="#">查询</a>
       </li>
     </ul>
   </section>
@@ -38,10 +46,14 @@
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
 <script src="../script/loginIf_leon.js"></script>
+<script src="../script/analog.js"></script>
 <script>
   apiready = function () {
-    $.binLib.loginUser();
-    this.downRefresh();
+    $.binLib.operationIndexWin();    
+    // $.binLib.loginUser();
+    setTimeout(function () {
+      autoAjax();
+    }, 3000);
   }
 </script>
 

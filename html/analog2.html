@@ -6,7 +6,7 @@
   <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
   />
   <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-  <title>模拟交易-卖出</title>
+  <title>模拟交易-持仓</title>
   <script src="../script/flexible.js"></script>
   <link rel="stylesheet" href="../css/api.css" />
   <link rel="stylesheet" href="../css/base.css">
@@ -15,93 +15,36 @@
 </head>
 
 <body>
-  <section class="vip-min">
-    <div class="vip-min-control vip-min-sell">
-      <div class="box">
-        <input type="text" placeholder="请输入股票名称或代码">
-        <ul class="search-list">
-          <li>554545 股票代码</li>
-        </ul>
-      </div>
-      <div class="box number-btn-box">
-        <input type="tel">
-        <i class="reduce-icon"></i>
-        <i class="puls-icon"></i>
-      </div>
-      <div class="box-txt">
-        <span>跌停8.24</span>
-        <span>涨跌10.28</span>
-      </div>
-      <div class="box box-txt box-txt-num">
-        <input type="tel" placeholder="数量（股）">
-        <span>可买：--</span>
-      </div>
-      <div class="box box-btn-br">
-        <div class="box-btn">
-          <span class="active">全仓</span>
-          <span>1/2仓</span>
-          <span>1/3仓</span>
-        </div>
-      </div>
-      <button>买入</button>
-    </div>
-    <div class="vip-min-list">
-      <ul class="sell-list">
-        <li>
-          <span>卖1</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖2</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖3</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖4</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖5</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-      </ul>
-      <ul class="buy-list">
-        <li>
-          <span>卖1</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖2</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖3</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖4</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-        <li>
-          <span>卖5</span>
-          <span>9.15</span>
-          <span>15952</span>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <div class="vip-warehouse vip-warehouse-green">
+    <ul>
+      <li>
+        <h3>总资产</h3>
+        <p>1523264.26</p>
+      </li>
+      <li>
+        <h3>持仓总盈亏</h3>
+        <p class="num">1523264.26</p>
+      </li>
+      <li>
+        <h3>股票市值</h3>
+        <p>1523264.26</p>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <h3>可用余额</h3>
+        <p>1523264.26</p>
+      </li>
+      <li>
+        <h3>亏损警告线</h3>
+        <p class="num">1523264.26</p>
+      </li>
+      <li>
+        <h3>亏损平仓线</h3>
+        <p>1523264.26</p>
+      </li>
+    </ul>
+  </div>
   <section>
     <div class="webkit">
       <span>名称/市值</span>
@@ -139,4 +82,5 @@
     this.downRefresh();
   }
 </script>
+
 </html>

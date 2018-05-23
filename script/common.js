@@ -50,11 +50,6 @@ function closeFrame(tag) {
 
 // 关闭窗口同时刷新
 function closeFrameAtuo(tag) {
-  // api.execScript({
-  //     // name: 'root',
-  //     // frameName: tag,
-  //     script: "api.closeWin({name:"+tag+"})"
-  // })
   api.closeWin({
     name: tag
   })
@@ -531,6 +526,6 @@ function stockTimeIf() {
 
 //ajax url公共配置
 function url() {
-  return 'http://39.107.14.227:80/';
+  return 'http://39.107.14.227:80/'; 
   // return 'http://192.168.0.184:8080/';
 }

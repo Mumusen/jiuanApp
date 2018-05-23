@@ -27,13 +27,18 @@ section{
 .header-title{
   @include webkit-box;
   background-color: #eee;
+  height: s($px:68);
+  line-height: s($px:68);
   li{
+    height: s($px:68);
+    line-height: s($px:68);
     @include webkit-nav;
     a{
       height: s($px:68);
       line-height: s($px:68);
       font-size: s($px:28);
       color: #999;
+      box-sizing: border-box;
     }
     .active{
       color: #ea1f38;
