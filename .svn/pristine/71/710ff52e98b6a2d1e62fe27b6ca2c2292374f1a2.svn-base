@@ -1,0 +1,166 @@
+.login-btn-pr {
+  z-index: 9999;
+}
+
+.change-box {
+  margin-top: 0;
+}
+
+.login-tit {
+  font-size: 0.8rem;
+  text-indent: 0.13333rem;
+  padding-bottom: 0.53333rem;
+}
+
+.login .change-input input {
+  text-indent: 0;
+}
+
+.login p {
+  text-align: right;
+  padding-top: 0.53333rem;
+}
+
+.login p a {
+  font-size: 0.37333rem;
+  color: #ea1f38;
+}
+
+.login .signout {
+  margin-top: 2.13333rem;
+}
+
+.login .signout-wechat {
+  margin-top: 0.4rem;
+  background-color: transparent;
+  border: 0.02667rem solid #ea1f38;
+  color: #ea1f38;
+  box-shadow: 0 0rem 0.09333rem rgba(234, 31, 56, 0.6);
+}
+
+.login .register-btn {
+  margin: 0.4rem auto;
+  font-size: 0.42667rem;
+  color: #67a6e6;
+}
+
+.login-box {
+  background-color: #fff;
+  z-index: 0;
+}
+
+.login-box .return-btn:before {
+  width: 0.53333rem;
+  height: 0.53333rem;
+  background: url(../image/login_close_leon.png) no-repeat center;
+  background-size: 0.53333rem;
+}
+
+.protocol {
+  position: absolute;
+  width: 4.66667rem;
+  bottom: -1.33333rem;
+  left: 50%;
+  margin-left: -2.33333rem;
+  font-size: 0.32rem;
+  color: #999;
+}
+
+.protocol a {
+  color: #67a6e6;
+}
+
+.login-on .login-tit {
+  padding-bottom: 0.26667rem;
+}
+
+.login-on .sigin-box {
+  padding-top: 0;
+}
+
+.login-on .signout {
+  margin-top: 1.6rem;
+}
+
+.login-on .signout-wechat {
+  margin-top: 0.4rem;
+}
+
+.reg-top {
+  margin-top: 0.8rem;
+}
+
+.reg-box h2 {
+  font-size: 0.8rem;
+}
+
+.reg-box p {
+  font-size: 0.32rem;
+  color: #999;
+  margin-top: 0.13333rem;
+}
+
+.reg-box p a {
+  color: #56c1f9;
+}
+
+.reg-box .eight {
+  text-indent: 0.4rem;
+  height: 1.33333rem;
+  line-height: 1.46667rem;
+}
+
+.reg-box .phone input {
+  text-indent: 0.26667rem;
+}
+
+.reg-box .code button {
+  color: #ea1f38;
+}
+
+.reg-box .change-btn {
+  margin-top: 1.6rem;
+}
+
+.reg-box .change-btn-no {
+  border-color: #dedede;
+  color: #dedede;
+}
+
+.check-box-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+
+.check-box-bg a {
+  position: absolute;
+  bottom: 3.86667rem;
+  left: 50%;
+  margin-left: -2.26667rem;
+  width: 4.53333rem;
+  height: 1.17333rem;
+  line-height: 1.17333rem;
+  color: #fff;
+  background-color: #ea1f38;
+  border-radius: 0.58667rem;
+  font-size: 0.42667rem;
+  text-align: center;
+  font-family: 'pinfangBold';
+  box-shadow: 0 0.05333rem 0.22667rem rgba(110, 103, 86, 0.6);
+}
+
+.check-box-bg::before {
+  content: "";
+  position: absolute;
+  width: 4.4rem;
+  height: 6.64rem;
+  left: 50%;
+  margin-left: -2.2rem;
+  top: 4rem;
+  background: url(../image/check_pic.png) no-repeat center;
+  background-size: 100%;
+}

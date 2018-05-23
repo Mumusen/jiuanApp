@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>自选</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/frame_leon.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="login-user-btn" id="loginBtn"></i>
+      自选
+      <span class="rightBtnt search-btn" onclick="openWindow('moreThemeRankingSearch',{},'push')"></span>
+      <span class="rightBtn search-btn" id="editBtnMin"></span>
+    </div>
+  </header>
+  <div id="choiceBox" is="0" inFo="9"></div>
+  <section class="por"></section>
+  <!-- <section class="por" id="tabBox">
+    <div class="choice-top">
+      <i class="back"></i>
+      <div class="title webkit" id="tabChoice">
+        <span class="active" inFo="2">全部</span>
+        <span inFo="0">主题</span>
+        <span inFo="1">股票</span>
+      </div>
+      <div class="tit webkit frame-tit">
+        <span>名称</span>
+        <span>现价</span>
+        <span class="liftBtn up">涨跌幅</span>
+      </div>
+    </div>
+    <div class="list">
+      <ul id="listAll" class="list">
+        <li class="list-themeli" infoId="111" infoType="222" id="333">
+          <div class="li">
+            <span>360私有化概念
+              <b>主题</b>
+            </span>
+            <span>--</span>
+            <span>
+              <u>-15.36%</u>
+            </span>
+          </div>
+          <i class="btn"></i>
+        </li>
+      </ul>
+    </div>
+  </section> -->
+  <section class="por" id="porBox">
+    <i class="back"></i>
+    <div class="title chio-box">
+        <h2>添加自选</h2>
+        <h3>体验智能预警超强功能</h3>
+        <a href="#" class="signout" id="addSing">立 即 添 加</a>
+    </div>
+    <div class="chio-min">
+        <h2>热门推荐</h2>
+        <h3>大数据挖掘牛股</h3>
+        <a href="#" class="btn-change">换一换</a>
+        <p id="hotTList" class="them-list"><span>达到地方撒</span><span>达到地方撒达到地方撒</span><span>达到地方撒</span></p>
+        <p id="hotSlist" class="shares-txt"></p>
+        <a href="#" class="signout" id="hotBtn">一 键 添 加</a>
+    </div>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script src="../script/choiceLeon.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.loginUser();
+    $.binLib.SlideUser();
+  }    
+</script>
+
+</html>

@@ -1,0 +1,80 @@
+.infor-box {
+  display: -webkit-box;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  padding: 0 0.4rem;
+}
+
+.infor-box span {
+  display: block;
+  -webkit-box-flex: 1;
+  font-size: 0.42667rem;
+}
+
+.infor-box span:nth-child(1) {
+  width: 2.66667rem;
+}
+
+.infor-box span:nth-child(3) {
+  text-align: center;
+}
+
+.tit {
+  border-bottom: 0.02667rem solid #dedede;
+  padding: 0.13333rem 0.4rem 0.53333rem;
+}
+
+.infor-list {
+  padding: 0 0.4rem;
+}
+
+.infor-list li {
+  display: -webkit-box;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  padding-bottom: 0.8rem;
+}
+
+.infor-list li p {
+  height: 0.85333rem;
+  line-height: 0.85333rem;
+  display: block;
+  -webkit-box-flex: 1;
+  font-size: 0.42667rem;
+}
+
+.infor-list li p span {
+  display: block;
+  height: 0.48rem;
+  line-height: 1;
+  font-size: 0.42667rem;
+  color: #666;
+  font-family: 'pinfangBold';
+  text-indent: 0.18667rem;
+}
+
+.infor-list li p u {
+  height: 0.4rem;
+  line-height: 1.4;
+  display: block;
+  font-size: 0.37333rem;
+  font-family: 'Arial';
+  text-indent: 0.32rem;
+}
+
+.infor-list li p:nth-child(1) {
+  width: 2.53333rem;
+}
+
+.infor-list li p:nth-child(2) {
+  text-align: center;
+  font-weight: 600;
+  font-family: 'Arial';
+  color: #ea1f38;
+}
+
+.infor-list li p:nth-child(3) {
+  font-family: 'Arial';
+  text-align: right;
+  margin-right: 0.13333rem;
+}

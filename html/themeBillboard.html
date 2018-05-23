@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>主题龙虎榜</title>
+    <script src="../script/flexible.js"></script>
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<body>
+<header id="header" class="index slowHeader">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('themeBillboard')"></i>
+        <span id="themeName"></span>
+       <!-- <span class="calendar-btn"></span>-->
+    </div>
+</header>
+<section class="moreThemeRankings noTop">
+    <!--<div class="theme">
+        &lt;!&ndash;div class="titleCol clearfix">
+            <span class="active">游资关注个股</span>
+            <span>机构关注个股</span>
+        </div>&ndash;&gt;
+    </div>-->
+    <div class="showAll">
+        <!--游客关注个股-->
+        <div class="all stockDetails active">
+            <div class="title-column clearfix">
+                <div class="column-left fl">
+                    <span>上榜个股</span>
+                </div>
+                <div class="column-right fr">
+                <span class="show-date">
+                    <b id="showDate"><i class="month"></i><i class="time"></i></b>
+                    <i id="icon-list" class="icon-list"></i>
+                </span>
+                    <div class="popupsList" id="popups">
+                        <div class="trig"></div>
+                        <ul id="con-list">
+                            <!-- <li>2017-10-4</li>
+                             <li>2017-10-5</li>
+                             <li>2017-10-6</li>
+                             <li>2017-10-7</li>
+                             <li>2017-10-8</li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="stockDetailsTitle clearfix">
+                <div class="col">
+                    <span>股票名称</span>
+                </div>
+                <div class="col">
+                    <span>现价</span>
+                </div>
+                <div class="col click-chg" data-menu="chg">
+                    <i class="up-btn"></i>
+                    <span>涨跌幅</span>
+                    <i class="down-btn"></i>
+                </div>
+                <div class="col click-in" data-menu="in">
+                    <i class="up-btn"></i>
+                    <span>买入(万)</span>
+                    <i class="down-btn"></i>
+                </div>
+                <div class="col click-amount" data-menu="netAmount">
+                    <i class="up-btn"></i>
+                    <span>净买额(万)</span>
+                    <i class="down-btn"></i>
+                </div>
+            </div>
+            <div class="stockList">
+                <div class="touristAttention">
+                    <ul>
+                        <!--<li onclick="openWindow('stockDetails',{},'push')">
+                            <div class="col">
+                                <span>三一重工</span>
+                            </div>
+                            <div class="col">
+                                <span>20.35</span>
+                            </div>
+                            <div class="col">
+                                <span>1.12%</span>
+                            </div>
+                            <div class="col">
+                                <span>-1.98万</span>
+                            </div>
+                            <div class="col">
+                                <span>2.3亿</span>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+                <div class="noDataAll"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div class="bind-mark"></div>
+<input type="hidden" value="" id="upTime">
+<input type="hidden" value="0" id="saveId">
+<input type="hidden" value="" id="saveDate">
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/themeBillboard.js"></script>
+<script>
+    apiready = function () {
+        // autoRefresh();
+        themeBillboard.init();
+    }
+    /*$('.titleCol span').on('click',function(){
+        $('.titleCol span').removeClass('active');
+        $('.showAll div.all').removeClass('active');
+        $(this).addClass('active');
+        $('.showAll div.all').eq($(this).index()).addClass('active');
+    })*/
+</script>
+</html>

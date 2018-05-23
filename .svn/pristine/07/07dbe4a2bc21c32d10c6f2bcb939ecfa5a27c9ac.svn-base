@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>智能股库</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/informain.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" onclick="closeFrameAtuo('informain4')"></i>
+      智能股库
+    </div>
+  </header>
+  <section class="informain">
+    <div class="tit infor-box">
+      <span>个股</span>
+      <span>发现价</span>
+      <span>时间</span>
+    </div>
+    <ul class="infor-list">
+      <!-- <li>
+            <p>
+                <span>招商银行</span>
+                <u>000635</u>
+            </p>
+            <p class="red">120.36</p>
+            <p>2018-4-15</p>
+        </li>
+        <li>
+            <p>
+                <span>招商银行</span>
+                <u>000635</u>
+            </p>
+            <p class="red">120.36</p>
+            <p>2018-4-15</p>
+        </li>
+        <li>
+            <p>
+                <span>招商银行</span>
+                <u>000635</u>
+            </p>
+            <p class="red">120.36</p>
+            <p>2018-4-15</p>
+        </li> -->
+    </ul>
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/infor_leon.js"></script>
+<script>
+  apiready = function () {
+    this.downRefresh();
+    $.binLib.inforAiListBox();
+  }
+</script>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>关注营业部</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/user_leon.css">    
+</head>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('followList')"></i>
+        关注营业部
+    </div>
+</header>
+<section class="follow">
+    <!-- <div class="box">
+        <div class="tit">
+            <h3 onclick="openWindow('businessDepartmentDetails',{},'push')">银河证券北京三里河营业部</h3>
+            <i></i>
+        </div>
+        <div class="txt red">
+            <p>三一重工<span>320045.SZ</span></p>
+            <p>现价: <span>20.36</span> <span>-1.12%</span></p>
+        </div>
+        <div class="day">
+            <p>最新上榜 2017/9/21</p>
+            <p>近5日上榜次数<u>5</u></p>
+        </div>
+    </div>
+    <div class="box">
+        <div class="tit">
+            <h3 onclick="openWindow('businessDepartmentDetails',{},'push')">银河证券北京三里河营业部</h3>
+            <i></i>
+        </div>
+        <div class="txt">
+            <p>三一重工<span>320045.SZ</span></p>
+            <p>现价: <span>20.36</span> <span>-1.12%</span></p>
+        </div>
+        <div class="day">
+            <p>最新上榜 2017/9/21</p>
+            <p>近5日上榜次数<u>5</u></p>
+        </div>
+    </div> -->
+</section>
+<div class="nolist nomover">-- 没有更多 --</div>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/userFollow.js"></script>
+<script>
+    apiready = function () {
+        // autoRefresh();
+        $.binLib.followListNews();
+    };
+</script>
+</html>

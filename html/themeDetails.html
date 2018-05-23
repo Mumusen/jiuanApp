@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>主题详情</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/frame_leon.css">
+  <link rel="stylesheet" href="../css/reset-lwj.css">
+
+  <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" onclick="closeFrameAtuo('themeDetails')"></i>
+      <span id="themeName"></span>
+      <span class="goBillboard"></span>
+    </div>
+  </header>
+  <div class="themeHead"></div>
+  <section class="moreThemeRankings themeDetails">
+    <div id="DOMpic">
+      <div class="topTheme them-txt-box">
+        <div class="attentionNum">
+          <span id="chg"></span>
+        </div>
+        <div class="themeDescribe">
+          <p id="infoDetails"></p>
+        </div>
+        <div class="attentionIcon">
+          <i class=""></i>
+          <!--未关注-->
+        </div>
+      </div>
+      <div class="theme">
+        <div class="titleCol clearfix">
+          <span class="active">主题行情</span>
+          <span>相关个股</span>
+        </div>
+      </div>
+      <div class="selectBox showAll">
+        <!--主题描述-->
+        <div class="all topicDescription active">
+          <div class="firstCharts">
+            <div class="chartsContainer" id="firstChartsContainer"></div>
+            <div class="noData"></div>
+          </div>
+          <div class="secondCharts">
+            <div class="chartsContainer" id="secondChartsContainer"></div>
+          </div>
+          <div class="secondCharts">
+            <p class="second-title">近十日资金流向<span>单位:亿元</span></p>
+            <div class="chartsContainer chartsContainer-money" id="thirdChartsContainer"></div>
+            <p class="second-color"><span>净流入</span><span>净流出</span></p>
+          </div>
+          <!-- <div class="relatedEvents">
+        <div class="title">
+          <span>相关事件</span>
+        </div>
+        <div id="focus" class="sliderContainer">
+          <ul class="bd clearfix">
+            <li>
+              <img src="../image/event1.png" alt="">
+              <div class="shadow"></div>
+              <p class="int">谷歌人工智能与 李世石对战围棋</p>
+            </li>
+            <li>
+              <img src="../image/event2.png" alt="">
+              <div class="shadow"></div>
+              <p class="int">举世瞩目 人工智能新宠曝</p>
+            </li>
+            <li>
+              <img src="../image/event3.png" alt="">
+              <div class="shadow"></div>
+              <p class="int">公司是国内规模最大的集光</p>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+        </div>
+        <!--相关个股-->
+        <div class="all relatedStocks">
+          <div class="relatedStocksTitle">
+            <span>相关个股</span>
+          </div>
+          <div class="relatedStocksList">
+            <ul>
+              <!--<li>
+                      <div class="stockIntroduce">
+                          <div class="stockName stockShow clearfix">
+                              <div class="lPart fl">
+                                  <span class="name">三一重工</span><br>
+                                  <span class="code">320045.SZ</span>
+                              </div>
+                              <div class="rPart fr">
+                                  <span>现价:23.06</span>
+                                  <span class="colorRed">+1.12%</span>
+                                  <span>2017/9/12上榜</span>
+                              </div>
+                          </div>
+                          <div class="stockCont">
+                              <div class="showCont">
+                                  公司主营为计算机终端及外部设备、金融机具、税控机具及商用电子设备、计量仪表、安防产品、通信及网络产品、数字音视频产品的开发、生产、销售并提供相关服务，大股东中国电子信息产业集团有限公司直接持有公司20.17%股权
+                              </div>
+                              <div class="hiddenCont"></div>
+                          </div>
+                      </div>
+                      <div class="relatedTopics">
+                          <h4>相关主题</h4>
+                          <div class="topicsList">
+                              <span>中国电子集团</span>
+                              <span>京津冀一体化</span>
+                              <span>特色小镇</span>
+                              <span>京津冀一体化</span>
+                              <span>什么都有</span>
+                          </div>
+                      </div>
+                      <div class="noTopics">无相关主题</div>
+                  </li>-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relatedEvents">
+      <div class="title">
+        <span>相关事件</span>
+      </div>
+      <div id="focus" class="sliderContainer">
+        <ul class="bd clearfix">
+          <!-- <li>
+            <img src="../image/event1.png" alt="">
+            <div class="shadow"></div>
+            <p class="int">谷歌人工智能与 李世石对战围棋</p>
+          </li>
+          <li>
+            <img src="../image/event2.png" alt="">
+            <div class="shadow"></div>
+            <p class="int">举世瞩目 人工智能新宠曝</p>
+          </li>
+          <li>
+            <img src="../image/event3.png" alt="">
+            <div class="shadow"></div>
+            <p class="int">公司是国内规模最大的集光</p>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </section>
+  <input type="hidden" value="0" id="infoId">
+  <!-- <button class="example"></button> -->
+</body>
+<script src="../script/zepto.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/echarts.min.js"></script>
+<script src="../script/themeDetails.js"></script>
+<script src="../script/shareBtn.js"></script>
+<script>
+  apiready = function () {
+    themeDetails.init();
+    downRefresh();
+    autoAjax();
+  //  $.binLib.shareAjax();
+  }
+  $('.titleCol span').on('click', function () {
+    $('.titleCol span').removeClass('active');
+    $('.showAll div.all').removeClass('active');
+    $(this).addClass('active');
+    $('.showAll div.all').eq($(this).index()).addClass('active');
+  })
+
+
+</script>
+
+</html>

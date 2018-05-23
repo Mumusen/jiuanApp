@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>龙虎榜</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<style>
+</style>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <!--<i class="return-btn" onclick="closeWindow('frame3')"></i>-->
+        <i class="login-user-btn" id="loginBtn"></i>
+        龙虎榜
+        <span class="rightBtn textArea" onclick="openWindow('businessDepartment',{},'push')">营业部</span><!--跳转到businessDeoartment页-->
+    </div>
+</header>
+<section class="billboard">
+    <div class="posFixed">
+        <div class="title-column clearfix">
+            <div class="column-left fl">
+                <span>上榜个股</span>
+            </div>
+            <div class="column-right fr">
+                <span class="show-date">
+                    <b id="showDate"><i class="month"></i><i class="time"></i></b>
+                    <i id="icon-list" class="icon-list"></i>
+                </span>
+            </div>
+        </div>
+        <div class="stockDetailsTitle clearfix">
+            <div class="col">
+                <span>股票名称</span>
+            </div>
+            <div class="col">
+                <span>现价</span>
+            </div>
+            <div class="col click-chg active" data-menu="chg">
+                <i class="up-btn"></i>
+                <span>涨跌幅</span>
+                <i class="down-btn"></i>
+            </div>
+            <div class="col click-in" data-menu="in">
+                <i class="up-btn"></i>
+                <span>买入<b>(万)</b></span>
+                <i class="down-btn"></i>
+            </div>
+            <div class="col click-amount" data-menu="netAmount">
+                <i class="up-btn"></i>
+                <span>净买额<b>(万)</b></span>
+                <i class="down-btn"></i>
+            </div>
+        </div>
+    </div>
+    <div class="popupsList" id="popups">
+        <ul id="con-list">
+             <!--<li>2017-10-4</li>
+             <li>2017-10-5</li>
+             <li>2017-10-6</li>
+             <li class="active">2017-10-7</li>
+             <li>2017-10-8</li>
+             <li>2017-10-5</li>
+             <li>2017-10-6</li>
+             <li>2017-10-7</li>
+             <li>2017-10-8</li>
+             <li>2017-10-5</li>
+             <li>2017-10-6</li>
+             <li>2017-10-7</li>
+             <li>2017-10-8</li>
+             <li>2017-10-5</li>
+             <li>2017-10-6</li>
+             <li>2017-10-7</li>
+             <li>2017-10-8</li>-->
+        </ul>
+    </div>
+    <div class="bar"></div>
+    <div class="stockDetails">
+        <div class="stockList">
+            <div class="touristAttention active">
+                <ul>
+                    <!--<li onclick="openWindow('stockDetails',{},'push')">
+                        <div class="col">
+                            <span>三一重工1</span>
+                            <i>3日</i>
+                        </div>
+                        <div class="col">
+                            <span>20.35</span>
+                        </div>
+                        <div class="col">
+                            <span>1.12%</span>
+                        </div>
+                        <div class="col bgGrey">
+                            <span>1.98万</span>
+                        </div>
+                        <div class="col">
+                            <span>2.3亿</span>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <div class="organizationAttention"></div>
+        </div>
+    </div>
+</section>
+<div class="bind-mark"></div>
+<input type="hidden" id="saveDate" value="">
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/billboard.js"></script>
+<script>
+    apiready = function () {
+        billboard.init();
+        $.binLib.loginUser();
+        autoAjax();
+        //downRefresh();
+    }
+</script>
+</html>

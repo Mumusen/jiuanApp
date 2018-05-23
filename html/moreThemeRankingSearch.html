@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>更多主题排行搜索</title>
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeFrameAtuo('moreThemeRankingSearch')"></i>
+        <span class="searchBox">
+            <b></b>
+            <input type="text" placeholder="搜索主题或个股" id="searchColumn">
+            <i></i>
+        </span>
+        <span class="rightBtn" id="searchBtn" onclick="closeFrameAtuo('moreThemeRankingSearch')">取消</span>
+    </div>
+</header>
+<!--主搜索页面-->
+<div class="moreHead"></div>
+<section class="moreThemeRankingSearch moreThemeRankings">
+    <div class="theme">
+        <div class="titleCol clearfix titleColSeach">
+            <span class="active">全部</span>
+            <span>主题</span>
+            <span>股票</span>
+        </div>
+    </div>
+    <div class="showAll">
+        <!--全部-->
+        <div class="all">
+            <div class="historyAndHot">
+                <div class="historySerach">
+                    <div class="title">
+                        <span>历史搜索</span>
+                        <i></i>
+                    </div>
+                    <div class="searchCont">
+                        <span>京津冀一体化</span>
+                        <span>特色小镇</span>
+                        <span>
+                    <i></i>
+                    中国中期
+                </span>
+                    </div>
+                </div>
+                <div class="historySerach hotRecommend">
+                    <div class="title">
+                        <span>热门推荐</span>
+                    </div>
+                    <div class="searchCont">
+                        <span>京津冀一体化</span>
+                        <span>特色小镇</span>
+                        <span>
+                    <i></i>
+                    中国中期
+                </span>
+                    </div>
+                </div>
+            </div>
+            <!--搜索框输入显示-->
+            <div class="inputSearchList">
+                <ul class="rise riseAll">
+                    <!--<li class="clearfix haveTop">
+                        <div class="cont fl">
+                            <span>3D眼镜</span>
+                        </div>
+                        <div class="follow fr">
+                            <i></i>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <!--主题-->
+        <div class="all">
+            <div class="historyAndHot">
+                <div class="historySerach">
+                    <div class="title">
+                        <span>历史搜索</span>
+                        <i></i>
+                    </div>
+                    <div class="searchCont">
+                        <span>京津冀一体化</span>
+                        <span>特色小镇</span>
+                        <span>
+                    <i></i>
+                    中国中期
+                </span>
+                    </div>
+                </div>
+                <div class="historySerach hotRecommend">
+                    <div class="title">
+                        <span>热门推荐</span>
+                    </div>
+                    <div class="searchCont">
+                        <span>京津冀一体化</span>
+                        <span>特色小镇</span>
+                        <span>
+                    <i></i>
+                    中国中期
+                </span>
+                    </div>
+                </div>
+            </div>
+            <!--搜索框输入显示-->
+            <div class="inputSearchList">
+                <ul class="rise">
+                   <!-- <li class="clearfix haveTop">
+                        <div class="cont fl">
+                            <span>3D眼镜1</span>
+                        </div>
+                        <div class="follow fr">
+                            <i></i>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+        <!--股票-->
+        <div class="all active">
+            <div class="historyAndHot">
+                <div class="historySerach">
+                    <div class="title">
+                        <span>历史搜索</span>
+                        <i></i>
+                    </div>
+                    <div class="searchCont">
+                        <span>京津冀一体化</span>
+                        <span>特色小镇</span>
+                        <span>
+                    <i></i>
+                    中国中期
+                </span>
+                    </div>
+                </div>
+                <div class="historySerach hotRecommend">
+                    <div class="title">
+                        <span>热门推荐</span>
+                    </div>
+                    <div class="searchCont">
+                        <span>京津冀一体化</span>
+                        <span>特色小镇</span>
+                        <span>
+                    <i></i>
+                    中国中期
+                </span>
+                    </div>
+                </div>
+            </div>
+            <!--搜索框输入显示-->
+            <div class="inputSearchList">
+                <ul class="rise">
+                    <!-- <li class="clearfix haveTop">
+                        <div class="cont stock fl">
+                            <i></i><span><b>3D眼镜2</b> <b>000000</b></span>
+                        </div>
+                        <div class="follow fr">
+                            <i></i>
+                        </div>
+                    </li>
+                    <li class="clearfix haveTop">
+                        <div class="cont stock fl">
+                            <span><b>3D眼镜2</b></span>
+                        </div>
+                        <div class="follow fr">
+                            <i></i>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="noDataAll"></div>
+</section>
+<input type="hidden" id="searchCode" value="">
+<input type="hidden" id="pageCount" value="0">
+<input type="hidden" id="pageNum" value="1">
+</body>
+<script src="../script/flexible.js"></script>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/searchAll.js"></script>
+<script>
+    apiready = function () {
+        searchAll.init();
+        downRefresh();
+        autoAjax();
+    }
+</script>
+</html>

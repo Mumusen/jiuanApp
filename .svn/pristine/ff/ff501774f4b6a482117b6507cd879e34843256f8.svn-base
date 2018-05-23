@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>引导窗口</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+    <style>
+        body{
+            background: -webkit-linear-gradient(#dcb37a, #805e2e); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(#dcb37a, #805e2e); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(#dcb37a, #805e2e); /* Firefox 3.6 - 15 */
+            background: linear-gradient(#dcb37a, #805e2e); /* 标准的语法 */
+        }
+        #slider-container{
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<!-- <div class="slider-container guidePage" id="slider-container">
+    <div class="swiper-wrapper" id="imgContainer">
+        <div class="swiper-slide one"><img src="../image/guider/1.png"></div>
+        <div class="swiper-slide"><img src="../image/guider/2.png"></div>
+        <div class="swiper-slide"><img src="../image/guider/3.png"></div>
+        <div class="swiper-slide"><img src="../image/guider/4.png"><b class="btn">立即体验</b></div>
+    </div>
+</div> -->
+<div class="swiper-container guidePage" id="swiper-container">
+    <div class="swiper-wrapper" id="imgContainer">
+        <div class="swiper-slide one"><div class="pic"></div><p>股市风口&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;轻松拥有</p></div>
+        <div class="swiper-slide two"><div class="pic pic-two"></div><p>主题前瞻&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专业解读</p></div>
+        <div class="swiper-slide three"><div class="pic pic-three"></div><p>数据关联&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;深度挖掘</p></div>
+        <div class="swiper-slide frou"><div class="pic pic-four"></div><p>体验直观&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;省时省力</p><b class="btn">立即体验</b></div>
+    </div>
+    <div class="swiper-pagination"></div>
+<!-- 
+    <div class="gui-bar">
+        <i class="on"></i>
+        <i></i>
+        <i></i>
+        <i></i>
+    </div> -->
+</div>
+
+<script src="../script/zepto.js"></script>
+<script src="../script/swiper.min.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/flexible.js"></script>
+<script src="../script/common.js"></script>
+<script>
+    apiready = function () {
+        // $('#imgContainer').find('img').css({
+        //     width:api.winWidth,
+        //     height:api.winHeight
+        // });
+        setTimeout(function(){
+            $('.one .pic').addClass('animated bounceInRight');
+            $('.one p').addClass('animatedT bounceInRight');
+        },2000)
+        var sliderBanner = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            paginationClickable: true,
+//            loop : true,
+//            watchSlidesVisibility:true,
+            // autoplayStopOnLast: true,
+            speed: 0,
+            autoplay:2000,
+            effect: 'slide',//  effect: 'flip',
+            grabCursor: true,
+            on: {
+                // touchStart:function(event){
+                //     // console.log(this.activeIndex)
+                //     switch(this.activeIndex){
+                //         case 1:
+                //             $('.two .pic').addClass('animated bounceOutLeft');
+                //             $('.two p').addClass('animated bounceOutLeft');
+                //             break;
+                //         case 2:
+                //             $('.three .pic').addClass('animated bounceOutLeft');
+                //             $('.three p').addClass('animated bounceOutLeft');
+                //             $('.two .pic').removeClass('animated bounceOutLeft');
+                //             $('.two p').removeClass('animated bounceOutLeft');
+                //             break;
+                //         case 3:
+                //             $('.frou .pic').addClass('animated bounceOutLeft');
+                //             $('.frou p').addClass('animated bounceOutLeft');
+                //             $('.three .pic').removeClass('animated bounceOutLeft');
+                //             $('.three p').removeClass('animated bounceOutLeft');
+                //             break;
+                //     }
+                // },
+                slideChangeTransitionStart: function(){
+                    // console.log(this.activeIndex);
+                    switch(this.activeIndex){
+                        case 1:
+                            $('.two .pic').addClass('animated bounceInRight');
+                            $('.two p').addClass('animatedT bounceInRight');
+                            break;
+                        case 2:
+                            $('.three .pic').addClass('animated bounceInRight');
+                            $('.three p').addClass('animatedT bounceInRight');
+                            // $('.two .pic').removeClass('animated bounceInRight');
+                            // $('.two p').removeClass('animatedT bounceInRight');
+                            // $('.frou .pic').removeClass('animated bounceInRight');
+                            // $('.frou p').removeClass('animatedT bounceInRight');
+                            // $('.frou b').removeClass('animatedBtn bounceInRight');
+                            break;
+                        case 3:
+                            $('.frou .pic').addClass('animated bounceInRight');
+                            $('.frou p').addClass('animatedT bounceInRight');
+                            // $('.three .pic').removeClass('animated bounceInRight');
+                            // $('.three p').removeClass('animatedT bounceInRight');
+                            // $('.two .pic').removeClass('animated bounceInRight');
+                            // $('.two p').removeClass('animatedT bounceInRight');
+                            setTimeout(function(){
+                                $('.frou b').addClass('animatedBtn bounceInRight'); 
+                            }, 1000);
+                            break;
+                    }
+                },
+            }
+        });
+        $('.btn').click(function () {
+            console.log('11111')
+            $api.setStorage('guideBool','ok');
+            closeWindow('guideWin');
+
+        });
+    }
+</script>
+</body>
+</html>

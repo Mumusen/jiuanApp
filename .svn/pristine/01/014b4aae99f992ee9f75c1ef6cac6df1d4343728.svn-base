@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>实名认证</title>
+    <script src="../script/flexible.js"></script>
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/user_leon.css">
+    <link rel="stylesheet" href="../css/login_leon.css">
+</head>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        实名认证
+    </div>
+</header>
+<section class="change-box reg-box">
+    <div class="change-input">
+        <input type="text" placeholder="请输入姓名" id="realName">
+    </div>
+    <div class="change-input">
+        <input type="text" maxlength="18" placeholder="请输入身份证号" id="idNumber">
+    </div>
+    <button class="change-btn" id="nextStep">完成</button>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/checkIdLeon.js"></script>
+<script>
+    apiready = function () {
+        $.binLib.checkInit();
+    }
+</script>
+</html>

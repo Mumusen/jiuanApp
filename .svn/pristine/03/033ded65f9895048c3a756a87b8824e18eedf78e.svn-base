@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>营业部</title>
+    <script src="../script/flexible.js"></script>
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<body>
+<!--由龙虎榜右上的营业部跳转进来-->
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('businessDepartment')"></i>
+        营业部
+        <!--<span class="calendar-btn"></span>
+        <div class="popupsList" id="popups" style="color:#999">
+            <i class="sharp"></i>
+            <ul id="con-list">
+                <li>5日</li>
+                <li>10日</li>
+                <li>一个月</li>
+                <li>3个月</li>
+            </ul>
+        </div>-->
+    </div>
+</header>
+<div class="moreHead"></div>
+<section class="moreThemeRankings departmentCont">
+    <div class="theme">
+        <div class="titleCol clearfix">
+            <span class="active">最新热门</span>
+            <span>近期热门</span>
+        </div>
+    </div>
+    <div class="departmentList showAll">
+        <!--当日热门-->
+        <div class="all dayHot active">
+            <div class="noDataAll"></div>
+            <!--<ul>
+                <li>
+                    <h4 onclick="openWindow('businessDepartmentDetails',{},'push')">国金证券股份有限公司上海奉贤区金碧路...</h4>
+                    <div class="cont clearfix">
+                        <div class="cont-left fl">
+                            <span>上榜次数：<b class="weight">40</b></span>
+                        </div>
+                        <div class="cont-right fr">
+                            <span>动用资金：<b>4.58亿</b></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>-->
+        </div>
+        <!--近期热门-->
+        <div class="all nearbyHot">
+            <div class="bar"></div>
+            <div class="dateColumn">
+                <div class="col">
+                    <span class="active">5日<i></i></span>
+                </div>
+                <div class="col">
+                    <span>10日<i></i></span>
+                </div>
+                <div class="col">
+                    <span>1个月<i></i></span>
+                </div>
+                <div class="col">
+                    <span>3个月<i></i></span>
+                </div>
+            </div>
+            <div class="attentionThemeList">
+                <!--5日-->
+                <div class="sm attentionThemeOne active">
+                    <!--<ul>
+                        <li>
+                            <h4 onclick="openWindow('businessDepartmentDetails',{},'push')">国金证券股份有限公司上海奉贤区金碧路1...</h4>
+                            <div class="cont clearfix">
+                                <div class="cont-left fl">
+                                    <span>上榜次数：<b class="weight">40</b></span>
+                                </div>
+                                <div class="cont-right fr">
+                                    <span>动用资金：<b>4.58亿</b></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>-->
+                    <div class="noDataAll"></div>
+                </div>
+                <!--10天-->
+                <div class="sm attentionThemeOne">
+                    <!--<ul>
+                       &lt;!&ndash;2&ndash;&gt;
+                    </ul>-->
+                    <div class="noDataAll"></div>
+                </div>
+                <!--1月-->
+                <div class="sm attentionThemeOne">
+                    <!--<ul>
+                        &lt;!&ndash;3&ndash;&gt;
+                    </ul>-->
+                    <div class="noDataAll"></div>
+                </div>
+                <!--3月-->
+                <div class="sm attentionThemeOne">
+                    <div class="noDataAll"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="bind-mark"></div>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/yybList.js"></script>
+<script>
+    apiready = function () {
+        yybList.init();
+       // autoRefresh();
+    }
+    //小选项卡 近期热门
+    /*$('.dateColumn .col').on('click',function(){
+        $('.dateColumn .col span').removeClass('active');
+        $('.attentionThemeList div.sm').removeClass('active');
+        $(this).find('span').addClass('active');
+        $('.attentionThemeList div.sm').eq($(this).index()).addClass('active');
+    })*/
+    var toper=$('.dateColumn').offset().top;//到页面的距离
+    $(window).scroll(function(){
+        var scrollTop=$(window).scrollTop();//滚动距离
+        if (toper <= scrollTop+110)
+        {
+            $('.dateColumn').addClass('stable');
+        }
+        else
+        {
+            $('.dateColumn').removeClass('stable');
+        }
+    });
+</script>
+</html>

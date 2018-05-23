@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>绑定账号</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/user_leon.css">
+</head>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('account')"></i>
+        绑定账号
+    </div>
+</header>
+<section class="account">
+    <ul>
+        <li>
+            <div class="col-l" id="weChat">微信</div>
+            <div class="col-btn"></div>
+        </li>
+        <li >
+            <div class="col-l col-iphone-icon" id="userPhone">手机号</div>
+            <div class="col-btn"></div>
+        </li>
+    </ul>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/wxphone.js"></script>
+<script>
+    apiready = function () {
+        $.binLib.account();
+    }
+</script>
+</html>

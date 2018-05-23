@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>营业部详情</title>
+    <script src="../script/flexible.js"></script>
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<body>
+<header id="header" class="index moreHeader">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('businessDepartmentDetails')"></i>
+        <h3 id="yybName"></h3>
+         <span class="attentionIcon"></span>
+    </div>
+</header>
+<div class="moreHead yybHead"></div>
+<section class="departmentDetails departmentCont">
+    <div class="seatDiv"></div>
+    <div class="selectDepartment">
+        <div class="dateColumn">
+            <div class="col">
+                <span class="active">5日<i></i></span>
+            </div>
+            <div class="col">
+                <span>10日<i></i></span>
+            </div>
+            <div class="col">
+                <span>1个月<i></i></span>
+            </div>
+            <div class="col">
+                <span>3个月<i></i></span>
+            </div>
+        </div>
+        <div class="all day5 active"><!--第一块--->
+            <div>
+                <div class="listData">
+                    <h4>上榜数据</h4>
+                    <div class="data1 clearfix">
+                    <span class="fl">
+                        上榜成交额(万)<br>
+                        <b class="use_funds"></b>
+                    </span>
+                        <span class="fr">
+                        平均上榜成交额(万)<br>
+                        <b class="avg_use_funds"></b>
+                    </span>
+                    </div>
+                    <div class="data2 clearfix">
+                    <span class="fl">
+                        上榜个股数(只)<br>
+                        <b class="secu_num"></b>
+                    </span>
+                        <span class="fr">
+                         上榜次数(次)<br>
+                        <b class="on_the_list_num"></b>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <!--主题偏向-->
+           <!-- <div class="subjectPreference nearbyHot">
+                <ul>
+                    <li>
+                        <h4>主题偏好</h4>
+                        <div class="attentionThemeCont">
+                            <div class="col clearfix">
+                                <span>第一关注</span>
+                                <span class="widthLenth" style="width:45%" onclick="openWindow('clickThemeNum',{},'push')">5</span>
+                                <span class="goThemeDetails" onclick="openWindow('themeDetails',{},'push')">手工纺织业</span>
+                            </div>
+                            <div class="col clearfix">
+                                <span>第二关注</span>
+                                <span class="widthLenth" style="width:30%" onclick="openWindow('clickThemeNum',{},'push')">4</span>
+                                <span class="goThemeDetails" onclick="openWindow('themeDetails',{},'push')">手工纺织业</span>
+                            </div>
+                            <div class="col clearfix">
+                                <span>第三关注</span>
+                                <span class="widthLenth" style="width:20%" onclick="openWindow('clickThemeNum',{},'push')">3</span>
+                                <span class="goThemeDetails" onclick="openWindow('themeDetails',{},'push')">手工纺织业</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+        <div class="all day10"><!--第2块--->
+            <div class="listData">
+                <h4>上榜数据</h4>
+                <div class="data1 clearfix">
+                    <span class="fl">
+                        上榜成交额(万)<br>
+                        <b class="use_funds"></b>
+                    </span>
+                    <span class="fr">
+                        平均上榜成交额(万)<br>
+                        <b class="avg_use_funds"></b>
+                    </span>
+                </div>
+                <div class="data2 clearfix">
+                    <span class="fl">
+                        上榜个股数(只)<br>
+                        <b class="secu_num"></b>
+                    </span>
+                    <span class="fr">
+                         上榜次数(次)<br>
+                        <b class="on_the_list_num"></b>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="all month1"><!--第3块--->
+            <div class="listData">
+                <h4>上榜数据</h4>
+                <div class="data1 clearfix">
+                    <span class="fl">
+                        上榜成交额(万)<br>
+                        <b class="use_funds"></b>
+                    </span>
+                    <span class="fr">
+                        平均上榜成交额(万)<br>
+                        <b class="avg_use_funds"></b>
+                    </span>
+                </div>
+                <div class="data2 clearfix">
+                    <span class="fl">
+                        上榜个股数(只)<br>
+                        <b class="secu_num"></b>
+                    </span>
+                    <span class="fr">
+                         上榜次数(次)<br>
+                        <b class="on_the_list_num"></b>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="all month3"><!--第4块--->
+            <div class="listData">
+                <h4>上榜数据</h4>
+                <div class="data1 clearfix">
+                    <span class="fl">
+                        上榜成交额(万)<br>
+                        <b class="use_funds"></b>
+                    </span>
+                    <span class="fr">
+                        平均上榜成交额(万)<br>
+                        <b class="avg_use_funds"></b>
+                    </span>
+                </div>
+                <div class="data2 clearfix">
+                    <span class="fl">
+                        上榜个股数(只)<br>
+                        <b class="secu_num"></b>
+                    </span>
+                    <span class="fr">
+                         上榜次数(次)<br>
+                        <b class="on_the_list_num"></b>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--上榜个股-->
+    <div class="listStock">
+        <div class="titleColumn">
+            <span>时间</span>
+            <span>
+                        股票简称
+                        <b class="stockNum"></b>
+                    </span>
+            <span>买入(万)</span>
+            <span>卖出(万)</span>
+            <span>净买入(万)</span>
+        </div>
+        <div class="stockDetails">
+            <ul class="stockList">
+            </ul>
+            <div class="noData"></div>
+            <div class="nolist nomover">-- 没有更多 --</div>
+        </div>
+    </div>
+</section>
+<input type="hidden" id="saveNum" value="">
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/yybDetails.js"></script>
+<script>
+    apiready = function () {
+        yybDetails.init();
+        downRefresh();
+        // autoRefresh();
+    }
+    $('.dateColumn .col').on('click',function(){
+        $('.dateColumn .col span').removeClass('active');
+        $('.selectDepartment div.all').removeClass('active');
+        $(this).find('span').addClass('active');
+        $('.selectDepartment div.all').eq($(this).index()).addClass('active');
+    });
+</script>
+</html>

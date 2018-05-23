@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>自选股</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+</head>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <!-- <span class="leftBtn txt-btn">全选</span> -->
+        自选
+        <span class="rightBtn" id="subBtn">完成</span>
+    </div>
+</header>
+<section class="por" id="tabBox">
+    <i class="back"></i>
+    <div class="title webkit" id="tabChoice">
+        <span class="active">全部</span>
+        <span>主题</span>
+        <span>股票</span>
+    </div>
+    <div class="tit webkit choice-tit">
+        <span>名称</span>
+        <span>置顶</span>
+        <span>拖动</span>
+    </div>
+    <div class="tab-list">
+        <a href="#" class="btn-all" istype="false">全选</a>
+        <ul class="list-choice list-choice-edit" id="simpleList">
+            <!-- <li class="list-group-item">
+                <input type="checkbox" name="choice" dataName="参股金融">
+                <span class="shares">参股金融<b>主题</b></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融<u>00753.HK</u></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span class="shares">参股金融<b>主题</b></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span class="shares">参股金融<b>主题</b></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融<u>00753.HK</u></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融<u>00753.HK</u></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融<u>00753.HK</u></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融<u>00753.HK</u></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融<u>00753.HK</u></span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox">
+                <span>参股金融</span>
+                <i class="icon-up"></i>
+                <b class="icon-drag"></b>
+            </li> -->
+        </ul>
+    </div>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/choiceLeon.js"></script>
+<script src="../script/drag_leon.js"></script>
+<script>
+    apiready = function () {
+        $.binLib.choiceEditList();
+        // autoRefresh();
+    }
+</script>
+</html>

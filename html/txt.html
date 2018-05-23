@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>文章详情</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <style>
+    .over {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .tempContainer {
+      position: fixed;
+      width: 100%;
+      margin-right: 0px;
+      margin-left: 0px;
+      text-align: center;
+      z-index: 101;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header" class="txt-header">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" onclick="closeWindow('txt')"></i>
+      文章详情
+      <!-- <span class="rightBtn share-btn" id="inviteBtn"></span> -->
+    </div>
+  </header>
+  <section class="txt-box">
+    <h2 id="tit"></h2>
+    <div class="webkit">
+      <b id="time"></b>
+      <b id="read"></b>
+    </div>
+    <div id="txtMin" class="warp logoImg amplifyImg">
+      <div class="over"></div>
+    </div>
+  </section>
+  <!-- <div class="invite-layer">
+    <div class="invite">
+        <h2>分享给好友</h2>
+        <ul class="invite-btn">
+            <li><i class="invite-icon-wx"></i>微信好友</li>
+            <li><i class="invite-icon-pyq"></i>微信朋友圈</li>
+            <li><i class="invite-icon-qq"></i>QQ好友</li>
+        </ul>
+        <a href="javascript:" class="invite-close">取 消</a>
+    </div>
+</div> -->
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/inviteLeon.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.txtInvite();
+  }
+</script>
+</html>

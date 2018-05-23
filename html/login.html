@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>登录</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/user_leon.css">    
+    <link rel="stylesheet" href="../css/login_leon.css">    
+</head>
+<body>
+<header id="header" class="index login-box">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn login-btn-pr" onclick="closeWindow('login')"></i>
+    </div>
+</header>
+<!-- 获取焦点 添加login-on类名 -->
+<section class="change-box login">
+    <h2 class="login-tit">主题风向标</h2>
+    <div class="change-input">
+        <i></i>
+        <input type="tel" maxlength="11" placeholder="请输入手机账号" id="userPhone">
+    </div>
+    <div class="change-input">
+        <i class="iocn-phone"></i>
+        <input type="password" maxlength="12" placeholder="请输入密码" id="userPassword">
+    </div>
+    <p><a href="#" onclick="openWindow('forgetPwd',{},'push')">忘记密码</a></p>
+    <div class="sigin-box">
+        <button class="signout" id="sign">登 录</button>
+        <!-- <button class="signout signout-wechat" id="wechat" onclick="wechat()">微 信 登 录</button> -->
+    </div>
+    <div class="tc">
+        <a href="#" class="register-btn" onclick="openWindow('register',{},'push')">新用户注册</a>
+    </div>
+    <div class="protocol">登录即代表阅读并同意 <a href="#" onclick="openWindow('agreement',{},'push')">用户协议</a></div>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/login_leon.js"></script>
+<script>
+    apiready = function () {
+        // autoRefresh();
+        $.binLib.loginAjax();
+    };
+    function wechat(){
+        var wx = api.require('wx');
+        var ajaxCode = "";
+        var qutouphone = "";
+        var waitLoading = new WaitLoading();
+        wx.isInstalled(function(ret, err) {
+            if (ret.installed) {
+               console.log("当前设备已安装微信客户端");
+            } else {
+                commonAlertWindow({
+                    message:'当前设备未安装微信客户端'
+                });
+            }
+        });
+        wx.auth({
+            apiKey: 'wx9323dff990cce9ce',
+        }, function(ret, err) {
+            console.log(JSON.stringify(ret))
+            console.log(JSON.stringify(err))
+            if (ret.status) {
+                console.log("auth:"+JSON.stringify(ret))
+                ajaxCode = ret.code;
+                console.log("ajax:" + ajaxCode)
+                waitLoading.open();
+                wx.getToken({
+                    apiKey: 'wx9323dff990cce9ce',
+                    apiSecret: '453091458c37e489f9f491bb68f8b40f',
+                    code: ajaxCode,
+                }, function(ret, err) {
+                    if (ret.status) {
+                       console.log("getToken="+JSON.stringify(ret))
+                        wx.getUserInfo({
+                            accessToken: ret.accessToken,
+                            openId: ret.openId
+                        }, function(ret, err) {
+                            if (ret.status) {
+                               console.log("getUserInfo=" + JSON.stringify(ret));
+                                var phone = ret.unionid;
+                                // var wxCode = ret.unionid;
+                                $api.setStorage('wxCode',phone);
+                                console.log("wxCode=" +$api.getStorage('wxCode'))
+                                // api.ajax({
+                                //     url:url()+'registration/thirdLogin',
+                                //     method:'post',
+                                //     data:{
+                                //         values:{
+                                //             thirdCode:phone,
+                                //             thirdName:ret.nickname
+                                //             // thirdImgUrl:ret.headimgurl
+                                //         }
+                                //     }
+                                // }, function (ret, err) {
+                                //     console.log("ajaxJson"+JSON.stringify(ret))
+                                //     var uuid=ret.uuid;
+                                    // $api.setStorage('qutouUuid',uuid);
+                                    // console.log("ajaxqutouphone"+uuid)
+                                    // $api.setStorage('qutouPhone',phone);
+                                    // console.log("qutouPhone=" +$api.getStorage('qutouPhone'))
+                                    // console.log("qutouUuid=" +$api.getStorage('qutouUuid'))
+                                    // if(ret.isBingPhone === true){
+                                    //     var js = 'location.reload()';
+                                    //     api.execScript({
+                                    //         name: 'root',
+                                    //         frameName:'stockListIndex',
+                                    //         script: js
+                                    //     });
+                                    //     closeWindow('login');
+                                    // }else{
+                                    //     if(ret.qutouPhone != undefined){
+                                    //     var qutouPhone = ret.qutouPhone;
+                                    //     $api.setStorage('qutouPhone',qutouPhone);
+                                    //     var js = 'location.reload()';
+                                    //     api.execScript({
+                                    //         name: 'root',
+                                    //         frameName:'stockListIndex',
+                                    //         script: js
+                                    //     });
+                                    //         closeWindow('login');
+                                    //         waitLoading.close();
+                                    //     }else{
+                                    //         openWindow('loginphone',{},'push');
+                                    //         waitLoading.close();
+                                    //     }
+                                    // }
+                                // });
+                            } else {
+                                console.log(err.code);
+                            }
+                        });
+                    } else {
+                        console.log(err.code)
+                    }
+                });
+            } else {
+                console.log("auth_code:"+err.code)
+            }
+        });
+    }
+</script>
+</html>

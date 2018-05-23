@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>个人中心</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/user_leon.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" onclick="closeFrameAtuo('user')"></i>
+    </div>
+  </header>
+  <section class="user-section">
+    <i class="back"></i>
+    <div class="min">
+      <div class="name">
+        <img src="../image/user_pic_leon.jpg">
+        <p id="userName">felix-w</p>
+      </div>
+      <ul class="box">
+        <li onclick="openWindow('followList',{},'push')">
+          <div class="col-l">我关注的营业部</div>
+          <div class="col-btn"></div>
+        </li>
+        <li onclick="openWindow('mynews',{},'push')">
+          <div class="col-l con-icon-new">我的消息</div>
+          <div class="col-btn"></div>
+        </li>
+        <li onclick="openWindow('changePwd',{},'push')">
+          <div class="col-l con-icon-pwd">密码修改</div>
+          <div class="col-btn"></div>
+        </li>
+        <li>
+          <div class="col-l con-icon-sfz" id="checkIf">实名认证
+            <u class="green"></u>
+          </div>
+          <div class="col-rz">已认证</div>
+        </li>
+        <li onclick="openWindow('about',{},'push')">
+          <div class="col-l con-icon-about">关于我们</div>
+          <div class="col-btn"></div>
+        </li>
+        <!-- <li onclick="openWindow('account',{},'push')">
+                <div class="col-l con-icon-account">绑定账号</div>
+                <div class="col-btn"></div>
+            </li> -->
+      </ul>
+      <ul class="box">
+        <li>
+          <div class="col-l con-icon-app">版本
+            <span id="appVersion">1.0</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <button class="signout" id="singOut">退出登录</button>
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.userList();
+    autoAjax();
+  }
+</script>
+
+</html>

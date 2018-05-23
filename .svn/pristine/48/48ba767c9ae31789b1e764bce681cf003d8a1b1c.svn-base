@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>首页</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/frame_leon.css">
+</head>
+<body>
+  <div class="barTopStu"></div>
+  <div class="min">
+    <i class="user-btn" id="loginBtn"></i>
+    <i class="search-btn" onclick="openWindow('moreThemeRankingSearch',{},'push')"></i>
+    <ul class="box" id="sectionExponential"></ul>
+  </div>
+  <!-- 今日领涨/跌主题 -->
+  <div class="theme">
+    <div class="title">
+      <p id="tabBox">
+        <span class="active">今日领涨主题</span>
+        <span>今日领跌主题</span>
+      </p>
+      <div class="box-btn">
+        <div class="more-btn" onclick="openWindow('moreThemeRankings',{},'push')"></div>
+      </div>
+    </div>
+    <ul class="rise" id="upTheme"></ul>
+    <ul class="rise rise-down" id="duTheme"></ul>
+  </div>
+  <!-- 最新资讯 -->
+  <div class="info">
+    <div class="title">最新资讯</div>
+    <div id="newsList"></div>
+  </div>
+  <a href="#" class="btn-more-news">点击查看更多资讯</a>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script src="../script/infor_leon.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.loginUser();
+    $.binLib.indexTheme();
+    $.binLib.inforAjaxBtn();
+    this.downRefresh();
+    scroLL();
+    $(".btn-more-news").click(function () {
+      api.execScript({
+        name: 'root',
+        script: '$("#footer .flex-wrap li:last-child").addClass("active").siblings().removeClass("active")'
+      })
+      api.setFrameGroupIndex({
+        name: 'group',
+        index: 4,
+        reload: true
+      });
+    })
+    autoAjax();
+  };
+</script>
+
+</html>

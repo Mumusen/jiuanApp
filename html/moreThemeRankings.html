@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>更多主题排行frame0</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<body>
+<header id="header" class="index moreHeader">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeFrameAtuo('moreThemeRankings')"></i>
+        更多主题排行
+        <span class="search-btn" onclick="openWindow('moreThemeRankingSearch')"></span>
+    </div>
+</header>
+<!-- 今日领涨/跌主题 --><!--从首页点进来-->
+<div class="moreHead"></div>
+<section class="moreThemeRankings">
+    <div class="theme">
+        <div class="titleCol clearfix">
+            <span class="active">今日领涨主题</span>
+            <span>今日领跌主题</span>
+        </div>
+        <div class="showAll">
+            <!--领涨-->
+            <div class="all active" id="leadUp">
+                <ul class="rise">
+                   <!-- <li>
+                        <div class="left">
+                            <h2>京津冀一体化</h2>
+                            <div class="txt">
+                                <p>+1.24%</p>
+                                <p>
+                                    <i></i>
+                                    <span>中国中期<u>+9.99%</u></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="long" onclick="openWindow('themeBillboard',{},'push')"><img src="../image/icon_long.png"></div>
+                            <div class="follow follow-no"></div>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <!--领跌-->
+            <div class="all" id="leadDown">
+                <ul class="rise rise-down">
+                    <!--<li>
+                        <div class="left">
+                            <h2>京津冀一体化1</h2>
+                            <div class="txt">
+                                <p>+1.24%</p>
+                                <p>
+                                    <i></i>
+                                    <span>中国中期<u>+9.99%</u></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="long" onclick="openWindow('themeBillboard',{},'push')"><img src="../image/icon_long.png"></div>
+                            <div class="follow follow-no"></div>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/moreTheme.js"></script>
+<script>
+    apiready = function () {
+        moreTheme.init();
+        autoAjax();
+    }
+    $('.titleCol span').on('click',function(){
+        $('.titleCol span').removeClass('active');
+        $('.showAll div.all').removeClass('active');
+        $(this).addClass('active');
+        $('.showAll div.all').eq($(this).index()).addClass('active');
+    })
+</script>
+</html>

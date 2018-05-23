@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>资讯</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="login-user-btn" id="loginBtn"></i>
+      <!-- <i class="return-btn"></i> -->
+      资讯
+    </div>
+  </header>
+  <section class="frame-frou">
+    <div class="txt-inlet">
+      <a href="#" class="inforBtn" data-infor="3">独家内参</a>
+      <a href="#" onclick="openWindow('businessDepartment',{},'push')">游资动向</a>
+      <a href="#" class="inforBtn" data-infor="4">复盘笔记</a>
+      <a href="#" class="inforBtn" data-infor="5">智能股库</a>
+    </div>
+    <div class="today"></div>
+    <div id="dayTitle" class="history-box">
+      <div class="new-tit">历史资讯</div>
+      <!-- <div class="new-box webkit choiceBtnTxt" infoId="'+msg.id+'">
+        <div class="min">
+          <h3>
+            <u class="'+iconClass+'"></u>文章标题文章标题文章标题文章标题</h3>
+          <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容</p>
+          <div class="stock-theme">
+              <a href="#" class="them">京津冀一体化</a>
+              <span><u class="hot">三一重工 5.02%</u><u>三一重工 5.02%</u></span>
+              </div>
+          <div class="txt">
+            <span>2018-05-11 11:33</span>
+            <span> 1000 阅读</span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script src="../script/text_leon.js"></script>
+<script src="../script/infor_leon.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.inforAjaxBtn();
+    $.binLib.loginUser();
+    $.binLib.indexText();
+    this.downRefresh();
+    setTimeout(function() {
+      autoAjax();
+    }, 3000)
+  }
+</script>
+
+</html>

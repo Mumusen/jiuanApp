@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>我的消息</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/user_leon.css">
+</head>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('mynews')"></i>
+        我的消息
+    </div>
+</header>
+<section class="por" id="tabBox">
+    <div class="title webkit" id="tabChoice">
+        <span class="active">个人消息</span>
+        <span>系统消息</span>
+    </div>
+    <div class="list list-box">
+        <ul class="mynew-list newList">
+            <!-- <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本文本文本文本文本文本</div>
+                <i class="btn"></i>
+            </li>
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本本</div>
+                <i class="btn"></i>
+            </li>
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本本</div>
+                <i class="btn"></i>
+            </li>
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文文本</div>
+                <i class="btn"></i>
+            </li>  
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本文本文本文本文本文本文本文文本文本</div>
+                <i class="btn"></i>
+            </li>   -->
+        </ul>
+    </div>
+    <div class="list-box">
+        <ul class="system-list newList">
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息</div>
+            </li>
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息</div>
+            </li>
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本本</div>
+            </li>
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文文本</div>
+            </li>
+            <li>
+                <p>2017-11-20 14:55</p>
+                <div class="li">文本文本文本文本文本文本文本文本文本文本文本文本文本文文本文本</div>
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/mynews_leon.js"></script>
+<script>
+    apiready = function () {
+        $.binLib.userNews();
+    }
+</script>
+</html>

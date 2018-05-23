@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>模拟交易</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/vip.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="login-user-btn" id="loginBtn"></i>
+      模拟交易
+    </div>
+  </header>
+  <section class="vip-app">
+    <ul class="header-title">
+      <li>
+        <a href="#" class="active">买入</a>
+      </li>
+      <li>
+        <a href="#">卖出</a>
+      </li>
+      <li>
+        <a href="#">持仓</a>
+      </li>
+      <li>
+        <a href="#">撤单</a>
+      </li>
+      <li>
+        <a href="#">查询</a>
+      </li>
+    </ul>
+  </section>
+  <section class="vip-min">
+    <div class="vip-min-control">
+      <div class="box">
+        <input type="text" placeholder="请输入股票名称或代码">
+      </div>
+      <div class="box number-btn-box">
+        <input type="tel">
+        <i class="reduce-icon"></i>
+        <i class="puls-icon"></i>
+      </div>
+      <div class="box-txt">
+        <span>跌停8.24</span>
+        <span>涨跌10.28</span>
+      </div>
+      <div class="box box-txt box-txt-num">
+        <input type="tel" placeholder="数量（股）">
+        <span>可买：--</span>
+      </div>
+      <div class="box box-btn-br">
+        <div class="box-btn">
+          <span class="active">全仓</span>
+          <span>1/2仓</span>
+          <span>1/3仓</span>
+        </div>
+      </div>
+      <button>买入</button>
+    </div>
+    <div class="vip-min-list">
+      <ul class="sell-list">
+        <li>
+          <span>卖1</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖2</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖3</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖4</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖5</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+      </ul>
+      <ul class="buy-list">
+        <li>
+          <span>卖1</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖2</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖3</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖4</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+        <li>
+          <span>卖5</span>
+          <span>9.15</span>
+          <span>15952</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script src="../script/analog.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.loginUser();
+    this.downRefresh();
+    setTimeout(function () {
+      autoAjax();
+    }, 3000)
+  }
+</script>
+
+</html>

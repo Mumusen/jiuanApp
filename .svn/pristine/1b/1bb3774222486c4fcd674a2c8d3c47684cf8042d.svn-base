@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>复盘笔记</title>
+    <script src="../script/flexible.js"></script>
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/frame.css">
+</head>
+<body>
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeFrameAtuo('informain3')"></i>
+        复盘笔记
+    </div>
+</header>
+<section class="informain">
+    <!-- <div class="new-box webkit">
+        <div class="pic">
+            <img src="../image/news_txt_leon.jpg">
+        </div>
+        <div class="min">
+            <h3>A股长假前迎解禁潮</h3>
+            <p>半导体、芯片行业显然是美国防范中国的重点领域。去年，奥巴马曾签署命...</p>
+            <div class="txt">
+                <span>2017/9/2515:25</span>
+                <span>1125阅读</span>
+            </div>
+        </div>
+    </div>
+    <div class="new-box webkit">
+        <div class="pic">
+            <img src="../image/news_txt_leon.jpg">
+        </div>
+        <div class="min">
+            <h3>A股长假前迎解禁潮</h3>
+            <p>半导体、芯片行业显然是美国防范中国的重点领域。去年，奥巴马曾签署命...</p>
+            <div class="txt">
+                <span>2017/9/2515:25</span>
+                <span>1125阅读</span>
+            </div>
+        </div>
+    </div>
+    <div class="new-box webkit">
+        <div class="pic">
+            <img src="../image/news_txt_leon.jpg">
+        </div>
+        <div class="min">
+            <h3>A股长假前迎解禁潮</h3>
+            <p>半导体、芯片行业显然是美国防范中国的重点领域。去年，奥巴马曾签署命...</p>
+            <div class="txt">
+                <span>2017/9/2515:25</span>
+                <span>1125阅读</span>
+            </div>
+        </div>
+    </div>
+    <div class="new-box webkit">
+        <div class="pic">
+            <img src="../image/news_txt_leon.jpg">
+        </div>
+        <div class="min">
+            <h3>A股长假前迎解禁潮</h3>
+            <p>半导体、芯片行业显然是美国防范中国的重点领域。去年，奥巴马曾签署命...</p>
+            <div class="txt">
+                <span>2017/9/2515:25</span>
+                <span>1125阅读</span>
+            </div>
+        </div>
+    </div> -->
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/infor_leon.js"></script>
+<script>
+  apiready = function () {
+    this.downRefresh();
+    $.binLib.inforTypeList();
+  }
+</script>
+</html>

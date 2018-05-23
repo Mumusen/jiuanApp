@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>手工纺织业</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<body>
+<!--通过龙虎榜 的近期热门  主题 点过来-->
+<header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('clickThemeNum')"></i>
+        手工纺织业
+    </div>
+</header>
+<div class="themeHead"></div>
+<section class="clickThemeNum">
+    <div class="theme">
+        <div class="titleCol clearfix">
+            <span>时间</span>
+            <span>上榜股票</span>
+            <span>买入(万)</span>
+            <span>卖出(万)</span>
+        </div>
+    </div>
+    <div class="stockDetails">
+        <ul class="stockList">
+            <li onclick="openWindow('stockDetails',{},'push')">
+                <div class="col">
+                    <span>2017/9/2</span>
+                </div>
+                <div class="col">
+                    <span>平安银行</span>
+                </div>
+                <div class="col">
+                    <span>1.12%</span>
+                </div>
+                <div class="col">
+                    <span class="colorBlue">-1.98万</span>
+                </div>
+            </li>
+            <li onclick="openWindow('stockDetails',{},'push')">
+                <div class="col">
+                    <span>2017/10/12</span>
+                </div>
+                <div class="col">
+                    <span>平安银行</span>
+                </div>
+                <div class="col">
+                    <span>1.12%</span>
+                </div>
+                <div class="col">
+                    <span class="colorBlue">-1.98万</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/index.js"></script>
+<script>
+    apiready = function () {
+
+    }
+</script>
+</html>
