@@ -220,46 +220,57 @@
 }
 // 修改密码
 .change-box{
-    margin: s($px:60) s($px:80);
-    .change-input{
-        width: 100%;
-        display: flex;
-        -webkit-box-sizing: border-box;
-        justify-content: space-between;
-        border-bottom: 1px solid #eee;
-        margin-top: s($px:30);
-        font-size: s($px:32);
-        input{
-            -webkit-box-flex: 1;
-            text-indent: s($px:30);
-            padding: s($px:33) 0;
-            color: #666;
-        }
-        button{
-            min-width: s($px:160);
-            height: s($px:90);
-            line-height: s($px:90);
-            color: #d0bc89;
-        }
-        button.on{
-            color: #ea1f38;
-        }
-        i{
-            width: s($px:36);
-            height: s($px:36);
-            background: url(../image/login_icon_leon.png) no-repeat center;
-            background-position:  0 0;
-            background-size: s($px:36);
-            display: block;
-            margin: s($px:30) s($px:10);
-        }
-        .iocn-phone{
-            background-position: 0 100%
-        }
-    }
-    .tel-input input{
-        width: 60%;
-    }
+  margin: s($px:60) s($px:80);
+  .change-input{
+      width: 100%;
+      display: flex;
+      -webkit-box-sizing: border-box;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      margin-top: s($px:30);
+      font-size: s($px:32);
+      input{
+          -webkit-box-flex: 1;
+          text-indent: s($px:30);
+          padding: s($px:33) 0;
+          color: #666;
+      }
+      button{
+          min-width: s($px:160);
+          height: s($px:90);
+          line-height: s($px:90);
+          color: #ea1f38;
+      }
+      button.on{
+          color: #ea1f38;
+      }
+      i{
+          width: s($px:36);
+          height: s($px:36);
+          background: url(../image/login_icon_leon.png) no-repeat center;
+          background-position:  0 0;
+          background-size: s($px:36);
+          display: block;
+          margin: s($px:30) s($px:10);
+      }
+      .iocn-phone{
+          background-position: 0 100%
+      }
+  }
+  .tel-input input{
+      width: 60%;
+  }
+}
+.forget-deal {
+  button{
+    margin-top: s($px:240);
+  }
+  p{
+    color: #2ea6ef;
+    float: right;
+    font-size: s($px:28);
+    padding-top: s($px:40);
+  }
 }
 .change-btn{
     width: s($px:400);
@@ -270,6 +281,10 @@
     font-size: s($px:32);
     color: #ea1f38;
     margin: s($px:200) auto 0;
+}
+.btn-off{
+  border-color: #bfbfbf;
+  color: #bfbfbf
 }
 
 // 关注营业部
@@ -386,7 +401,7 @@
                 height: s($px:80);
                 line-height: s($px:80);
                 border: s($px:2) solid #d0ba89;
-                color: #d0bc89;
+                color: #ea1f38;
                 border-radius: s($px:40);
                 font-size: s($px:32);
             }

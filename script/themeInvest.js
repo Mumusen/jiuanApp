@@ -199,7 +199,7 @@ var themeInvest = {
   //     }
   //   })
   // },
-  //点击进入主题详情
+  //点击进入概念详情
   themeDetails: function () {
     $('.themeList').on('click', '.themeShow', function () {
       var li = $(this).parent();

@@ -251,7 +251,7 @@ var themeList = {
               '        <i class="back"></i>' +
               '        <div class="title webkit" id="tabChoice">' +
               '            <span class="active" inFo="2">全部</span>' +
-              '            <span inFo="0">主题</span>' +
+              '            <span inFo="0">概念</span>' +
               '            <span inFo="1">股票</span>' +
               '        </div>' +
               '        <div class="tit webkit frame-tit">' +
@@ -424,7 +424,7 @@ var themeList = {
     htmlTheme =
       '            <li class="list-themeli" selectInfoId="' + msg.selectInfoId + '">' +
       '                <div class="li choiceBtnDeta" infoId="' + msg.infoId + '" infoName="' + msg.infoName + '">' +
-      '                    <span>' + msg.infoName + '<b>主题</b></span>' +
+      '                    <span>' + msg.infoName + '<b>概念</b></span>' +
       '                    <span>--</span>' +
       '                    <span><u style="' + MsgColor + '">' + toTwo(msg.chg) + '%</u></span>' +
       '                </div>' +
@@ -493,7 +493,7 @@ var themeList = {
       var infoType = $(this).attr('infoType')
       // console.log(infoType)
       if (infoType != 1) {
-        // 跳转主题
+        // 跳转概念
         openWindow('themeDetails', {
           id: $(this).attr('infoId'),
           themeName: $(this).attr('infoName')
@@ -710,7 +710,7 @@ var themeList = {
     htmlThemeEdit =
       '            <li>' +
       '                <input type="checkbox" infoType="' + msg.infoType + '" infoId="' + msg.infoId + '" selectInfoId="' + msg.selectInfoId + '" infoName="' + msg.infoName + '" infoToken="' + msg.infoName + '">' +
-      '                <span class="shares">' + msg.infoName + '<b>主题</b></span>' +
+      '                <span class="shares">' + msg.infoName + '<b>概念</b></span>' +
       '                <i class="icon-up"></i>' +
       '                <b class="icon-drag"></b>' +
       '            </li>';

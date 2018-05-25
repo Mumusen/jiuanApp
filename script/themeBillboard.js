@@ -5,7 +5,7 @@ var themeBillboard={
         this.stockDetails();
         this.getInfoId();
     },
-    //获取本主题的id
+    //获取本概念的id
     getInfoId:function(){
         var parm = api.pageParam;
         var infoId = parm.infoId; console.log(infoId);

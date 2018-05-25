@@ -403,7 +403,7 @@ section {
     margin: 0 s($px: 30) s($px: 30) s($px: 30);
     padding: s($px: 20) 0;
     // height: s($px:200);
-    box-shadow: 0 s($px: 2) s($px: 6) rgba(81, 71, 72, 0.28);
+    box-shadow: 0 s($px: 2) s($px: 14) rgba(81, 71, 72, 0.28);
     border-radius: s($px:10);
     .min {
         -webkit-box-flex: 1;
@@ -421,6 +421,7 @@ section {
             box-orient: vertical;
             -webkit-line-clamp: 1;
             padding:0 s($px:20) 0 s($px:110);
+            font-family: 'pinfangBold';
             u{
                 width: s($px:90);
                 height: s($px:42);
@@ -466,12 +467,16 @@ section {
         }
     }
     .stock-theme{
-        padding: s($px:20) s($px:20) s($px:10);
+        padding: s($px:10) s($px:20) s($px:10);
         a{
             color: #ea1f38;
             font-size: s($px:32);
             margin-right: s($px:110);
             margin-left: s($px:10);
+            font-family: 'pinfangBold';
+        }
+        span{
+          padding-top: s($px:10);
         }
         u{
             font-size: s($px:28);
@@ -488,6 +493,19 @@ section {
 .new-tit {
     font-size: s($px: 32);
     padding: 0 s($px: 30) s($px: 30) s($px: 30);
+    text-indent: s($px:20);
+    position: relative;
+    color: #999;
+    font-family: 'pinfangBold';
+    &::before{
+      content: "";
+      width: s($px:4);
+      height: s($px:30);
+      background-color: #ea1f38;
+      position: absolute;
+      left: s($px:30);
+      top: s($px:8);
+    }
 }
 
 .btnAjax {
@@ -676,18 +694,37 @@ section {
         background-size: 96%;
     }
     a:nth-child(2):before{
-        background-position: 0 0;
-    }
-    a:nth-child(3):before{
         background-position: 0 33%;
     }
-    a:nth-child(4):before{
+    a:nth-child(3):before{
         background-position: 0 101%;
     }
+    // a:nth-child(4):before{
+    //     background-position: 0 101%;
+    // }
 }
 .txt-frou{
     padding-top: s($px:26);
 }
 .informain{
     padding-top: s($px:160);
+}
+
+// 设置密码
+section.user-box{
+  padding: s($px:128) 0 0;
+  ul>li{
+    padding: 0 s($px:40);
+    &::before{
+      right: s($px:50);
+    }
+  }
+}
+.signout{
+  font-family: 'pinfangBold';
+}
+.user-section .signout{
+  background-color: #fff;
+  color: #bfbfbf;
+  box-shadow: 0 s($px: 10) s($px: 36) rgba($color: #bfbfbf, $alpha: .28);
 }

@@ -140,7 +140,7 @@ var searchAll = {
             bindthis.clickSearch(inFo);
         })
     },
-    //主题内容
+    //概念内容
     themeHtml: function (msg) {
         var html = '';
         html += '<li class="clearfix haveTop" data-type="' + msg.infoType + '">' +

@@ -27,7 +27,7 @@ var themeSearch = {
             var showAllHtml='';
             if(ret.success){
                 waitLoading.close();
-                //最新主题
+                //最新概念
                /* if(newConcept.length != 0){
                     for(var i=0;i<newConcept.length;i++){
                         var info=newConcept[i];
@@ -38,7 +38,7 @@ var themeSearch = {
                 else{
                     $('#newestTheme').hide();
                 }*/
-                //主题分类
+                //概念分类
                 for(var i=0;i<conceptClassify.length;i++){
                     var info=conceptClassify[i];
                     var concepList=info.concepList;
@@ -54,7 +54,7 @@ var themeSearch = {
             }
         })
     },
-    //显示每一个主题
+    //显示每一个概念
     forTheme:function(themeList){
         var themeHtml='';
         for(var i=0;i<themeList.length;i++){
@@ -63,7 +63,7 @@ var themeSearch = {
         }
         return themeHtml;
     },
-    //进入到主题详情
+    //进入到概念详情
     themeDetails:function(){
         $('.bindClick').on('click','.themeShow',function(){
             var li=$(this);

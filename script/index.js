@@ -48,14 +48,14 @@ var themeList = {
           html += $this.indexHtml(msg);
         }
         $('#sectionExponential').html(html)
-        // 领涨主题
+        // 领涨概念
         for (var i = 0; i < themeList.length; i++) {
           var msg = themeList[i];
           // console.log(JSON.stringify(msg))
           htmlTheme += $this.themeHtml(msg);
         }
         $('#upTheme').html(htmlTheme)
-        // 领跌主题
+        // 领跌概念
         for (var i = 0; i < themeListDow.length; i++) {
           var msg = themeListDow[i];
           // console.log('领跌 '+JSON.stringify(msg))
@@ -171,10 +171,10 @@ var themeList = {
       // console.log('2222')
     }
     if(msg.stockType == null){
-      console.log("创新")
+      // console.log("创新")
     }else{
       stockType = msg.stockType;
-      console.log(JSON.stringify(stockType))
+      // console.log(JSON.stringify(stockType))
     }
     indexHtml =
       '    <li class="choiceBtnDetaBig ' + color + '" stockCode="'+msg.stockCode+'" stockName="'+msg.stockName+'" marketCode="'+stockType+'">' +
@@ -187,7 +187,7 @@ var themeList = {
       '    </li>';
     return indexHtml;
   },
-  // 今日领涨/跌主题
+  // 今日领涨/跌概念
   themeHtml: function (msg) {
     var html = className = chgClass = codeClass = signRate = '';
     if (msg.chg > 0) {
@@ -352,7 +352,7 @@ var themeList = {
       }, 'push');
     })
   },
-  // 点击跳转主题详情页
+  // 点击跳转概念详情页
   choiceBtnTheme: function () {
     $('.choiceBtnTheme').on('click', function () {
       // console.log($(this).attr('infoId'))

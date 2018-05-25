@@ -39,7 +39,7 @@ header{
 .showAll>div.all.active{
   display:block;
 }
-//主题投资
+//概念投资
 .themeInvest{
   font-family:pinfangMedium;
   .headMenu{
@@ -216,7 +216,7 @@ header{
     }
   }
 }
-//更多主题排行
+//更多概念排行
 .moreHead{
   height:s($px:168);
   background-color:#ea1f38;
@@ -387,7 +387,7 @@ header{
   background-image: url("../image/stockAttention_ok.png");
   background-size:100%;
 }
-//主题详情
+//概念详情
 .them-txt-box{
   position: relative;
   background: url("../image/themeBg.png") center center no-repeat;
@@ -535,7 +535,7 @@ header{
             line-height: s($px:46);
           }
         }
-        //没有相关主题
+        //没有相关概念
         .noTopics{
           font-size: s($px:24);
           display:none;
@@ -786,7 +786,7 @@ header{
   right: s($px:30);
   position: absolute;
 }
-//主题龙虎榜
+//概念龙虎榜
 .stockDetailsTitle{
   line-height: s($px:90);
   box-shadow: 0 s($px:4) s($px:10) rgba($color: #514748, $alpha: .28);
@@ -915,7 +915,7 @@ header{
     }
   }
 }
-//通过龙虎榜 的近期热门  主题 点过来
+//通过龙虎榜 的近期热门  概念 点过来
 .clickThemeNum{
   font-family: pinfangMedium;
   padding:0;

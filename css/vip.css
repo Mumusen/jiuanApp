@@ -63,8 +63,8 @@ section {
 }
 
 .vip-min-control .box input {
-  height: 0.4rem;
-  line-height: 0.4rem;
+  height: 0.50667rem;
+  line-height: 0.50667rem;
 }
 
 .vip-min-control div.box-btn-br {
@@ -177,6 +177,7 @@ section {
   background-color: #fff;
   border-radius: 0.08rem;
   display: none;
+  overflow-y: auto;
 }
 
 .search-list li {
@@ -212,6 +213,10 @@ section {
 
 .vip-min-list li span:nth-child(2) {
   color: #ea1f38;
+}
+
+.vip-min-list .buy-list > li span:nth-child(2) {
+  color: #39c922;
 }
 
 .sell-list::after {
@@ -386,18 +391,22 @@ section {
   background-size: cover;
 }
 
-.entrust-box ul:nth-child(1) {
+.entrust-box ul li:last-child {
+  border: 0;
+}
+
+.entrust-box ul:nth-child(2) {
   margin-bottom: 0.13333rem;
   position: relative;
 }
 
-.entrust-box ul:nth-child(1)::before {
+.entrust-box ul:nth-child(2)::before {
   content: "";
   width: 110%;
   height: 0.13333rem;
   background-color: #eee;
   position: absolute;
-  bottom: -0.13333rem;
+  top: -0.13333rem;
   left: -5%;
 }
 
@@ -439,4 +448,170 @@ section {
   position: absolute;
   right: 0;
   top: 0.13333rem;
+}
+
+.stateLayer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999999999;
+  background-color: #666;
+}
+
+.stateLayer .box {
+  width: 6.13333rem;
+  height: 7.2rem;
+  position: absolute;
+  background-color: #fff;
+  left: 50%;
+  top: 50%;
+  margin: -4.53333rem 0 0 -3.06667rem;
+  border-radius: 0.13333rem;
+}
+
+.stateLayer .box::before {
+  content: "";
+  width: 3.54667rem;
+  height: 2.94667rem;
+  background: url(../image/state_pic_1.png) no-repeat center;
+  background-size: cover;
+  position: absolute;
+  top: 1.09333rem;
+  left: 0.93333rem;
+}
+
+.stateLayer .box button {
+  width: 4.26667rem;
+  height: 1.06667rem;
+  position: absolute;
+  bottom: 1.06667rem;
+  left: 0.93333rem;
+  background-color: #ea1f38;
+  color: #fff;
+  border-radius: 1.06667rem;
+  font-size: 0.42667rem;
+  font-family: 'pinfangBold';
+}
+
+.stateLayer .box i {
+  position: absolute;
+  bottom: -2.46667rem;
+  left: 50%;
+  margin-left: -0.3rem;
+  width: 0.6rem;
+  height: 0.61333rem;
+  background: url(../image/state_btn.png) no-repeat center;
+  background-size: cover;
+}
+
+.stateLayer .state-4::before {
+  background-image: url(../image/state_pic_4.png);
+  left: 1.22667rem;
+}
+
+.stateLayer .state-2::before {
+  background-image: url(../image/state_pic_2.png);
+  left: 1.46667rem;
+}
+
+.stateLayer .txt {
+  width: 3.46667rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -1.73333rem;
+  bottom: 1.06667rem;
+  text-align: center;
+  color: #ea1f38;
+  font-size: 0.42667rem;
+}
+
+.stateLayer .box-pwd {
+  width: 6.66667rem;
+  margin-left: -3.33333rem;
+}
+
+.stateLayer .box-pwd::before {
+  display: none;
+}
+
+.stateLayer .box-pwd h2 {
+  color: #ea1f38;
+  font-size: 0.42667rem;
+  font-family: 'pinfangBold';
+  text-align: center;
+  padding: 0.8rem 0;
+}
+
+.stateLayer .box-pwd button {
+  position: initial;
+  display: block;
+  margin: 0 auto;
+}
+
+.stateLayer .box-pwd p {
+  color: #2ea6ef;
+  font-size: 0.37333rem;
+  text-align: center;
+  margin-top: 0.53333rem;
+}
+
+.pwd-control {
+  margin: 0 0.4rem 1.06667rem;
+}
+
+.pwd-control .box-control {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border: 0.02667rem solid #999;
+  border-radius: 0.08rem;
+}
+
+.pwd-control .box-control .flex-1 {
+  display: block;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  width: 0;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+}
+
+.pwd-control .box-control .item {
+  position: relative;
+  padding: 0.13333rem 0;
+}
+
+.pwd-control .box-control .item.circle:after {
+  content: "";
+  width: 0.24rem;
+  height: 0.24rem;
+  background: #666;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.12rem;
+  margin-left: -0.12rem;
+}
+
+.pwd-control input {
+  height: 0.74667rem;
+  display: block;
+  width: inherit;
+  text-align: center;
+  border-right: 0.02667rem solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+  color: transparent;
+  caret-color: transparent;
 }

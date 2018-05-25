@@ -278,7 +278,7 @@
   min-width: 2.13333rem;
   height: 1.2rem;
   line-height: 1.2rem;
-  color: #d0bc89;
+  color: #ea1f38;
 }
 
 .change-box .change-input button.on {
@@ -303,6 +303,17 @@
   width: 60%;
 }
 
+.forget-deal button {
+  margin-top: 3.2rem;
+}
+
+.forget-deal p {
+  color: #2ea6ef;
+  float: right;
+  font-size: 0.37333rem;
+  padding-top: 0.53333rem;
+}
+
 .change-btn {
   width: 5.33333rem;
   height: 1.17333rem;
@@ -312,6 +323,11 @@
   font-size: 0.42667rem;
   color: #ea1f38;
   margin: 2.66667rem auto 0;
+}
+
+.btn-off {
+  border-color: #bfbfbf;
+  color: #bfbfbf;
 }
 
 .follow .box {
@@ -448,7 +464,7 @@
   height: 1.06667rem;
   line-height: 1.06667rem;
   border: 0.02667rem solid #d0ba89;
-  color: #d0bc89;
+  color: #ea1f38;
   border-radius: 0.53333rem;
   font-size: 0.42667rem;
 }

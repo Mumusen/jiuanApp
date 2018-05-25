@@ -436,7 +436,7 @@ section {
   width: 9.2rem;
   margin: 0 0.4rem 0.4rem 0.4rem;
   padding: 0.26667rem 0;
-  box-shadow: 0 0.02667rem 0.08rem rgba(81, 71, 72, 0.28);
+  box-shadow: 0 0.02667rem 0.18667rem rgba(81, 71, 72, 0.28);
   border-radius: 0.13333rem;
 }
 
@@ -458,6 +458,7 @@ section {
   box-orient: vertical;
   -webkit-line-clamp: 1;
   padding: 0 0.26667rem 0 1.46667rem;
+  font-family: 'pinfangBold';
 }
 
 .new-box .min h3 u {
@@ -508,7 +509,7 @@ section {
 }
 
 .new-box .stock-theme {
-  padding: 0.26667rem 0.26667rem 0.13333rem;
+  padding: 0.13333rem 0.26667rem 0.13333rem;
 }
 
 .new-box .stock-theme a {
@@ -516,6 +517,11 @@ section {
   font-size: 0.42667rem;
   margin-right: 1.46667rem;
   margin-left: 0.13333rem;
+  font-family: 'pinfangBold';
+}
+
+.new-box .stock-theme span {
+  padding-top: 0.13333rem;
 }
 
 .new-box .stock-theme u {
@@ -532,6 +538,20 @@ section {
 .new-tit {
   font-size: 0.42667rem;
   padding: 0 0.4rem 0.4rem 0.4rem;
+  text-indent: 0.26667rem;
+  position: relative;
+  color: #999;
+  font-family: 'pinfangBold';
+}
+
+.new-tit::before {
+  content: "";
+  width: 0.05333rem;
+  height: 0.4rem;
+  background-color: #ea1f38;
+  position: absolute;
+  left: 0.4rem;
+  top: 0.10667rem;
 }
 
 .btnAjax {
@@ -749,14 +769,10 @@ section {
 }
 
 .txt-inlet a:nth-child(2):before {
-  background-position: 0 0;
-}
-
-.txt-inlet a:nth-child(3):before {
   background-position: 0 33%;
 }
 
-.txt-inlet a:nth-child(4):before {
+.txt-inlet a:nth-child(3):before {
   background-position: 0 101%;
 }
 
@@ -766,4 +782,26 @@ section {
 
 .informain {
   padding-top: 2.13333rem;
+}
+
+section.user-box {
+  padding: 1.70667rem 0 0;
+}
+
+section.user-box ul > li {
+  padding: 0 0.53333rem;
+}
+
+section.user-box ul > li::before {
+  right: 0.66667rem;
+}
+
+.signout {
+  font-family: 'pinfangBold';
+}
+
+.user-section .signout {
+  background-color: #fff;
+  color: #bfbfbf;
+  box-shadow: 0 0.13333rem 0.48rem rgba(191, 191, 191, 0.28);
 }

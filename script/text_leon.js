@@ -176,7 +176,7 @@ var txtList = {
   inforTxt: function (msg) {
     var info = msg.infomation; // 文章
     var stock = msg.stockVoList;  //股票
-    var concept = msg.conceptVo;  //主题
+    var concept = msg.conceptVo;  //概念
     var _this = this;
     var html = iconClass = conceptHtml = stockHtml = '';
     if (info.infomationStatus ==  1) {
@@ -200,7 +200,7 @@ var txtList = {
           stockHtml += _this.newsTxtInfo(stock);
         }
       }
-      console.log("有主题股票");
+      console.log("有概念股票");
       DomHtml = '<div class="stock-theme">' + conceptHtml + stockHtml + '</div>'
     } else {
       console.log("啥都没有")
@@ -263,7 +263,7 @@ var txtList = {
       }, 'push');
     })
   },
-  // 点击跳转主题详情页
+  // 点击跳转概念详情页
   choiceBtnTheme: function () {
     $('.choiceBtnTheme').on('click', function () {
       // console.log($(this).attr('infoId'))

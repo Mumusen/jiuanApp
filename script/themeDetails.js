@@ -19,7 +19,7 @@ var themeDetails = {
     $('#themeName').html(themeName);
     var waitLoading = new WaitLoading();
     waitLoading.open();
-    //渲染主题详情
+    //渲染概念详情
     api.ajax({
       url: url() + 'selfSelectInfo/getThemeDetails',
       data: {
@@ -62,7 +62,7 @@ var themeDetails = {
         else {
           $('.relatedEvents').hide();
         }
-        //主题描述
+        //概念描述
         var chg = details.conceptChg;
         $('#infoDetails').html(details.infoDetails);
         $('#chg').html('涨跌幅 ' + chg + '%');
@@ -202,7 +202,7 @@ var themeDetails = {
       }
     })
   },
-  //跳转到该主题下的个股龙虎榜
+  //跳转到该概念下的个股龙虎榜
   goBillboard: function (name) {
     $('.goBillboard').click(function () {
       // console.log($('#infoId').val())
@@ -213,20 +213,20 @@ var themeDetails = {
         })
     })
   },
-  // 个股中的相关主题
+  // 个股中的相关概念
   forTheme: function (themeList) {
     var themeHtml = '';
     if (themeList.length != 0) {
       for (var i = 0; i < themeList.length; i++) {
         themeHtml += '<span class="themeShow" data-ID="' + themeList[i].id + '" data-chg="' + themeList[i].chg + '" data-ms="' + themeList[i].conceptExplain + '">' + themeList[i].conceptStockName + '</span>'
       }
-      return '<h4>相关主题</h4>' + themeHtml;
+      return '<h4>相关概念</h4>' + themeHtml;
     }
     else {
-      return themeHtml = '无相关主题';
+      return themeHtml = '无相关概念';
     }
   },
-  //点击进入相关主题详情
+  //点击进入相关概念详情
   themeDetails: function () {
     var $this = this;
     $('.relatedStocksList').on('click', '.themeShow', function () {

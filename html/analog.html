@@ -18,7 +18,7 @@
   <header id="header" class="index">
     <div class="statusBar"></div>
     <div class="content">
-      <i class="return-btn" id="exitWindow"></i>
+      <i class="return-btn" class="exitWindow"></i>
       <span>模拟交易</span>
     </div>
   </header>
@@ -41,16 +41,55 @@
       </li>
     </ul>
   </section>
+  <!-- <div class="stateLayer">
+    <div class="box">
+      <button>去 开 通</button>
+      <i class="exitWindow"></i>
+    </div>
+  </div> -->
+  <!-- <div class="stateLayer">
+    <div class="box state-4">
+      <button>再 次 申 请</button>
+      <i class="exitWindow"></i>
+    </div>
+  </div> -->
+  <!-- <div class="stateLayer">
+    <div class="box state-2">
+      <div class="txt">
+        <p>正在为您加塞审批</p>
+        <p>请耐心等候</p>
+      </div>
+      <i class="exitWindow"></i>
+    </div>
+  </div> -->
+  <!-- <div class="stateLayer">
+    <div class="box box-pwd">
+      <h2>输入交易密码</h2>
+      <div class="pwd-control" id="payPwd">
+          <div class="box-control">
+              <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+              <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+              <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+              <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+              <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+              <div class="flex-1 item"><input maxlength="1" type="tel"></div>
+          </div>
+      </div>
+      <button id="buyBtnAjax">确 定</button>
+      <p onclick="openWindow('forgetDealPwd',{},'push')">忘记密码?</p>
+      <i class="exitWindow"></i>
+    </div>
+  </div> -->
 </body>
 <script src="../script/zepto.js"></script>
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
 <script src="../script/loginIf_leon.js"></script>
 <script src="../script/analog.js"></script>
+<script src="../script/buyKey.js"></script>
 <script>
   apiready = function () {
-    $.binLib.operationIndexWin();    
-    // $.binLib.loginUser();
+    $.binLib.operationIndexWin();
     setTimeout(function () {
       autoAjax();
     }, 3000);

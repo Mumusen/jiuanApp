@@ -84,7 +84,7 @@ var moreTheme={
             changeColor();
         })
     },
-    //跳转到主题详情页并传参
+    //跳转到概念详情页并传参
     themeDetails:function(){
         $('.rise').on('click','.themeShow',function(){
             var li=$(this);
@@ -184,7 +184,7 @@ var moreTheme={
             }
         })
     },
-    //点击跳转到主题 龙虎榜
+    //点击跳转到概念 龙虎榜
     goThemeBillboard:function(){
         $('.rise').on('click','.goThemeBillboard',function(){
             var li=$(this);

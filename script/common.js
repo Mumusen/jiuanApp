@@ -497,35 +497,50 @@ function stockTimeIf() {
   // 获取当天
   var now = new Date();
 
-  
+
   // 当天 上午9:30 时间戳
   var am_Nine = (new Date(now.getFullYear(), now.getMonth(), now.getDate(), '9', '30')).getTime();
   // console.log("now:"+now.slice(0,4)+"---"+now.slice(5,7)+"---"+now.slice(8, now.length))
   // 当天 上午11:30 时间戳
-  var am_Eleven = (new Date(now.getFullYear(), now.getMonth(), now.getDate(), '10','30')).getTime();
+  var am_Eleven = (new Date(now.getFullYear(), now.getMonth(), now.getDate(), '10', '30')).getTime();
   // 当天 下午1:00 时间戳
-  var pm_One = (new Date(now.getFullYear(), now.getMonth(), now.getDate(),'13')).getTime();
+  var pm_One = (new Date(now.getFullYear(), now.getMonth(), now.getDate(), '13')).getTime();
   // 当天 下午3:00 时间戳
-  var pm_Three = (new Date(now.getFullYear(), now.getMonth(), now.getDate(),'15')).getTime();
+  var pm_Three = (new Date(now.getFullYear(), now.getMonth(), now.getDate(), '15')).getTime();
   // 如果在工作日
   console.log(nowDateWeekday)
   if (nowDateWeekday >= 1 && nowDateWeekday <= 5) {
-    console.log(nowDate+"***"+ am_Nine +"*"+ nowDate +"*"+ am_Eleven)
+    console.log(nowDate + "***" + am_Nine + "*" + nowDate + "*" + am_Eleven)
     if (nowDate >= am_Nine && nowDate <= am_Eleven) {
       console.log(22222)
       return true;
     }
-    console.log(nowDate+"***"+ pm_One +"*"+ pm_Three)
+    console.log(nowDate + "***" + pm_One + "*" + pm_Three)
     if (nowDate >= pm_One && nowDate <= pm_Three) {
-    return true;
+      return true;
     }
   } else {
     return false;
   }
 }
+// 保留2位小数点，补充00
+function returnFloat(value) {
+  var value = Math.floor(value * 100) / 100;
+  var xsd = value.toString().split(".");
+  if (xsd.length == 1) {
+    value = value.toString() + ".00";
+    return value;
+  }
+  if (xsd.length > 1) {
+    if (xsd[1].length < 2) {
+      value = value.toString() + "0";
+    }
+    return value;
+  }
+}
 
 //ajax url公共配置
 function url() {
-  return 'http://39.107.14.227:80/'; 
+  return 'http://39.107.14.227:80/';
   // return 'http://192.168.0.184:8080/';
 }
