@@ -18,18 +18,18 @@
   <header id="header" class="index">
     <div class="statusBar"></div>
     <div class="content">
-      <i class="return-btn"></i>
+      <i class="return-btn" onclick="closeWindow('todayEntrust')"></i>
       今日委托
     </div>
   </header>
-  <section class="cancel-boxs">
+  <section class="cancel-boxs" id="todayEntrustList">
     <div class="webkit">
-      <span>名称/市值</span>
+      <span>名称/时间</span>
       <span>委托价格</span>
-      <span>持仓/可用</span>
-      <span>成本/现价</span>
+      <span>委托/成交</span>
+      <span>类型/状态</span>
     </div>
-    <ul class="vip-list">
+    <!-- <ul class="vip-list">
       <li>
         <h2>华锋股份</h2>
         <p>2018-3-26</p>
@@ -42,10 +42,11 @@
         <p>10000</p>
       </li>
       <li>
-        <p>卖出</p>
+        <p class="red">卖出</p>
         <p>已成</p>
       </li>
-    </ul>
+    </ul> -->
+    <!-- 
     <ul class="vip-list">
       <li>
         <h2>华锋股份</h2>
@@ -62,16 +63,16 @@
         <p class="buy">买入</p>
         <p>已成</p>
       </li>
-    </ul>
+    </ul> -->
   </section>
 </body>
 <script src="../script/zepto.js"></script>
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
-<script src="../script/loginIf_leon.js"></script>
+<script src="../script/placementList.js"></script>
 <script>
   apiready = function () {
-    $.binLib.loginUser();
+    $.binLib.todayEntruse();
     this.downRefresh();
   }
 </script>

@@ -170,14 +170,14 @@ body, html {
 }
 
 .loading {
-  width: 2.66667rem;
+  width: 3.73333rem;
   height: 2.13333rem;
   background: url(../image/loading.gif) no-repeat center;
-  background-size: 2.13333rem;
+  background-size: 3.73333rem;
   position: fixed;
   top: 40%;
   left: 50%;
-  margin-left: -1.33333rem;
+  margin-left: -1.86667rem;
   border-radius: 0.26667rem;
   z-index: 999;
 }
@@ -206,9 +206,9 @@ body, html {
 }
 
 .noDataBj {
-  width: 1.73333rem;
-  height: 1.86667rem;
+  width: 3.06667rem;
+  height: 3.09333rem;
   background: url(../image/noData.png) no-repeat center;
-  background-size: 1.73333rem;
-  margin: 50% auto;
+  background-size: 3.06667rem;
+  margin: 20% auto;
 }

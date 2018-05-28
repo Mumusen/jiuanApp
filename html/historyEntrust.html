@@ -12,34 +12,38 @@
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/frame.css">
   <link rel="stylesheet" href="../css/vip.css">
+  <link rel="stylesheet" href="../css/day_time.css">
 </head>
 
 <body>
   <header id="header" class="index">
     <div class="statusBar"></div>
     <div class="content">
-      <i class="return-btn"></i>
+      <i class="return-btn" onclick="closeWindow('historyEntrust')"></i>
       历史委托
     </div>
   </header>
-  <section class="cancel-boxs">
-    <div class="time-box">
+  <section class="cancel-boxs" id="todayEntrustList">
+    <div class="time-box" id="simpleList">
       <div class="rise">
         <h3>起始时间</h3>
-        <p>2016-10-02</p>
+        <input id="timeStar" type="text" readonly="" name="input_date" placeholder="日期选择" />
       </div>
       <div class="end">
         <h3>截止日期</h3>
-        <p>2016-10-02</p>
+        <input id="timeEnd" type="text" readonly="" name="input_date" placeholder="日期选择" />
+      </div>
+      <div class="query" id="queryBtn" data-btn="0">
+        <span>查询</span>
       </div>
     </div>
     <div class="webkit">
-      <span>名称/市值</span>
+      <span>名称/时间</span>
       <span>委托价格</span>
-      <span>持仓/可用</span>
-      <span>成本/现价</span>
+      <span>持仓/成交</span>
+      <span>类型/状态</span>
     </div>
-    <ul class="vip-list">
+    <!-- <ul class="vip-list">
       <li>
         <h2>华锋股份</h2>
         <p>2018-3-26</p>
@@ -72,17 +76,18 @@
         <p class="buy">买入</p>
         <p>已成</p>
       </li>
-    </ul>
+    </ul> -->
   </section>
 </body>
 <script src="../script/zepto.js"></script>
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
 <script src="../script/loginIf_leon.js"></script>
+<script src="../script/lCalendar.js"></script>
+<script src="../script/placementList.js"></script>
 <script>
   apiready = function () {
-    $.binLib.loginUser();
-    this.downRefresh();
+    $.binLib.historyEntruse();
   }
 </script>
 

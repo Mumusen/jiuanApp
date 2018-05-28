@@ -6,7 +6,7 @@
   <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
   />
   <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-  <title>模拟交易-撤单</title>
+  <title>模拟交易-持仓</title>
   <script src="../script/flexible.js"></script>
   <link rel="stylesheet" href="../css/api.css" />
   <link rel="stylesheet" href="../css/base.css">
@@ -15,14 +15,14 @@
 </head>
 
 <body>
-  <section id="analogTodayCancel">
+  <section>
     <div class="webkit">
       <span>名称/市值</span>
       <span>委托价格</span>
-      <span>委托/成交</span>
-      <span>状态</span>
+      <span>持仓/可用</span>
+      <span>成本/现价</span>
     </div>
-    <!-- <ul class="vip-list">
+    <ul class="vip-list">
       <li>
         <h2>华锋股份</h2>
         <p>2018-3-26</p>
@@ -38,16 +38,33 @@
         <p>卖出</p>
         <p>已成</p>
       </li>
-    </ul> -->
+    </ul>
+    <ul class="vip-list">
+      <li>
+        <h2>华锋股份</h2>
+        <p>2.020万</p>
+      </li>
+      <li class="red">
+        <div class="num">9.213</div>
+      </li>
+      <li>
+        <p>10000</p>
+        <p>10000</p>
+      </li>
+      <li>
+        <p class="buy">买入</p>
+        <p>已成</p>
+      </li>
+    </ul>
   </section>
 </body>
 <script src="../script/zepto.js"></script>
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
-<script src="../script/analog_bus.js"></script>
+<script src="../script/loginIf_leon.js"></script>
 <script>
   apiready = function () {
-    $.binLib.analogCancel();
+    $.binLib.loginUser();
     this.downRefresh();
   }
 </script>

@@ -30,7 +30,7 @@ var login = {
           }
         }, function (ret, err) {
           console.log(JSON.stringify(ret))
-          console.log(JSON.stringify(ret.isCertification))
+          // console.log(JSON.stringify(ret.isCertification))
           if (ret.success === true) {
             waitLoading.close(0);
             var userId = ret.data;
@@ -51,6 +51,20 @@ var login = {
               console.log("未认证")
               $api.setStorage('check', userId);
               openWindow('check', {}, 'push');
+            }
+            // 查看用户是否审核通过
+            if(ret.userStatus == "1"){
+              // 未提交审核
+              localStorage.setItem("userStatus" , 1)
+            }else if(ret.userStatus == "2"){
+              // 审核ing
+              localStorage.setItem("userStatus" , 2)
+            }else if(ret.userStatus == "3"){
+              // 审核未通过
+              localStorage.setItem("userStatus" , 3)
+            }else if(ret.userStatus == "4"){
+              // 审核通过
+              localStorage.setItem("userStatus" , 4)
             }
           } else {
             waitLoading.close(0);

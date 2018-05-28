@@ -1,8 +1,8 @@
 var operation = {
-  userId: $api.getStorage('userId'),
   // 外框切换
   initIndexWin: function () {
-    this.loginAnalog();
+    // this.loginAnalog();
+    this.inputBuyPassWord();//临时
     this.exitClearInterval();
   },
   //打开operationGroup
@@ -82,129 +82,206 @@ var operation = {
   },
   //退出界面关闭定时器
   exitClearInterval: function () {
-    var $this = this;
     $('.exitWindow').click(function () {
-      console.log('exitClearInterval')
       // clearInterval($this.timer);
-      closeWindow('analog');
+      closeWindow("analog");
     });
   },
   // 用户校验 状态
-  loginAnalog: function(){
+  loginAnalog: function () {
     var $this = this;
-    var DOM1 = 
-    '  <div class="stateLayer">'+
-    '    <div class="box">'+
-    '      <button id="openBtn">去 开 通</button>'+
-    '      <i class="exitWindow"></i>'+
-    '    </div>'+
-    '  </div>';
-    var DOM2 = 
-    '  <div class="stateLayer">'+
-    '    <div class="box state-4">'+
-    '      <button>再 次 申 请</button>'+
-    '      <i class="exitWindow"></i>'+
-    '    </div>'+
-    '  </div>';
+    var DOM1 =
+      '  <div class="stateLayer">' +
+      '    <div class="box">' +
+      '      <button id="openBtn">去 开 通</button>' +
+      '      <i class="exitWindow"></i>' +
+      '    </div>' +
+      '  </div>';
+    var DOM2 =
+      '  <div class="stateLayer">' +
+      '    <div class="box state-4">' +
+      '      <button>再 次 申 请</button>' +
+      '      <i class="exitWindow"></i>' +
+      '    </div>' +
+      '  </div>';
     var DOM3 =
-    '  <div class="stateLayer">'+
-    '    <div class="box state-2">'+
-    '      <div class="txt">'+
-    '        <p>正在为您加塞审批</p>'+
-    '        <p>请耐心等候</p>'+
-    '      </div>'+
-    '      <i class="exitWindow"></i>'+
-    '    </div>'+
-    '  </div>';
-    var DOM4 = 
-    '  <div class="stateLayer">'+
-    '    <div class="box box-pwd">'+
-    '      <h2>输入交易密码</h2>'+
-    '      <div class="pwd-control" id="payPwd">'+
-    '          <div class="box-control">'+
-    '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>'+
-    '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>'+
-    '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>'+
-    '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>'+
-    '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>'+
-    '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>'+
-    '          </div>'+
-    '      </div>'+
-    '      <button id="buyBtnAjax">确 定</button>'+
-    '      <p onclick="openWindow(\'forgetDealPwd\',{},\'push\')">忘记密码?</p>'+
-    '      <i class="exitWindow"></i>'+
-    '    </div>'+
-    '  </div>';
-    // api.ajax({
-    //   url: '',
-    //   data: {
-    //     values: {
-    //       userPhone: userPhone
-    //     }
-    //   }
-    // }, function (ret, err) {
-    //   if(ret.success){
-    //     if(ret.state == 1){
-          console.log('12121')
+      '  <div class="stateLayer">' +
+      '    <div class="box state-2">' +
+      '      <div class="txt">' +
+      '        <p>正在为您加塞审批</p>' +
+      '        <p>请耐心等候</p>' +
+      '      </div>' +
+      '      <i class="exitWindow"></i>' +
+      '    </div>' +
+      '  </div>';
+    var DOM4 =
+      '  <div class="stateLayer">' +
+      '    <div class="box box-pwd">' +
+      '      <h2>输入交易密码</h2>' +
+      '      <div class="pwd-control" id="payPwd">' +
+      '          <div class="box-control">' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '          </div>' +
+      '      </div>' +
+      '      <button id="buyBtnAjax" data-code="0">确 定</button>' +
+      '      <p onclick="openWindow(\'forgetDealPwd\',{},\'push\')">忘记密码?</p>' +
+      '      <i class="exitWindow"></i>' +
+      '    </div>' +
+      '  </div>';
+      var DOM5 =
+      '  <div class="stateLayer">' +
+      '    <div class="box box-pwd">' +
+      '      <h2>输入交易密码</h2>' +
+      '      <div class="pwd-control" id="payPwd">' +
+      '          <div class="box-control">' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '          </div>' +
+      '      </div>' +
+      '      <button id="buyBtnAjax" data-code="1">确 定</button>' +
+      '      <p onclick="openWindow(\'forgetDealPwd\',{},\'push\')">忘记密码?</p>' +
+      '      <i class="exitWindow"></i>' +
+      '    </div>' +
+      '  </div>';
+    var userPhone = localStorage.getItem("userId");
+    api.ajax({
+      url: url() + 'userManager/checkUserStatusByPhone',
+      data: {
+        values: {
+          // phone: localStorage.getItem("userId")
+          phone: '18310499911'
+        }
+      }
+    }, function (ret, err) {
+      if (ret.success) {
+        if (ret.userStatus == "1") {
+          // 未提交审核
           $("body").append(DOM1);
-          $("#openBtn").click(function(){
+          $("#openBtn").click(function () {
             $(".stateLayer").remove();
             $("body").append(DOM4);
             $this.analogSetDeal();
           })
-      //   }else if(ret.state == 2){
-          
-      //   }else{
-      //     $this.openFrameGroup();
-      //     $this.frameGroupResponse();
-      //     $this.frameGroupClick();
-      //     $this.exitClearInterval();
-      //   }
-      // }
-    // })
+        } else if (ret.userStatus == "2") {
+          // 审核ing
+          $("body").append(DOM3);
+        } else if (ret.userStatus == "3") {
+          // 审核未通过
+          $("body").append(DOM2);
+        } else if (ret.userStatus == "4") {
+          // 审核通过
+          console.log("审核通过");
+          $("body").append(DOM5);
+          $this.analogSetDeal();
+   
+        }
+      } else {
+        commonAlertWindow({
+          message: ret.errMsg
+        });
+        closeWindow('analog');
+      }
+    })
   },
-  analogSetDeal: function(){
+  // 校验交易密码
+  analogSetDeal: function () {
     var pwd = "";
     var $this = this;
     $("#payPwd").payPwd({
-      max:6,
-      type:"password",
-      callback:function(arr) {
+      max: 6,
+      type: "password",
+      callback: function (arr) {
         $("#inputtype").html(arr);
         pwd = arr;
       }
     })
-    $("#buyBtnAjax").click(function(){
-      $this.loginSetBuy(pwd);
+    $("#buyBtnAjax").click(function () {
+      if ($(this).attr("data-code") == "0") {
+        console.log("init")
+        $this.loginSetBuy(pwd);
+      } else {
+        console.log("input")
+        $this.inputBuyPassWord(pwd);
+      }
     })
   },
-  loginSetBuy: function(pwd){
+  // 校验交易密码是否正确
+  inputBuyPassWord: function (pwd) {
+    var $this = this;
+    console.log("校验交易密码是否正确"+JSON.stringify(pwd));
+    // if (pwd == "" || pwd == undefined) {
+    //   commonAlertWindow({
+    //     message: "请输入6位</br>交易密码"
+    //   });
+    // } else {
+      var phone = localStorage.getItem("userId");
+      var pwd = pwd;
+      console.log("输入"+ phone, pwd);
+      var data = { userName: 'test01', passWord: '111111' };
+      api.ajax({
+        url: url3() + "openapi/v1/login",
+        data:{
+          values:{
+            paraJson:JSON.stringify(data)
+          }
+        }
+      },function(ret,err){
+        console.log("登录"+JSON.stringify(ret))
+        if(ret.info.rescode == "success"){
+          console.log("验证成功")
+          $(".stateLayer").remove();
+          commonAlertWindow({
+            message: "验证成功"
+          });
+          var token = ret.info.result.accessToken;
+          console.log(JSON.stringify(token));
+          localStorage.setItem("token", token)
+          $this.openFrameGroup();
+          $this.frameGroupResponse();
+          $this.frameGroupClick();
+          $this.exitClearInterval();
+        }
+      })
+    // }
+  },
+  loginSetBuy: function (pwd) {
     console.log(JSON.stringify(pwd))
-    if(pwd == "" || pwd == undefined){
+    if (pwd == "" || pwd == undefined) {
       commonAlertWindow({
         message: "请输入6位</br>交易密码"
       });
-    }else{
-        // api.ajax({
-        //   url: 'http://hangqingjingling.com/openapi/v1/login',
-        //   data: {
-        //     values: {
-        //       userName: userName,
-        //       passWord: passWord
-        //     }
-        //   }
-        // }, function (ret, err) {
-        //   if(ret.success){
-        //     var token = ret.token;
-        //     localStorage.setItem('token', token);
-        //   }
-              commonAlertWindow({
-                message: "提交成功</br>等待审核"
-              });
-              setTimeout(function(){
-                closeWindow('analog');
-              },2000)
-        // })
+    } else {
+      var phone = localStorage.getItem('userId');
+      var data = { userName: 'test01', passWord: pwd };
+      console.log("设置密码"+JSON.stringify(data));
+      api.ajax({
+        url: url3() + 'openapi/v1/login',
+        data: {
+          values: {
+            paraJson:JSON.stringify(data)
+          }
+        }
+      }, function (ret, err) {
+        if(ret.success){
+          var token = ret.token;
+          localStorage.setItem('token', token);
+        }
+      commonAlertWindow({
+        message: "提交成功</br>等待审核"
+      });
+      setTimeout(function () {
+        closeWindow('analog');
+      }, 2000)
+      })
     }
   }
 }

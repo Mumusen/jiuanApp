@@ -18,17 +18,31 @@
   <header id="header" class="index">
     <div class="statusBar"></div>
     <div class="content">
-      <i class="return-btn"></i>
+      <i class="return-btn" onclick="closeWindow('todayDeal')"></i>
       今日成交
     </div>
   </header>
-  <section class="cancel-boxs">
+  <section class="cancel-boxs" id="todayDealList">
     <div class="webkit">
-      <span>名称/市值</span>
-      <span>委托价格</span>
-      <span>持仓/可用</span>
-      <span>成本/现价</span>
+      <span>名称/时间</span>
+      <span>成交金额</span>
+      <span>成交/数量</span>
+      <span>类型</span>
     </div>
+    <!-- <ul class="vip-list">
+      <li>
+        <h2>华锋股份</h2>
+        <p>2018-3-26</p>
+      </li>
+      <li class="red">
+        <div class="num">9.213</div>
+      </li>
+      <li>
+        <p>10000</p>
+        <p>10000</p>
+      </li>
+      <li>成交</li>
+    </ul>
     <ul class="vip-list">
       <li>
         <h2>华锋股份</h2>
@@ -41,37 +55,17 @@
         <p>10000</p>
         <p>10000</p>
       </li>
-      <li>
-        <p>卖出</p>
-        <p>已成</p>
-      </li>
-    </ul>
-    <ul class="vip-list">
-      <li>
-        <h2>华锋股份</h2>
-        <p>2.020万</p>
-      </li>
-      <li class="red">
-        <div class="num">9.213</div>
-      </li>
-      <li>
-        <p>10000</p>
-        <p>10000</p>
-      </li>
-      <li>
-        <p class="buy">买入</p>
-        <p>已成</p>
-      </li>
-    </ul>
+      <li class="red">失败</li>
+    </ul> -->
   </section>
 </body>
 <script src="../script/zepto.js"></script>
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
-<script src="../script/loginIf_leon.js"></script>
+<script src="../script/placementList.js"></script>
 <script>
   apiready = function () {
-    $.binLib.loginUser();
+    $.binLib.todayDealList();
     this.downRefresh();
   }
 </script>

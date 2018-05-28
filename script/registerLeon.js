@@ -18,6 +18,12 @@ var register = {
     this.registerNext('changeSet');
     this.modifyPWdSaveClick();
   },
+  // 忘记交易密码
+  fyBuyPwd:function(){
+    // this.modifyPwd();
+    this.forgetTestCodeClick();
+    this.registerNext('setBuyPwd');
+  },
   //获取验证码事件
   testCodeClick: function () {
     $('#getTestCode').click(function () {
@@ -332,7 +338,7 @@ var register = {
         });
       }
     });
-  }
+  },
 }
 
 $.binLib.register = function () {
@@ -345,4 +351,8 @@ $.binLib.forgetPwd = function () {
 
 $.binLib.modifyPwd = function () {
   register.initModify();
+}
+
+$.binLib.modifyBuyPwd = function () {
+  register.fyBuyPwd();
 }

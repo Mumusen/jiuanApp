@@ -6,7 +6,7 @@
   <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
   />
   <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-  <title>设置交易密码</title>
+  <title>模拟交易-查询</title>
   <script src="../script/flexible.js"></script>
   <link rel="stylesheet" href="../css/api.css" />
   <link rel="stylesheet" href="../css/base.css">
@@ -15,20 +15,21 @@
 </head>
 
 <body>
-  <header id="header" class="index">
-    <div class="statusBar"></div>
-    <div class="content">
-      <i class="return-btn" onclick="closeWindow('setDeal')"></i>
-      设置交易密码
-    </div>
-  </header>
-  <section class="entrust-box user-box">
+  <section class="entrust-box">
     <ul>
-      <li onclick="openWindow('forgetDealPwd',{},'push')">
-        <span>忘记交易密码</span>
+      <li onclick="openWindow('todayEntrust',{},'push')">
+        <a href="">今日委托</a>
       </li>
-      <li onclick="openWindow('forgetSetDeal',{},'push')">
-        <span>修改交易密码</span>
+      <li onclick="openWindow('todayDeal',{},'push')">
+        <a href="">今日成交</a>
+      </li>
+    </ul>
+    <ul>
+      <li onclick="openWindow('historyEntrust',{},'push')">
+        <a href="">历史委托</a>
+      </li>
+      <li onclick="openWindow('historyDeal',{},'push')">
+        <a href="">历史成交</a>
       </li>
     </ul>
   </section>
