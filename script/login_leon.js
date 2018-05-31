@@ -30,41 +30,33 @@ var login = {
           }
         }, function (ret, err) {
           console.log(JSON.stringify(ret))
-          // console.log(JSON.stringify(ret.isCertification))
+          console.log(JSON.stringify(ret.isCertification))
           if (ret.success === true) {
             waitLoading.close(0);
-            var userId = ret.data;
+            var phone = ret.data;
+            var userId = ret.uuid;
             if (ret.isCertification == "2") {
               console.log("认证")
               var js = 'location.reload()';
+              console.log("登录"+JSON.stringify(userId))
               $api.setStorage('userId', userId);
+              $api.setStorage('phone', phone);
+              console.log(JSON.stringify($api.getStorage("userId")))
               var frame = $api.getStorage("frame");
+              setTimeout(function () {
+                closeWindow('login');
+              }, 10)
               api.execScript({
                 name: 'root',
                 frameName: frame,
                 script: js
               });
-              setTimeout(function () {
-                closeWindow('login');
-              }, 10)
             } else {
               console.log("未认证")
-              $api.setStorage('check', userId);
-              openWindow('check', {}, 'push');
-            }
-            // 查看用户是否审核通过
-            if(ret.userStatus == "1"){
-              // 未提交审核
-              localStorage.setItem("userStatus" , 1)
-            }else if(ret.userStatus == "2"){
-              // 审核ing
-              localStorage.setItem("userStatus" , 2)
-            }else if(ret.userStatus == "3"){
-              // 审核未通过
-              localStorage.setItem("userStatus" , 3)
-            }else if(ret.userStatus == "4"){
-              // 审核通过
-              localStorage.setItem("userStatus" , 4)
+              openWindow('check', {
+                phone:phone,
+                userId:userId
+              }, 'push');
             }
           } else {
             waitLoading.close(0);

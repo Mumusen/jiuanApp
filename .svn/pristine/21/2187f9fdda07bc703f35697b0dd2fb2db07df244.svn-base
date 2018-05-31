@@ -1,0 +1,678 @@
+.back {
+  height: 4rem;
+}
+
+.min {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.min .name {
+  text-align: center;
+  padding-top: 1.86667rem;
+}
+
+.min .name img {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  box-shadow: 0 0.05333rem 0.13333rem rgba(81, 71, 72, 0.8);
+}
+
+.min .name p {
+  font-size: 0.37333rem;
+}
+
+.min .box {
+  border-radius: 0.13333rem;
+  box-shadow: 0 0.02667rem 0.13333rem rgba(81, 71, 72, 0.35);
+  -moz-box-shadow: 0 0.02667rem 0.13333rem rgba(81, 71, 72, 0.35);
+  -webkit-box-shadow: 0 0.02667rem 0.13333rem rgba(81, 71, 72, 0.35);
+  margin: 0.4rem 0.4rem 0.26667rem;
+  background-color: #fff;
+}
+
+.min .box li {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-sizing: border-box;
+  height: 1.46667rem;
+  line-height: 1.46667rem;
+  font-size: 0.37333rem;
+}
+
+.min .box li .col-l {
+  -webkit-box-flex: 1;
+}
+
+.min .box li .col-l span {
+  float: right;
+  margin-right: 0.4rem;
+  color: #ea1f38;
+  font-family: 'Arial';
+}
+
+.min .box li .col-l u {
+  color: #ea1f38;
+  font-size: 0.32rem;
+  float: right;
+}
+
+.min .box li .col-rz {
+  color: #dedede;
+  margin-right: 0.53333rem;
+}
+
+.min .box li .col-l::before {
+  content: "";
+  float: left;
+  width: 0.53333rem;
+  height: 0.53333rem;
+  background: url(../image/user_icon_leon.png) no-repeat center;
+  background-size: cover;
+  background-position: 0 67%;
+  margin: 0.48rem 0.26667rem;
+}
+
+.min .box li .con-icon-new::before {
+  background-position: 0 51%;
+}
+
+.min .box li .con-icon-pwd::before {
+  background-position: 0 34%;
+}
+
+.min .box li .con-icon-about::before {
+  background-position: 0 18%;
+}
+
+.min .box li .con-icon-app::before {
+  background-position: 0 0;
+}
+
+.min .box li .con-icon-account::before {
+  background-position: 0 100%;
+}
+
+.min .box li .con-icon-sfz::before {
+  background-position: 0 100%;
+}
+
+.min .box li .col-btn {
+  padding: 0.54667rem 0.53333rem;
+}
+
+.min .box li .col-btn:before {
+  content: "";
+  display: block;
+  width: 0.2rem;
+  height: 0.37333rem;
+  background: url(../image/user_icon_right_leon.png) no-repeat center;
+  background-size: cover;
+}
+
+.min .box li:active {
+  background-color: #eee;
+}
+
+.about-back {
+  height: 0.93333rem;
+}
+
+.about-pic {
+  margin: 0 0.4rem;
+  height: 3.33333rem;
+  background: url(../image/about_pic_leon.jpg) no-repeat center;
+  background-size: cover;
+  border-radius: 0.13333rem;
+  margin-top: 1.86667rem;
+}
+
+.min .about-box {
+  padding: 0.4rem 0;
+  background-color: #ea1f38;
+  color: #fff;
+  box-shadow: none;
+}
+
+.min .about-box li {
+  height: 0.8rem;
+  line-height: 0.8rem;
+}
+
+.min .about-box li .col-l::before {
+  width: 0.53333rem;
+  height: 0.53333rem;
+  background: url(../image/about_icon_leon.png) no-repeat 0 0;
+  background-size: cover;
+  margin: 0.21333rem 0.53333rem;
+}
+
+.min .about-box li:hover {
+  background-color: #d3bc89;
+}
+
+.min .about-box li:nth-child(2) .col-l::before {
+  background-position: 0 35%;
+}
+
+.min .about-box li:nth-child(3) .col-l::before {
+  background-position: 0 70%;
+}
+
+.min .about-box li:nth-child(4) .col-l::before {
+  background-position: 0 100%;
+}
+
+.about-txt {
+  margin: 0 0.4rem;
+}
+
+.about-txt .tit {
+  font-size: 0.37333rem;
+  padding-top: 0.66667rem;
+}
+
+.about-txt .tit b {
+  font-weight: 600;
+}
+
+.about-txt h3 {
+  height: 0.50667rem;
+  line-height: 0.50667rem;
+  color: #ff0000;
+  text-align: center;
+  font-size: 0.42667rem;
+  position: relative;
+  margin: 0.46667rem 0;
+}
+
+.about-txt h3:before, .about-txt h3:after {
+  content: '';
+  width: 0.53333rem;
+  height: 0.02667rem;
+  background-color: #ff0000;
+  position: absolute;
+  top: 50%;
+}
+
+.about-txt h3:before {
+  left: 32%;
+}
+
+.about-txt h3:after {
+  right: 32%;
+}
+
+.about-txt p {
+  font-size: 0.37333rem;
+  color: #666;
+  text-indent: 0.74667rem;
+  line-height: 1.6;
+}
+
+.trait h4 {
+  font-size: 0.37333rem;
+  padding-left: 0.96rem;
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+
+.trait h4:after {
+  content: '';
+  width: 0.26667rem;
+  height: 0.26667rem;
+  background-color: #6088ee;
+  position: absolute;
+  left: 0;
+  top: 0.13333rem;
+  transform: rotate(45deg);
+}
+
+.trait h4:nth-child(4):after {
+  background-color: #f4af41;
+}
+
+.trait h4:nth-child(6):after {
+  background-color: #ff6767;
+}
+
+.trait p {
+  text-indent: 0;
+  padding: 0 0 0.4rem 0.96rem;
+}
+
+.bot {
+  padding: 0.53333rem 0;
+}
+
+.bot p {
+  text-align: center;
+  font-size: 0.32rem;
+  color: #666;
+}
+
+.change-box {
+  margin: 0.8rem 1.06667rem;
+}
+
+.change-box .change-input {
+  width: 100%;
+  display: flex;
+  -webkit-box-sizing: border-box;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  margin-top: 0.4rem;
+  font-size: 0.42667rem;
+}
+
+.change-box .change-input input {
+  -webkit-box-flex: 1;
+  text-indent: 0.4rem;
+  padding: 0.44rem 0;
+  color: #666;
+}
+
+.change-box .change-input button {
+  min-width: 2.13333rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  color: #ea1f38;
+}
+
+.change-box .change-input button.on {
+  color: #ea1f38;
+}
+
+.change-box .change-input i {
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url(../image/login_icon_leon.png) no-repeat center;
+  background-position: 0 0;
+  background-size: 0.48rem;
+  display: block;
+  margin: 0.4rem 0.13333rem;
+}
+
+.change-box .change-input .iocn-phone {
+  background-position: 0 100%;
+}
+
+.change-box .tel-input input {
+  width: 60%;
+}
+
+.forget-deal button {
+  margin-top: 3.2rem;
+}
+
+.forget-deal p {
+  color: #2ea6ef;
+  float: right;
+  font-size: 0.37333rem;
+  padding-top: 0.53333rem;
+}
+
+.change-btn {
+  width: 5.33333rem;
+  height: 1.17333rem;
+  border-radius: 0.58667rem;
+  border: 1px solid #ea1f38;
+  display: block;
+  font-size: 0.42667rem;
+  color: #ea1f38;
+  margin: 2.66667rem auto 0;
+}
+
+.btn-off {
+  border-color: #bfbfbf;
+  color: #bfbfbf;
+}
+
+.follow .box {
+  border-radius: 0.13333rem;
+  box-shadow: 0 1px 10px rgba(81, 71, 72, 0.35);
+  margin: 0.4rem 0.4rem 0.26667rem;
+  padding: 0.53333rem;
+  background-color: #fff;
+}
+
+.follow .box .tit, .follow .box .txt, .follow .box .day {
+  width: 100%;
+  display: -webkit-box;
+}
+
+.follow .box .txt, .follow .box .day {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+}
+
+.follow .box .tit {
+  height: 0.69333rem;
+  line-height: 0.69333rem;
+  -webkit-box-sizing: border-box;
+}
+
+.follow .box .tit h3 {
+  font-size: 0.42667rem;
+  -webkit-box-flex: 1;
+}
+
+.follow .box .tit i {
+  padding-left: 0.53333rem;
+  display: block;
+}
+
+.follow .box .tit i:before {
+  content: "";
+  display: block;
+  width: 0.69333rem;
+  height: 0.69333rem;
+  background: url(../image/icon_follow_no.png) no-repeat center;
+  background-size: cover;
+}
+
+.follow .box .txt {
+  padding-bottom: 0.53333rem;
+}
+
+.follow .box .txt p {
+  font-size: 0.32rem;
+}
+
+.follow .box .txt p span {
+  color: #999;
+  font-size: 0.29333rem;
+  padding-left: 0.32rem;
+}
+
+.follow .box .txt p:nth-child(2) {
+  color: #39c922;
+}
+
+.follow .box .txt p:nth-child(2) span {
+  color: #39c922;
+  font-size: 0.37333rem;
+  font-family: 'Arial';
+  padding-left: 0;
+}
+
+.follow .box .txt p:nth-child(2) span:nth-child(1) {
+  padding-right: 0.4rem;
+}
+
+.follow .box .red p:nth-child(2) {
+  color: #ea1f38;
+}
+
+.follow .box .red p:nth-child(2) span {
+  color: #ea1f38;
+}
+
+.follow .box .day p {
+  display: block;
+  height: 0.61333rem;
+  line-height: 0.61333rem;
+  font-size: 0.32rem;
+  color: #999;
+}
+
+.follow .box .day p u {
+  color: #ea1f38;
+  font-size: 0.48rem;
+  padding-left: 0.26667rem;
+}
+
+.layer-del {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.layer-del .layer-del-box {
+  background-color: #fff;
+  width: 5.33333rem;
+  padding: 0.66667rem 0.4rem;
+  border-radius: 0.26667rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -3.06667rem;
+  top: 40%;
+  text-align: center;
+}
+
+.layer-del .layer-del-box p {
+  font-size: 0.42667rem;
+  color: #ea1f38;
+}
+
+.layer-del .layer-del-box .btn {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  margin-top: 0.53333rem;
+}
+
+.layer-del .layer-del-box .btn a {
+  display: block;
+  width: 2.4rem;
+  height: 1.06667rem;
+  line-height: 1.06667rem;
+  border: 0.02667rem solid #d0ba89;
+  color: #ea1f38;
+  border-radius: 0.53333rem;
+  font-size: 0.42667rem;
+}
+
+.list, .list-choice {
+  display: none;
+}
+
+.por .title {
+  z-index: 99;
+  box-shadow: none;
+}
+
+.por .list {
+  padding-top: 1.06667rem;
+  display: none;
+}
+
+.por .list p {
+  text-align: center;
+  font-family: 'Arial';
+  font-size: 0.32rem;
+  margin: 0.13333rem 0;
+  color: #999;
+}
+
+.por .list li {
+  min-height: 2.4rem;
+}
+
+.por .list li .btn {
+  top: 35%;
+}
+
+.por .list .day {
+  font-family: 'Arial';
+  font-size: 0.32rem;
+  text-align: center;
+  padding-bottom: 0.26667rem;
+  color: #999;
+}
+
+.por .list .li {
+  width: 8.4rem;
+  height: 0.8rem;
+  min-height: 0.26667rem;
+  line-height: 0.4rem;
+  left: 0.4rem;
+  box-shadow: 0.02667rem 0.02667rem 0.08rem rgba(81, 71, 72, 0.28);
+  -moz-box-shadow: 0.02667rem 0.02667rem 0.08rem rgba(81, 71, 72, 0.28);
+  -webkit-box-shadow: 0.02667rem 0.02667rem 0.08rem rgba(81, 71, 72, 0.28);
+  padding: 0.4rem;
+  border-radius: 0.13333rem;
+  font-size: 0.37333rem;
+}
+
+.por .read .li {
+  color: #dedede;
+}
+
+.por .reading .li p {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.system-list {
+  margin: 0 0.4rem;
+  padding-top: 1.2rem;
+}
+
+.system-list li {
+  margin-bottom: 0.26667rem;
+}
+
+.system-list li p {
+  text-align: center;
+  padding-bottom: 0.13333rem;
+  color: #999;
+  font-size: 0.32rem;
+  font-family: 'Arial';
+}
+
+.system-list li .li {
+  padding: 0.4rem;
+  background-color: #fff;
+  border-radius: 0.13333rem;
+  box-shadow: 0.02667rem 0.02667rem 0.08rem rgba(81, 71, 72, 0.28);
+  -moz-box-shadow: 0.02667rem 0.02667rem 0.08rem rgba(81, 71, 72, 0.28);
+  -webkit-box-shadow: 0.02667rem 0.02667rem 0.08rem rgba(81, 71, 72, 0.28);
+}
+
+.agreement {
+  padding: 0 0.4rem;
+  font-size: 0.48rem;
+}
+
+.agreement h2 {
+  font-size: 0.48rem;
+  font-weight: 600;
+  padding: 0.8rem 0 0.66667rem 0;
+}
+
+.account {
+  margin: 0 0.4rem;
+}
+
+.account ul {
+  padding-top: 0.26667rem;
+}
+
+.account ul li {
+  width: 100%;
+  height: 1.46667rem;
+  line-height: 1.46667rem;
+  display: -webkit-box;
+  -webkit-box-sizing: border-box;
+}
+
+.account ul li .col-l {
+  -webkit-box-flex: 1;
+}
+
+.account ul li .col-l em {
+  float: right;
+  color: #ea1f38;
+}
+
+.account ul li .col-l .color {
+  color: #333;
+}
+
+.account ul li .col-l::before {
+  content: "";
+  float: left;
+  margin: 0.33333rem 0.4rem 0 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: url(../image/wechat_icon.png) no-repeat 0 100%;
+  background-size: 0.8rem;
+}
+
+.account ul li .col-iphone-icon::before {
+  background-position: 0 0;
+}
+
+.account ul li .col-btn {
+  padding: 0.54667rem 0 0 0.26667rem;
+}
+
+.account ul li .col-btn:before {
+  content: "";
+  display: block;
+  width: 0.2rem;
+  height: 0.37333rem;
+  background: url(../image/user_icon_right_leon.png) no-repeat center;
+  background-size: cover;
+}
+
+.check-box-bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999999999999;
+}
+
+.check-box {
+  width: 5.94667rem;
+  height: 7.2rem;
+  position: relative;
+  top: 30%;
+  left: 50%;
+  margin-left: -2.97333rem;
+  background-color: #fff;
+  border-radius: 0.26667rem;
+  z-index: 999999;
+}
+
+.check-box .btn {
+  position: absolute;
+  bottom: 0.8rem;
+  width: 4.26667rem;
+  height: 1.04rem;
+  line-height: 1.04rem;
+  background-color: #ea1f38;
+  border-radius: 0.53333rem;
+  font-size: 0.37333rem;
+  left: 50%;
+  margin-left: -2.13333rem;
+  text-align: center;
+  color: #fff;
+  font-family: 'pinfangBold';
+  box-shadow: 0 0.13333rem 0.26667rem rgba(234, 31, 56, 0.6);
+}
+
+.check-box::before {
+  content: "";
+  width: 3.78667rem;
+  height: 5.92rem;
+  background: url(../image/check_pic.png) no-repeat center;
+  background-size: 100%;
+  position: absolute;
+  left: 50%;
+  top: -1.33333rem;
+  margin-left: -1.89333rem;
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>模拟交易-卖出</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/vip.css">
+</head>
+
+<body>
+  <section class="vip-min">
+    <div class="vip-min-control vip-min-sell">
+      <div class="box">
+        <input type="text" placeholder="请输入股票名称或代码" id="searchStocks">
+        <ul class="search-list" id="searchContent"></ul>
+      </div>
+      <div class="box number-btn-box">
+        <input type="tel" id="openPrice">
+        <i class="reduce-icon"></i>
+        <i class="puls-icon"></i>
+      </div>
+      <div class="box-txt">
+        <span id="downLimit">跌停 --</span>
+        <span id="upLimit">涨停 --</span>
+      </div>
+      <div class="box box-txt box-txt-num">
+        <input type="tel" placeholder="数量（股）" id="buyNumBtn">
+        <span id="buyNum">可买：--</span>
+      </div>
+      <div class="box box-btn-br">
+        <div class="box-btn" id="numStockBtn">
+          <span data-code="0">全仓</span>
+          <span data-code="1">1/2仓</span>
+          <span data-code="2">1/3仓</span>
+        </div>
+      </div>
+      <button id="btnDeal" data-deal="1">卖入</button>
+    </div>
+    <div class="vip-min-list">
+      <ul class="sell-list">
+        <li>
+          <span>卖1</span>
+          <span id="askPrice1">--</span>
+          <span id="askVolume1">--</span>
+        </li>
+        <li>
+          <span>卖2</span>
+          <span id="askPrice2">--</span>
+          <span id="askVolume2">--</span>
+        </li>
+        <li>
+          <span>卖3</span>
+          <span id="askPrice3">--</span>
+          <span id="askVolume3">--</span>
+        </li>
+        <li>
+          <span>卖4</span>
+          <span id="askPrice4">--</span>
+          <span id="askVolume4">--</span>
+        </li>
+        <li>
+          <span>卖5</span>
+          <span id="askPrice5">--</span>
+          <span id="askVolume5">--</span>
+        </li>
+      </ul>
+      <ul class="buy-list">
+        <li>
+          <span>买1</span>
+          <span id="bidPrice1">--</span>
+          <span id="bidVolume1">--</span>
+        </li>
+        <li>
+          <span>买2</span>
+          <span id="bidPrice2">--</span>
+          <span id="bidVolume2">--</span>
+        </li>
+        <li>
+          <span>买3</span>
+          <span id="bidPrice3">--</span>
+          <span id="bidVolume3">--</span>
+        </li>
+        <li>
+          <span>买4</span>
+          <span id="bidPrice4">--</span>
+          <span id="bidVolume4">--</span>
+        </li>
+        <li>
+          <span>买5</span>
+          <span id="bidPrice5">--</span>
+          <span id="bidVolume5">--</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section>
+    <div class="webkit">
+      <span>名称/市值</span>
+      <span>盈亏/比例</span>
+      <span>持仓/可用</span>
+      <span>成本/现价</span>
+    </div>
+    <ul class="vip-list" id="holdStockList">
+      <!-- <li>
+        <h2>华锋股份</h2>
+        <p>2.020万</p>
+      </li>
+      <li class="red">
+        <p>1546.26</p>
+        <p>200.36%</p>
+      </li>
+      <li>
+        <p>10000</p>
+        <p>10000</p>
+      </li>
+      <li>
+        <p>2.000</p>
+        <p>2.000</p>
+      </li> -->
+    </ul>
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/analog_bus.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.analogBuy();
+  }
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>历史委托</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/vip.css">
+  <link rel="stylesheet" href="../css/day_time.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" onclick="closeWindow('historyEntrust')"></i>
+      历史委托
+    </div>
+  </header>
+  <section class="cancel-boxs" id="todayEntrustList">
+    <div class="time-box" id="simpleList">
+      <div class="rise">
+        <h3>起始时间</h3>
+        <input id="timeStar" type="text" readonly="" name="input_date" placeholder="日期选择" />
+      </div>
+      <div class="end">
+        <h3>截止日期</h3>
+        <input id="timeEnd" type="text" readonly="" name="input_date" placeholder="日期选择" />
+      </div>
+      <div class="query" id="queryBtn" data-btn="0">
+        <span>查询</span>
+      </div>
+    </div>
+    <div class="webkit">
+      <span>名称/时间</span>
+      <span>委托价格</span>
+      <span>持仓/成交</span>
+      <span>类型/状态</span>
+    </div>
+    <!-- <ul class="vip-list">
+      <li>
+        <h2>华锋股份</h2>
+        <p>2018-3-26</p>
+      </li>
+      <li class="red">
+        <div class="num">9.213</div>
+      </li>
+      <li>
+        <p>10000</p>
+        <p>10000</p>
+      </li>
+      <li>
+        <p>卖出</p>
+        <p>已成</p>
+      </li>
+    </ul>
+    <ul class="vip-list">
+      <li>
+        <h2>华锋股份</h2>
+        <p>2.020万</p>
+      </li>
+      <li class="red">
+        <div class="num">9.213</div>
+      </li>
+      <li>
+        <p>10000</p>
+        <p>10000</p>
+      </li>
+      <li>
+        <p class="buy">买入</p>
+        <p>已成</p>
+      </li>
+    </ul> -->
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script src="../script/lCalendar.js"></script>
+<script src="../script/placementList.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.historyEntruse();
+  }
+</script>
+
+</html>

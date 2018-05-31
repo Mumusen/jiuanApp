@@ -5,8 +5,12 @@ var check = {
   },
   checkBtn: function () {
     var $this = this;
+    var pageParm = api.pageParam;
+    var phone = pageParm.phone;
+    var userId = pageParm.userId;
     var realName = $('#realName');
     var idNumber = $('#idNumber');
+    console.log(realName,idNumber);
     $('#nextStep').click(function (e) {
       e.stopPropagation();
       e.preventDefault();
@@ -19,7 +23,7 @@ var check = {
           message: '身份证号格式错误'
         })
       } else {
-        $this.stepOneAjax(idNumber.val(), realName.val());
+        $this.stepOneAjax(idNumber.val(), realName.val(),phone,userId);
       }
     })
   },
@@ -30,23 +34,23 @@ var check = {
       return false;
     }
   },
-  stepOneAjax: function (idCard, realName) {
+  stepOneAjax: function (idCard, realName,phone,userId) {
     var $this = this;
-    var phone = $api.getStorage("check");
+    console.log(idCard,realName,phone,userId)
     api.ajax({
       url: url() + 'member_index/certification',
       data: {
         values: {
           idCard: idCard,
           realName: realName,
-          qutouPhone: $api.getStorage("check")
+          qutouPhone: $api.getStorage("phone")
         }
       }
     }, function (ret, err) {
-      console.log(JSON.stringify(ret));
+      console.log("身份证认证"+JSON.stringify(ret));
       if (ret.success === true) {
         $api.setStorage('userId', phone);
-        $api.rmStorage('check');
+        $api.rmStorage('userId',userId);
         commonAlertWindow({
           message: '认证成功'
         })
@@ -57,6 +61,8 @@ var check = {
           frameName: 'frame0',
           script: js
         });
+        $api.setStorage('userId', userId);
+        $api.setStorage('phone', phone);
         setTimeout(function () {
           api.closeToWin({
             name: 'root'
@@ -68,17 +74,7 @@ var check = {
         })
       }
     });
-  },
-  // checkIf: function () {
-  //   var check = $api.getStorage("check");
-  //   var $this = this;
-  //   if (check === "true") {
-  //     $("#nextStep").addClass("change-btn-no");
-  //     $("input").attr("disabled", false)
-  //   } else {
-  //     $this.checkBtn();
-  //   }
-  // }
+  }
 }
 
 $.binLib.checkInit = function () {

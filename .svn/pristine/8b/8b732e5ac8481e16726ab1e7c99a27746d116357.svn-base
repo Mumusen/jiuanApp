@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>个股详情</title>
+    <script src="../script/flexible.js"></script>
+
+    <link rel="stylesheet" href="../css/api.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/frame.css">
+    <link rel="stylesheet" href="../css/frame_leon.css">
+    <link rel="stylesheet" href="../css/reset-lwj.css">
+    <link rel="stylesheet" href="../css/style-lwj.css">
+</head>
+<body>
+<header id="header" class="index themeHeader">
+    <div class="statusBar"></div>
+    <div class="content">
+        <i class="return-btn" onclick="closeWindow('stockDetails')"></i>
+        <div class="stockCol">
+            <span class="stockName" id="stockName"></span><br>
+            <span class="stockCode" id="stockCode"></span>
+        </div>
+        <span class="stockAttention" id="stockAttention"></span>
+    </div>
+</header>
+<div class="stockFixed">
+    <div class="themeHead"></div>
+    <div class="dataShow clearfix">
+        <div class="leftNumber fl">
+            <span id="currentPrice"></span>
+            <span class="clearfix">
+                <b class="valColor" id="changePrice"></b>
+                <b class="percentage" id="changeRate"></b>
+            </span>
+            <span class="status" id="status"></span>
+        </div>
+        <div class="rightNumber fr">
+            <div class="topNum">
+                <span>
+                    今开<br>
+                    <b  id="openPrice"></b>
+                </span>
+                <span>
+                    昨收<br>
+                    <b class="colorRed" id="preclosePrice"></b>
+                </span>
+                <span>
+                    成交额(万元)<br>
+                    <b class="colorRed" id="businessBalance"></b>
+                </span>
+            </div>
+            <div class="botNum">
+                <span>
+                    最高<br>
+                    <b id="highPrice"></b>
+                </span>
+                <span>
+                    最低<br>
+                    <b id="lowPrice"></b>
+                </span>
+                <span>
+                    成交量(手)<br>
+                    <b class="colorRed" id="businessAmount"></b>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="mainStockDetails">
+    <div class="chartSelectContainr">
+        <div class="btnColumn">
+            <div class="col active"><span>分时</span></div>
+            <!--<div class="col"><span>五日</span></div>-->
+            <div class="col"><span>日K</span></div>
+        </div>
+        <div class="bigChartsBox">
+            <div class="firstChart allChart active">
+                <div class="chartsContainer" id="firstChartsContainer" style="height:5rem;width:100%">
+                    <div class="noData"></div>
+                </div>
+               <!-- <div class="chartsContainer" id="amountContainer" style="height:3.2rem;width:100%">
+                </div>-->
+            </div>
+           <!-- <div class="allChart">
+                <div class="chartsContainer" id="fiveTimeCharts"></div>
+                <div class="chartsContainer" id="fiveTimeBotCharts"></div>
+            </div>-->
+            <div class="allChart">
+                <div class="chartsContainer" id="dayKCharts"></div>
+                <div class="chartsContainer" id="dayKBotCharts"></div>
+            </div>
+        </div>
+    </div>
+    <div class="secondChart">
+        <div class="titleShow">所属概念</div>
+        <div class="chartsContainer" id="secondChartsContainer">
+            <div class="noData"></div>
+        </div>
+    </div>
+    <!--最新龙虎榜-->
+    <div class="newestBillboard">
+        <div class="title-column clearfix">
+            <div class="column-left fl">
+                <span>最新龙虎榜</span>
+            </div>
+            <div class="column-right fr">
+                <span class="show-date">
+                    <b id="showDate"><i class="month"></i><i class="time"></i></b>
+                    <i id="icon-list" class="icon-list"></i>
+                </span>
+                <div class="popupsList" id="popups">
+                    <div class="trig"></div>
+                    <ul id="con-list">
+                        <!--<li>2017-10-4</li>
+                        <li>2017-10-5</li>
+                        <li>2017-10-6</li>
+                        <li>2017-10-5</li>
+                        <li>2017-10-6</li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="showDepartment">
+            <div class="btnColumn">
+                <span class="active">买入</span>
+                <span>卖出</span>
+            </div>
+            <div class="departmentBox showAll">
+                <div class="all buyIn active">
+                    <div class="showItem clearfix">
+                        <span class="fl">席位</span>
+                        <span class="fr">金额(万)</span>
+                    </div>
+                    <ul>
+                        <!--<li class="clearfix" onclick="openWindow('businessDepartmentDetails',{},'push')">
+                            <span>上海江苏路证券营业四大防控垃圾啊数量大幅拉升的房价as部</span>
+                            <span>992.13</span>
+                        </li>-->
+                    </ul>
+                    <div class="noData"></div>
+                </div>
+                <div class="all saleOut">
+                    <div class="showItem clearfix">
+                        <span class="fl">席位</span>
+                        <span class="fr">金额(万)</span>
+                    </div>
+                    <ul>
+                        <!--<li class="clearfix" onclick="openWindow('businessDepartmentDetails',{},'push')">
+                            <span>上海江苏路证券营业部</span>
+                            <span>992.13</span>
+                        </li>-->
+                    </ul>
+                    <div class="noData"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="bind-mark"></div>
+<input type="hidden" id="saveCode" value="">
+<input type="hidden" id="saveDate" value="">
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/echarts.min.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/common_lwj.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/stockDetails.js"></script>
+<script>
+    apiready = function () {
+        autoAjax();
+        stockDetails.init();
+    }
+    $('.btnColumn span').on('click',function(){
+        $('.btnColumn span').removeClass('active');
+        $('.showAll div.all').removeClass('active');
+        $(this).addClass('active');
+        $('.showAll div.all').eq($(this).index()).addClass('active');
+    })
+</script>
+</html>

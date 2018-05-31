@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>模拟交易-查询</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/vip.css">
+</head>
+
+<body>
+  <section class="entrust-box">
+    <ul>
+      <li onclick="openWindow('todayEntrust',{},'push')">
+        <span href="">今日委托</span>
+      </li>
+      <li onclick="openWindow('todayDeal',{},'push')">
+        <span>今日成交</span>
+      </li>
+    </ul>
+    <ul>
+      <li onclick="openWindow('historyEntrust',{},'push')">
+        <span>历史委托</span>
+      </li>
+      <li onclick="openWindow('historyDeal',{},'push')">
+        <span>历史成交</span>
+      </li>
+    </ul>
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+</html>

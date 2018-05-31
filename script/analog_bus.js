@@ -1,93 +1,4 @@
 var analog = {
-  // 外框切换
-  initIndexWin: function () {
-    // this.loginAnalog();
-    this.inputBuyPassWord();//临时
-    this.exitClearInterval();
-  },
-  //打开operationGroup
-  openFrameGroup: function () {
-    var holdStockList = api.pageParam.holdStockList;
-    var personAsset = api.pageParam.personAsset;
-    var stockCode = api.pageParam.stockCodeClick;
-    var stockName = api.pageParam.stockNameClick;
-    api.openFrameGroup({
-      name: 'analog',
-      rect: {
-        x: 0,
-        y: 108,
-        w: api.winWidth,
-        h: 'auto'
-      },
-      scrollEnabled: false,
-      frames: [{
-        name: 'analog0',
-        url: 'analog0.html',
-        pageParam: {
-          holdStockList: holdStockList,
-          stockName: stockName,
-          stockCode: stockCode
-        }
-      }, {
-        name: 'analog1',
-        url: 'analog1.html',
-        pageParam: {
-          holdStockList: holdStockList,
-          stockName: stockName,
-          stockCode: stockCode
-        }
-      }, {
-        name: 'analog2',
-        url: 'analog2.html',
-        pageParam: {
-          holdStockList: holdStockList,
-          personAsset: personAsset
-        }
-      }, {
-        name: 'analog3',
-        url: 'analog3.html'
-      }, {
-        name: 'analog4',
-        url: 'analog4.html'
-      }]
-    }, function (ret, err) {
-    });
-  },
-  //点击我的交易五大操作栏，显示对应的页面
-  frameGroupResponse: function () {
-    var pageParam = api.pageParam;
-    var opaIndex = pageParam.opaIndex;
-    api.setFrameGroupIndex({
-      name: 'analog',
-      index: opaIndex
-    });
-    var liIndex = $('.header-title li');
-    var liContent = liIndex.eq(opaIndex).find('a').html();
-
-    liIndex.eq(opaIndex).find('a').addClass('active');
-    liIndex.eq(opaIndex).siblings().find('a').removeClass('active');
-  },
-  //frame组点击切换
-  frameGroupClick: function () {
-    $('.header-title').on('click', 'li', function () {
-      var i = $(this).attr('data-index');
-      var liContent = $(this).find('a').html();
-      $(this).find('a').addClass('active');
-      $(this).siblings().find('a').removeClass('active');
-      api.setFrameGroupIndex({
-        name: 'analog',
-        index: i
-      });
-    })
-  },
-  //退出界面关闭定时器
-  exitClearInterval: function () {
-    var $this = this;
-    $('.exitWindow').click(function () {
-      clearInterval($this.timer);
-      closeWindow("analog");
-    });
-  },
   // 定时器 请求股票
   timeAjaxStock: function (code) {
     var $this = this;
@@ -104,268 +15,20 @@ var analog = {
     if ($("#openPrice").val() != "") {
       var code = $("#searchStocks").attr('data-code');
       console.log("单股查询数据", JSON.stringify(code))
-      // $this.stockAjaxTime(code);
       $this.stockBtnAjax(code);
     }
   },
-  // 请求
-  stockAjaxTime: function (code) {
-    console.log(JSON.stringify(code))
-    var $this = this;
-    var waitLoading = new WaitLoading();
-    waitLoading.open();
-    var data = { securityCode: code };
-    console.log(JSON.stringify(data))
-    api.ajax({
-      url: url3() + 'openapi/v1/queryMarketDataBySecurityCode',
-      data: {
-        values: {
-          paraJson: JSON.stringify(data)
-        }
-      }
-    }, function (ret, err) {
-      console.log("请求", JSON.stringify(ret))
-      // var ret = ret.info.result;
-      // if (ret.suspensionFlag == false) {
-      //   $("#downLimit").html('跌停' + ret.downLimit);
-      //   $("#upLimit").html('涨停' + ret.upLimit);
-      //   $("#openPrice").val(ret.openPrice);//现价
-      //   $("#askPrice1").html(parseInt(ret.askPrice1));//卖1价
-      //   $("#askVolume1").html(parseInt(ret.askVolume1));//卖1量
-      //   $("#askPrice2").html(parseInt(ret.askPrice2));//卖2价
-      //   $("#askVolume2").html(parseInt(ret.askVolume2));//卖2量
-      //   $("#askPrice3").html(parseInt(ret.askPrice3));//卖3价
-      //   $("#askVolume3").html(parseInt(ret.askVolume3));//卖3量
-      //   $("#askPrice4").html(parseInt(ret.askPrice4));//卖4价
-      //   $("#askVolume4").html(parseInt(ret.askVolume4));//卖4量
-      //   $("#askPrice5").html(parseInt(ret.askPrice5));//卖5价
-      //   $("#askVolume5").html(parseInt(ret.askVolume5));//卖5量
-      //   $("#bidPrice1").html(parseInt(ret.bidPrice1));//买1价
-      //   $("#bidVolume1").html(parseInt(ret.bidVolume1));//买1量
-      //   $("#bidPrice2").html(parseInt(ret.bidPrice2));//买2价
-      //   $("#bidVolume2").html(parseInt(ret.bidVolume2));//买2量
-      //   $("#bidPrice3").html(parseInt(ret.bidPrice3));//买3价
-      //   $("#bidVolume3").html(parseInt(ret.bidVolume3));//买3量
-      //   $("#bidPrice4").html(parseInt(ret.bidPrice4));//买4价
-      //   $("#bidVolume4").html(parseInt(ret.bidVolume4));//买4量
-      //   $("#bidPrice5").html(parseInt(ret.bidPrice5));//买5价
-      //   $("#bidVolume5").html(parseInt(ret.bidVolume5));//买5量
-      //   // 查可买量
-      //   // $("#buyNum").html(ret.buyNum);
-      //   $this.canBuyNumber();
-      //   waitLoading.close();
-      //   $this.timeAjaxStock(code);
-      // } else {
-      //   waitLoading.close();
-      //   commonAlertWindow({
-      //     message: "已停牌"
-      //   });
-      // }
-    });
-  },
-  // 用户校验 状态
-  loginAnalog: function () {
-    var $this = this;
-    var DOM1 =
-      '  <div class="stateLayer">' +
-      '    <div class="box">' +
-      '      <button id="openBtn">去 开 通</button>' +
-      '      <i class="exitWindow"></i>' +
-      '    </div>' +
-      '  </div>';
-    var DOM2 =
-      '  <div class="stateLayer">' +
-      '    <div class="box state-4">' +
-      '      <button>再 次 申 请</button>' +
-      '      <i class="exitWindow"></i>' +
-      '    </div>' +
-      '  </div>';
-    var DOM3 =
-      '  <div class="stateLayer">' +
-      '    <div class="box state-2">' +
-      '      <div class="txt">' +
-      '        <p>正在为您加塞审批</p>' +
-      '        <p>请耐心等候</p>' +
-      '      </div>' +
-      '      <i class="exitWindow"></i>' +
-      '    </div>' +
-      '  </div>';
-    var DOM4 =
-      '  <div class="stateLayer">' +
-      '    <div class="box box-pwd">' +
-      '      <h2>输入交易密码</h2>' +
-      '      <div class="pwd-control" id="payPwd">' +
-      '          <div class="box-control">' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '          </div>' +
-      '      </div>' +
-      '      <button id="buyBtnAjax" data-code="0">确 定</button>' +
-      '      <p onclick="openWindow(\'forgetDealPwd\',{},\'push\')">忘记密码?</p>' +
-      '      <i class="exitWindow"></i>' +
-      '    </div>' +
-      '  </div>';
-    var DOM5 =
-      '  <div class="stateLayer">' +
-      '    <div class="box box-pwd">' +
-      '      <h2>输入交易密码</h2>' +
-      '      <div class="pwd-control" id="payPwd">' +
-      '          <div class="box-control">' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
-      '          </div>' +
-      '      </div>' +
-      '      <button id="buyBtnAjax" data-code="1">确 定</button>' +
-      '      <p onclick="openWindow(\'forgetDealPwd\',{},\'push\')">忘记密码?</p>' +
-      '      <i class="exitWindow"></i>' +
-      '    </div>' +
-      '  </div>';
-    var userPhone = localStorage.getItem("userId");
-    api.ajax({
-      url: url() + 'userManager/checkUserStatusByPhone',
-      data: {
-        values: {
-          // phone: localStorage.getItem("userId")
-          phone: '18310499911'
-        }
-      }
-    }, function (ret, err) {
-      if (ret.success) {
-        if (ret.userStatus == "1") {
-          // 未提交审核
-          $("body").append(DOM1);
-          $("#openBtn").click(function () {
-            $(".stateLayer").remove();
-            $("body").append(DOM4);
-            $this.analogSetDeal();
-          })
-        } else if (ret.userStatus == "2") {
-          // 审核ing
-          $("body").append(DOM3);
-        } else if (ret.userStatus == "3") {
-          // 审核未通过
-          $("body").append(DOM2);
-        } else if (ret.userStatus == "4") {
-          // 审核通过
-          console.log("审核通过");
-          $("body").append(DOM5);
-          $this.analogSetDeal();
-
-        }
-      } else {
-        commonAlertWindow({
-          message: ret.errMsg
-        });
-        closeWindow('analog');
-      }
-    })
-  },
-  // 校验交易密码
-  analogSetDeal: function () {
-    var pwd = "";
-    var $this = this;
-    $("#payPwd").payPwd({
-      max: 6,
-      type: "password",
-      callback: function (arr) {
-        $("#inputtype").html(arr);
-        pwd = arr;
-      }
-    })
-    $("#buyBtnAjax").click(function () {
-      if ($(this).attr("data-code") == "0") {
-        console.log("init")
-        $this.loginSetBuy(pwd);
-      } else {
-        console.log("input")
-        $this.inputBuyPassWord(pwd);
-      }
-    })
-  },
-  // 校验交易密码是否正确
-  inputBuyPassWord: function (pwd) {
-    var $this = this;
-    console.log("校验交易密码是否正确" + JSON.stringify(pwd));
-    // if (pwd == "" || pwd == undefined) {
-    //   commonAlertWindow({
-    //     message: "请输入6位</br>交易密码"
-    //   });
-    // } else {
-    var phone = localStorage.getItem("userId");
-    var pwd = pwd;
-    console.log("输入" + phone, pwd);
-    var data = { userName: 'test01', passWord: '111111' };
-    api.ajax({
-      url: url3() + "openapi/v1/login",
-      data: {
-        values: {
-          paraJson: JSON.stringify(data)
-        }
-      }
-    }, function (ret, err) {
-      console.log("登录" + JSON.stringify(ret))
-      if (ret.info.rescode == "success") {
-        console.log("验证成功")
-        $(".stateLayer").remove();
-        commonAlertWindow({
-          message: "验证成功"
-        });
-        var token = ret.info.result.accessToken;
-        console.log(JSON.stringify(token));
-        localStorage.setItem("token", token)
-        $this.openFrameGroup();
-        $this.frameGroupResponse();
-        $this.frameGroupClick();
-        $this.exitClearInterval();
-      }
-    })
-    // }
-  },
-  loginSetBuy: function (pwd) {
-    console.log(JSON.stringify(pwd))
-    if (pwd == "" || pwd == undefined) {
-      commonAlertWindow({
-        message: "请输入6位</br>交易密码"
-      });
-    } else {
-      var phone = localStorage.getItem('userId');
-      var data = { userName: 'test01', passWord: pwd };
-      console.log("设置密码" + JSON.stringify(data));
-      api.ajax({
-        url: url3() + 'openapi/v1/login',
-        data: {
-          values: {
-            paraJson: JSON.stringify(data)
-          }
-        }
-      }, function (ret, err) {
-        if (ret.success) {
-          var token = ret.token;
-          localStorage.setItem('token', token);
-        }
-        commonAlertWindow({
-          message: "提交成功</br>等待审核"
-        });
-        setTimeout(function () {
-          closeWindow('analog');
-        }, 2000)
-      })
-    }
-  },
-  // 买卖
+  // 买
   buyList: function () {
     this.queryAllSecurityModel();
     this.queryAjax();
-    this.btnDealAjax();
     this.queryHoldStockList(1);
+    this.btnDealAjax();
+  },
+  // 卖
+  buyList: function () {
+    this.queryHoldStockList(1);
+    this.btnDealAjax();
   },
   // 持仓
   HoldStock: function () {
@@ -378,7 +41,7 @@ var analog = {
       url: url3() + 'stock/QueryAllSecurityModel',
     }, function (ret, err) {
       var sotckArray = JSON.stringify(ret);
-      localStorage.setItem('sotckArray', sotckArray);
+      $api.setStorage('sotckArray', sotckArray);
     });
   },
   // 模糊查询
@@ -416,7 +79,7 @@ var analog = {
   stockSearch: function (param) {
     var html = '';
     var searchContent = $('#searchContent');
-    var sotckArray = JSON.parse(localStorage.getItem('sotckArray'));
+    var sotckArray = JSON.parse($api.getStorage('sotckArray'));
     // console.log(JSON.stringify(sotckArray))
     var filterArr = sotckArray.filter(function (item) {
       return item.data.indexOf(param) !== -1 || item.name.indexOf(param) !== -1;
@@ -442,7 +105,7 @@ var analog = {
     var data = { securityCode: code };
     // console.log(JSON.stringify(data))
     api.ajax({
-      // 乌当查询 单独服务器 与其他接口不一样
+      // 查询 单独服务器 与其他接口不一样
       url: 'http://md.icaopan.com/openapi/queryMarketDataBySecurityCode',
       data: {
         values: {
@@ -480,10 +143,15 @@ var analog = {
           $("#bidVolume5").html(parseInt(ret.bidVolume5));//买5量
           // 查可买量
           // $("#buyNum").html(ret.buyNum);
-          $this.canBuyNumber();
+          if ($("#buyNum").attr("data-type") == "0") {
+            $this.canBuyNumber();
+          } else {
+            $this.cansellNumber(code);
+          }
           waitLoading.close();
           $this.timeAjaxStock(code);
-        }else{
+          $this.buyNumBtn();
+        } else {
           commonAlertWindow({
             message: "已停牌"
           });
@@ -498,7 +166,7 @@ var analog = {
   // 可买量
   canBuyNumber: function () {
     var $this = this;
-    var token = localStorage.getItem("token");
+    var token = $api.getStorage("token");
     var data = { token: token };
     console.log("传参:" + data)
     api.ajax({
@@ -520,6 +188,33 @@ var analog = {
         var buyNub = Math.floor(cashAvailableAmount / buy) - Math.floor(cashAvailableAmount / buy) % 100;
         $("#buyNum").html("可买：" + buyNub);
         $this.numStockBtn(buyNub);
+      }
+    })
+  },
+  // 可卖量
+  cansellNumber: function (stockCode) {
+    var $this = this;
+    var token = $api.getStorage("token");
+    var data = { token: token, stockCode: stockCode };
+    console.log("传参:" + data)
+    api.ajax({
+      url: url3() + 'openapi/v1/queryHoldedStockByStockCode',
+      data: {
+        values: {
+          paraJson: JSON.stringify(data)
+        }
+      }
+    }, function (ret, err) {
+      console.log("可卖量" + JSON.stringify(ret));
+      if (ret.info.rescode == "success") {
+        if (ret.info.result.availableAmount != null) {
+          var availableAmount = ret.info.result.availableAmount;
+          $("#buyNum").html("可卖：" + availableAmount);
+          $this.numStockBtn(availableAmount);
+        } else {
+          $("#buyNum").html("可卖：" + 0);
+          $("#buyNumBtn").val('0');
+        }
       }
     })
   },
@@ -564,15 +259,16 @@ var analog = {
   },
   //股票委托交易 买/卖
   btnDealAjax: function () {
+    var $this = this;
     $("#btnDeal").click(function () {
-      var token = localStorage.getItem('token');
+      var token = $api.getStorage('token');
       // var token = 'token';
       var sellOrBuy = $(this).attr("data-deal");
       var stockCode = $("#searchStocks").attr("data-code");
       var price = $("#openPrice").val() * 1;
       var quantity = $("#buyNumBtn").val();
       var priceBuy = quantity % 100;
-      console.log("100:" + JSON.stringify(priceBuy))
+      console.log("买卖类型" + JSON.stringify(sellOrBuy));
       if (stockCode == "") {
         commonAlertWindow({
           message: "请选择交易股票"
@@ -589,47 +285,54 @@ var analog = {
         commonAlertWindow({
           message: "至少100股<br>且为100的整数倍"
         });
+      } else if (quantity == "0") {
+        commonAlertWindow({
+          message: "请购买"
+        });
       } else {
         var waitLoading = new WaitLoading();
         // waitLoading.open();
-        console.log(token, stockCode, quantity, sellOrBuy, price)
-        //用户token//股票代码//委托数量//交易方向，0：买入，1：卖出//委托价格
-        var data = { token: token, stockCode: stockCode, quantity: quantity, sellOrBuy: sellOrBuy, price: price };
-        api.ajax({
-          url: url3() + 'openapi/v1/doPlacementStockTrade',
-          data: {
-            values: {
-              paraJson: JSON.stringify(data)
-            }
-          }
-        }, function (ret, err) {
-          console.log("ret" + JSON.stringify(ret))
-          console.log("err" + JSON.stringify(err))
-          if (ret.info.rescode == "success") {
-            // console.log(JSON.stringify(ret.info.result))
-            commonAlertWindow({
-              message: ret.info.result
-            });
-            $("#buyNumBtn").val("");
-          } else if (ret.info.rescode == "login") {
-
-            // console.log(JSON.stringify(err))
-          } else {
-            commonAlertWindow({
-              message: ret.info.result
-            });
-          }
-        })
+        console.log("用户token", token, '股票代码', stockCode, '委托数量', quantity, '交易方向，0：买入，1：卖出', sellOrBuy, '委托价格', price);
+        // $this.checkBuyPwdDom();
+        $this.transactionAjax(token, stockCode, quantity, sellOrBuy, price);
+      }
+    })
+  },
+  // 交易买卖 委托请求
+  transactionAjax: function (token, stockCode, quantity, sellOrBuy, price) {
+    //用户token//股票代码//委托数量//交易方向，0：买入，1：卖出//委托价格
+    var $this = this;
+    var data = { token: token, stockCode: stockCode, quantity: quantity, sellOrBuy: sellOrBuy, price: price };
+    api.ajax({
+      url: url3() + 'openapi/v1/doPlacementStockTrade',
+      data: {
+        values: {
+          paraJson: JSON.stringify(data)
+        }
+      }
+    }, function (ret, err) {
+      console.log("ret" + JSON.stringify(ret))
+      console.log("err" + JSON.stringify(err))
+      if (ret.info.rescode == "success") {
+        // console.log(JSON.stringify(ret.info.result))
+        commonAlertWindow({
+          message: ret.info.result
+        });
+        $("#buyNumBtn").val("");
+      } else {
+        commonAlertWindow({
+          message: ret.info.result
+        });
       }
     })
   },
   // 持仓查询列表
   queryHoldStockList: function (pageNo) {
-    // var token = localStorage.getItem('token');
+    // var token = $api.getStorage('token');
     var $this = this;
-    var token = 'token';
+    // var token = 'token';
     var html = "";
-    var token = localStorage.getItem("token");
+    var token = $api.getStorage("token");
     var data = { token: token, pageNo: pageNo, pageSize: '5' }
     if (token != '') {
       api.ajax({
@@ -652,6 +355,7 @@ var analog = {
             html += $this.holdStockDom(msg);
           }
           $("#holdStockList").append(html);
+          $this.btnStockCode();
         }
       })
     }
@@ -660,29 +364,47 @@ var analog = {
     var html = classRed = '';
     if (msg.marketProfit > 0) { classRed = 'red'; }
     html =
-      '<li>' +
-      '        <h2>' + msg.securityName + '</h2>' +
-      '        <p>' + msg.marketValue + '万</p>' +
-      '      </li>' +
-      '      <li class="' + classRed + '">' +
-      '        <p>' + returnFloat(msg.marketProfit) + '</p>' +
-      '        <p>' + returnFloat(msg.marketProfitPercent) + '%</p>' +
-      '      </li>' +
-      '      <li>' +
-      '        <p>' + msg.amount + '</p>' +
-      '        <p>' + msg.availableAmount + '</p>' +
-      '      </li>' +
-      '      <li>' +
-      '        <p>' + returnFloat(msg.costPrice) + '</p>' +
-      '        <p>' + returnFloat(msg.latestPrice) + '</p>' +
-      '      </li>';
+      '<ul class="vip-list btnStockCode" data-code="' + msg.securityCode + '" data-sotck="' + msg.securityName + '" data-num="' + msg.availableAmount + '">' +
+      '   <li>' +
+      '      <h2>' + msg.securityName + '</h2>' +
+      '      <p>' + unitConvert(msg.marketValue) + '</p>' +
+      '   </li>' +
+      '   <li class="' + classRed + '">' +
+      '      <p>' + unitConvert(msg.marketProfit) + '</p>' +
+      '      <p>' + returnFloat(msg.marketProfitPercent) + '%</p>' +
+      '   </li>' +
+      '   <li>' +
+      '      <p>' + msg.amount + '</p>' +
+      '      <p>' + msg.availableAmount + '</p>' +
+      '   </li>' +
+      '   <li>' +
+      '     <p>' + returnFloat(msg.costPrice) + '</p>' +
+      '     <p>' + returnFloat(msg.latestPrice) + '</p>' +
+      '   </li>' +
+      '</ul>';
     return html;
+  },
+  btnStockCode: function () {
+    var $this = this;
+    $(".btnStockCode").click(function () {
+      console.log(JSON.stringify($(this).attr("data-code")));
+      var code = $(this).attr("data-code");
+      var stockName = $(this).attr("data-sotck") + " " + code;
+      var num = $(this).attr("data-num");
+      $this.btnStockCodeAjax(stockName, num, code);
+    })
+  },
+  btnStockCodeAjax: function (stockName, num, code) {
+    $("#searchStocks").val(stockName);
+    $("#searchStocks").attr('data-code', code)
+    $("#buyNumBtn").val(num);
+    this.stockBtnAjax(code);
   },
   // 用户资产查询
   queryStockBalance: function () {
     var $this = this;
-    // var token = localStorage.getItem('token');
-    var token = localStorage.getItem("token");
+    // var token = "token";
+    var token = $api.getStorage("token");
     var data = { token: token };
     if (token != '') {
       api.ajax({
@@ -693,11 +415,13 @@ var analog = {
           }
         }
       }, function (ret, err) {
-        // console.log(JSON.stringify(ret));
+        console.log(JSON.stringify(ret));
         if (ret.info.rescode == "success") {
           var msg = ret.info.result;
           html = $this.queryStockDom(msg);
           $("#analogUser").append(html);
+        } else if (ret.info.rescode == "login") {
+          $this.tokenPwdAjaxTime();
         } else {
           commonAlertWindow({
             message: "网络异常"
@@ -751,8 +475,8 @@ var analog = {
   cancelList: function () {
     var $this = this;
     var html = "";
-    // var token = localStorage.getItem('token');
-    var token = localStorage.getItem("token");
+    // var token = $api.getStorage('token');
+    var token = $api.getStorage("token");
     var data = { token: token }
     api.ajax({
       url: url3() + 'openapi/v1/queryCurrentDayPlacementNotEnd',
@@ -809,7 +533,95 @@ var analog = {
       '</ul>';
     return html;
   },
-
+  // token 过期重新输入交易密码
+  tokenPwdAjaxTime: function () {
+    var DOM =
+      '  <div class="stateLayer check-layer">' +
+      '    <div class="box box-pwd">' +
+      '      <h2>输入交易密码</h2>' +
+      '      <div class="pwd-control" id="payPwdTime">' +
+      '          <div class="box-control">' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '              <div class="flex-1 item"><input maxlength="1" type="tel"></div>' +
+      '          </div>' +
+      '      </div>' +
+      '      <button id="buyBtnAjax" data-code="1">确 定</button>' +
+      '      <p onclick="openWindow(\'forgetDealPwd\',{},\'push\')">忘记密码?</p>' +
+      '      <i class="exitWindow"></i>' +
+      '    </div>' +
+      '  </div>';
+    $("body").append(DOM);
+    this.analogSetDeal();
+  },
+  // 校验交易密码
+  analogSetDeal: function () {
+    var pwd = "";
+    var $this = this;
+    $("#payPwdTime").payPwd({
+      max: 6,
+      type: "password",
+      callback: function (arr) {
+        // $("#inputtype").html(arr);
+        pwd = arr;
+      }
+    })
+    $("#buyBtnAjax").click(function () {
+      $this.inputBuyPassWord(pwd);
+    })
+    $(".exitWindow").click(function(){
+      $(".check-layer").remove();
+    })
+  },
+  // 校验交易密码是否正确
+  inputBuyPassWord: function (pwd) {
+    var $this = this;
+    console.log("校验交易密码是否正确" + JSON.stringify(pwd));
+    if (pwd == "" || pwd == undefined) {
+      commonAlertWindow({
+        message: "请输入6位</br>交易密码"
+      });
+    } else {
+      var phone = $api.getStorage("phone");
+      // var pwd = pwd;
+      console.log("输入" + phone, pwd);
+      var data = { userName: phone, passWord: pwd };
+      // var data = { userName: "test01", passWord: "111111" };
+      api.ajax({
+        url: url3() + "openapi/v1/login",
+        data: {
+          values: {
+            paraJson: JSON.stringify(data)
+          }
+        }
+      }, function (ret, err) {
+        console.log("登录" + JSON.stringify(ret))
+        if (ret.info.rescode == "success") {
+          console.log("验证成功")
+          $(".stateLayer").remove();
+          commonAlertWindow({
+            message: "验证成功"
+          });
+          var token = ret.info.result.accessToken;
+          console.log(JSON.stringify(token));
+          $api.setStorage("token", token);
+          setTimeout(function () {
+            window.location.reload();
+          }, 2000);
+        } else {
+          commonAlertWindow({
+            message: "密码错误"
+          });
+          setTimeout(function () {
+            $this.tokenPwdAjaxTime();
+          }, 2000)
+        }
+      })
+    }
+  },
 }
 // 买卖交易
 $.binLib.analogBuy = function () {

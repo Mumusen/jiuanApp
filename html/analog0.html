@@ -32,7 +32,7 @@
       </div>
       <div class="box box-txt box-txt-num">
         <input type="tel" placeholder="数量（股）" id="buyNumBtn">
-        <span id="buyNum">可买：--</span>
+        <span id="buyNum" data-type="0">可买：--</span>
       </div>
       <div class="box box-btn-br">
         <div class="box-btn" id="numStockBtn">
@@ -107,33 +107,18 @@
       <span>持仓/可用</span>
       <span>成本/现价</span>
     </div>
-    <ul class="vip-list" id="holdStockList">
-      <!-- <li>
-        <h2>华锋股份</h2>
-        <p>2.020万</p>
-      </li>
-      <li class="red">
-        <p>1546.26</p>
-        <p>200.36%</p>
-      </li>
-      <li>
-        <p>10000</p>
-        <p>10000</p>
-      </li>
-      <li>
-        <p>2.000</p>
-        <p>2.000</p>
-      </li> -->
-    </ul>
+    <div id="holdStockList"></div>
   </section>
 </body>
 <script src="../script/zepto.js"></script>
 <script src="../script/api.js"></script>
 <script src="../script/common.js"></script>
 <script src="../script/analog_bus.js"></script>
+<script src="../script/buyKey.js"></script>
 <script>
   apiready = function () {
     $.binLib.analogBuy();
+    this.downRefresh();
   }
 </script>
 

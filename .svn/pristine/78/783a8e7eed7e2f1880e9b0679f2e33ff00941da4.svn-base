@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>首页</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/frame_leon.css">
+</head>
+
+<body>
+  <div class="barTopStu"></div>
+  <div class="min">
+    <i class="user-btn" id="loginBtn"></i>
+    <i class="search-btn" onclick="openWindow('moreThemeRankingSearch',{},'push')"></i>
+    <ul class="box" id="sectionExponential"></ul>
+  </div>
+  <!-- 今日领涨/跌概念 -->
+  <div class="theme">
+    <div class="title">
+      <p id="tabBox">
+        <span class="active">今日领涨概念</span>
+        <span>今日领跌概念</span>
+      </p>
+      <div class="box-btn">
+        <div class="more-btn" onclick="openWindow('moreThemeRankings',{},'push')"></div>
+      </div>
+    </div>
+    <ul class="rise" id="upTheme"></ul>
+    <ul class="rise rise-down" id="duTheme"></ul>
+  </div>
+  <!-- 最新资讯 -->
+  <div class="info">
+    <div class="title">最新资讯</div>
+    <div id="newsList"></div>
+  </div>
+  <a href="#" class="btn-more-news">点击查看更多资讯</a>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/index.js"></script>
+<script src="../script/loginIf_leon.js"></script>
+<script src="../script/infor_leon.js"></script>
+<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+
+<script>
+  apiready = function () {
+    $.binLib.loginUser();
+    // $.binLib.indexTheme();
+    // $.binLib.inforAjaxBtn();
+    this.downRefresh();
+    scroLL();
+    $(".btn-more-news").click(function () {
+      api.execScript({
+        name: 'root',
+        script: '$("#footer .flex-wrap li:last-child").addClass("active").siblings().removeClass("active")'
+      })
+      api.setFrameGroupIndex({
+        name: 'group',
+        index: 4,
+        reload: true
+      });
+    })
+    autoAjax();
+    // axios.post('http://106.75.20.234/openapi/v1/login', {
+    //   params: {
+    //     paraJson: JSON.stringify(data)
+    //   }
+    // })
+    //   .then(function (response) {
+    //     console.log(JSON.stringify(response.data.info.result));
+    //   })
+    //   .catch(function (err) {
+    //     console.log(err);
+    //   });
+    // var data = {"header":{"action":"U092","code":"0","devicetype":"3","msgtype":0,"sendingtime":"2018-05-28-09:47:18.008","version":"1.0.01"},"phone":"13325718723","password":"a906449d5769fa7361d7ecc6aa3f6d28"};
+    // api.ajax({
+    //   url: 'http://192.168.0.225:8080/registration/loginMthodForClient',
+    //   data: {
+    //     values: {
+    //       body: JSON.stringify(data)
+    //     }
+    //   }
+    // }, function (ret, err) {
+    //   console.log("ret"+JSON.stringify(ret))
+    //   console.log("err"+JSON.stringify(err))
+    // })
+  };
+</script>
+
+</html>

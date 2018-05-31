@@ -1,10 +1,10 @@
 var placement = {
   // 当日委托
   todayPlacement: function () {
-    // var token = localStorage.getItem('token');
+    // var token = $api.getStorage('token');
     var html = "";
     var $this = this;
-    var token = localStorage.getItem("token");
+    var token = $api.getStorage("token");
     var data = { token: token };
     api.ajax({
       url: url3() + 'openapi/v1/queryPlacementCurrentDayList',
@@ -25,6 +25,7 @@ var placement = {
         if(html != ""){
           $("#todayEntrustList").append(html);
         }else{
+          $(".noDataBj").remove();
           $("#todayEntrustList").append('<div class="noDataBj"></div>');
         }
       } else {
@@ -71,7 +72,7 @@ var placement = {
   queryFillList: function (page) {
     var html = "";
     var $this = this;
-    var token = localStorage.getItem("token");
+    var token = $api.getStorage("token");
     var data = { token: token, page: page, pageSize: '10' };
     api.ajax({
       url: url3() + 'openapi/v1/queryFillCurrentDayByPage',
@@ -92,6 +93,7 @@ var placement = {
         if(html != ""){
           $("#todayDealList").append(html);
         }else{
+          $(".noDataBj").remove();
           $("#todayDealList").append('<div class="noDataBj"></div>');
         }
       } else {
@@ -157,7 +159,7 @@ var placement = {
       var timeStar = $("#timeStar").val();
       var timeEnd = $("#timeEnd").val();
       var btn = $(this).attr("data-btn");
-      var token = localStorage.getItem("token");
+      var token = $api.getStorage("token");
     // console.log("time",timeStar,timeEnd);
       if (timeStar != "" && timeEnd != "") {
         console.log("time", timeStar, timeEnd);

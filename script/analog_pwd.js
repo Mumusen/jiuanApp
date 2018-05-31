@@ -6,8 +6,8 @@ var analog = {
         url: url() + 'userManager/checkUserStatusByPhone',
         data: {
           values: {
-            // phone: localStorage.getItem("userId")
-            phone: '18310499911'
+            phone: $api.getStorage("userId")
+            // phone: '18310499911'
           }
         }
       }, function (ret, err) {
@@ -52,7 +52,7 @@ var analog = {
     $("#registerConfirm").click(function () {
       var pwd = $("#userPassword");
       var pwdCon = $("#userPasswordConfirm");
-      var userId = localStorage.getItem('userId');
+      var userId = $api.getStorage('userId');
       if (testNull(pwd) || testNull(pwdCon)) {
         commonAlertWindow({
           message: '输入不能为空'
@@ -72,7 +72,8 @@ var analog = {
             method: 'post',
             data: {
               values: {
-                sessionId: '18310499911',
+                // sessionId: '18310499911',
+                sessionId: $api.getStorage("userId"),
                 tradePwd: pwdCon.val()
               }
             }
@@ -102,7 +103,8 @@ var analog = {
               values: {
                 sysUserName: 'admin',
                 sysPwd: 'Lever_2018',
-                userName: '18310499911',
+                // userName: '18310499911',
+                userName: $api.getStorage("phone"),
                 pwd: pwdCon.val()
               }
             }
@@ -142,8 +144,8 @@ var analog = {
   tradeBuyPwd:function(){
     $("#registerBtn").click(function(){
       var pwd = $("#tradePwd");
-      // var userId = localStorage.getItem('userId');
-      var userId = '18310499911';
+      var userId = $api.getStorage('userId');
+      // var userId = '18310499911';
       if (testNull(pwd)) {
         commonAlertWindow({
           message: '输入不能为空'
@@ -163,12 +165,12 @@ var analog = {
             }
           }
         }, function (ret, err) {
-          console.log("修改密码"+JSON.stringify(ret));
+          console.log("校验旧密码"+JSON.stringify(ret));
           if(ret.success === true){
-            console.log('1111');
-            openWindow('forgetSetDeal', {}, 'push');
+            console.log('校验旧密码通过');
+            openWindow('setBuyPwd', {}, 'push');
           }else{
-            console.log('2222');
+            console.log('校验旧密码失败');
             $("#forgetTxt").show();
             commonAlertWindow({
               message: '密码错误</br>请重新输入'
@@ -194,9 +196,9 @@ var analog = {
           url: url() + 'member/mobileSendMessageService',
           data: {
             values: {
-              // phone: $('#userPhone').val(),
-              phone: '18310499911',
-              tradeSms: 'tradeSms'
+              phone: $('#userPhone').val(), 
+              // phone: '18310499911',
+              tradeSms: 1
             }
           }
         }, function (ret, err) {

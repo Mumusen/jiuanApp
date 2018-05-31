@@ -8,20 +8,20 @@ var register = {
   //忘记密码-重置
   initForgetPwd: function () {
     this.forgetTestCodeClick();
-    this.registerNext('resetPwd');
+    this.registerNextFor('resetPwd');
     this.resetPWdSaveClick();
   },
   // 修改密码
   initModify: function () {
     this.modifyPwd();
-    this.forgetTestCodeClick();
+    this.forgetTestCodeClickUuid();
     this.registerNext('changeSet');
     this.modifyPWdSaveClick();
   },
   // 忘记交易密码
-  fyBuyPwd:function(){
+  fyBuyPwd: function () {
     // this.modifyPwd();
-    this.forgetTestCodeClick();
+    this.forgetTestCodeClickUuid();
     this.registerNext('setBuyPwd');
   },
   //获取验证码事件
@@ -64,7 +64,7 @@ var register = {
       }
     });
   },
-  //获取验证码倒计时
+  //获取验证码倒计时  //phone
   forgetTestCodeClick: function () {
     $('#getTestCode').click(function () {
       console.log("获取验证码倒计时")
@@ -105,9 +105,55 @@ var register = {
       }
     });
   },
-  //注册/忘记  下一步
+  //获取验证码倒计时 //uuid
+  forgetTestCodeClickUuid: function () {
+    $('#getTestCode').click(function () {
+      console.log("获取验证码倒计时"+$('#userPhone'))
+      var $$this = $(this);
+      if (testNull($('#userPhone').val())) {
+        commonAlertWindow({
+          message: '手机号不能为空'
+        })
+      } else {
+        console.log($('#userPhone').val())
+        api.ajax({
+          url: url() + 'member/mobileSendMessageService',
+          data: {
+            values: {
+              phone:$api.getStorage('userId'),
+              sms_code_type: 'update_telphone'
+            }
+          }
+        }, function (ret, err) {
+          console.log("获取验证码" + JSON.stringify(ret))
+          //向后台发起ajax请求，如果获取成功
+          if (ret.status == 200) {
+            commonAlertWindow({
+              message: '发送成功'
+            })
+            testCode($$this);
+            //如果不成功
+          } else if (ret.status == 201) {
+            commonAlertWindow({
+              message: ret.remark
+            })
+          } else {
+            commonAlertWindow({
+              message: '发送失败'
+            })
+          }
+        });
+      }
+    });
+  },
+  //注册 下一步
   registerNext: function (win) {
-    var userPhone = $('#userPhone');
+    var userPhone = $('#userPhone').val();
+    var phone = /^1([38]\d|4[57]|5[0-35-9]|7[06-8]|8[89])\d{8}$/;
+    if (phone.test(userPhone)) {
+      userPhone = $api.getStorage("phone");
+    }
+    console.log("下一步设置密码" + JSON.stringify(userPhone))
     var testCode = $('#testCode');
     $('#registerBtn').click(function () {
       console.log("下一步")
@@ -121,7 +167,7 @@ var register = {
           method: 'post',
           data: {
             values: {
-              phone: userPhone.val(),
+              phone: userPhone,
               captcha: testCode.val()
             }
           }
@@ -132,6 +178,48 @@ var register = {
               userPhone: userPhone.val(),
               testCode: testCode.val()
             }, 'push');
+            //如果不成功
+          } else if (ret.success == false) {
+            commonAlertWindow({
+              message: ret.errMsg
+            })
+          } else {
+            commonAlertWindow({
+              message: '操作有误'
+            })
+          }
+        });
+
+      }
+    })
+  },
+  // 忘记  下一步
+  registerNextFor: function (win) {
+    var userPhone = $('#userPhone');
+    var testCode = $('#testCode');
+    $('#registerBtn').click(function () {
+      console.log("忘记下一步")
+      if (testNull(userPhone) || testNull(testCode)) {
+        commonAlertWindow({
+          message: '输入不能为空'
+        });
+      } else {
+        api.ajax({
+          url: url() + 'registration/registrationForApp',
+          method: 'post',
+          data: {
+            values: {
+              phone: $('#userPhone').val(),
+              captcha: $('#testCode').val()
+            }
+          }
+        }, function (ret, err) {
+          console.log(JSON.stringify(ret))
+          if (ret.success == true) {
+            openWindow(win, {
+              userPhone: userPhone.val(),
+              testCode: testCode.val()
+            }, 'push');;
             //如果不成功
           } else if (ret.success == false) {
             commonAlertWindow({
@@ -168,7 +256,7 @@ var register = {
           message: '两次输入的密码' + '</br>' + '不同,请重新输入'
         })
       } else {
-        console.log("重置密码" + pageParam.userPhone + userPwd.val())
+        console.log("重置密码" + pageParam.userPhone + userPwd.val() ,userPwdCon.val())
         api.ajax({
           url: url() + 'find_password/mobileCheckpasswordByLink',
           method: 'post',
@@ -265,14 +353,15 @@ var register = {
   },
   // 修改密码-设定手机号
   modifyPwd: function () {
+    var phone = $api.getStorage("phone");
     var userId = $api.getStorage("userId");
     // var userId = '18310499939';
     // console.log(userId)
-    $('#userPhone').val(userId);
+    $('#userPhone').val(phone);
     $('#userPhone').attr("readOnly", false);
     // console.log($('#userPhone').val())
   },
-  // //修改密码保存事件
+  //修改密码保存事件
   modifyPWdSaveClick: function () {
     var pageParam = api.pageParam;
     var userId = $api.getStorage("userId");

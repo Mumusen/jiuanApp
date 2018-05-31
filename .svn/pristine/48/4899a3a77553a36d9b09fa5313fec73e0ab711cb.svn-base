@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>今日成交</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/vip.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" onclick="closeWindow('todayDeal')"></i>
+      今日成交
+    </div>
+  </header>
+  <section class="cancel-boxs" id="todayDealList">
+    <div class="webkit">
+      <span>名称/时间</span>
+      <span>成交金额</span>
+      <span>成交/数量</span>
+      <span>类型</span>
+    </div>
+    <!-- <ul class="vip-list">
+      <li>
+        <h2>华锋股份</h2>
+        <p>2018-3-26</p>
+      </li>
+      <li class="red">
+        <div class="num">9.213</div>
+      </li>
+      <li>
+        <p>10000</p>
+        <p>10000</p>
+      </li>
+      <li>成交</li>
+    </ul>
+    <ul class="vip-list">
+      <li>
+        <h2>华锋股份</h2>
+        <p>2018-3-26</p>
+      </li>
+      <li class="red">
+        <div class="num">9.213</div>
+      </li>
+      <li>
+        <p>10000</p>
+        <p>10000</p>
+      </li>
+      <li class="red">失败</li>
+    </ul> -->
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/placementList.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.todayDealList();
+    this.downRefresh();
+  }
+</script>
+
+</html>

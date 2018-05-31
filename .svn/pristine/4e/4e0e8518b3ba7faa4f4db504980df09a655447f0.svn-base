@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"
+  />
+  <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+  <title>密码设置</title>
+  <script src="../script/flexible.js"></script>
+  <link rel="stylesheet" href="../css/api.css" />
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/frame.css">
+  <link rel="stylesheet" href="../css/vip.css">
+</head>
+
+<body>
+  <header id="header" class="index">
+    <div class="statusBar"></div>
+    <div class="content">
+      <i class="return-btn" onclick="closeWindow('analogUser')"></i>
+      交易密码设置
+    </div>
+  </header>
+  <section class="entrust-box user-box">
+    <ul>
+      <li id="ifPwdBtn">
+        <span>设置交易密码</span>
+      </li>
+      <li onclick="openWindow('changePwd',{},'push')">
+        <span>修改登录密码</span>
+      </li>
+    </ul>
+  </section>
+</body>
+<script src="../script/zepto.js"></script>
+<script src="../script/api.js"></script>
+<script src="../script/common.js"></script>
+<script src="../script/analog_pwd.js"></script>
+<script>
+  apiready = function () {
+    $.binLib.ifPwdAnalog();
+  }
+</script>
+
+</html>

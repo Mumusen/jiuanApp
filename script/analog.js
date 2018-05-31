@@ -1,8 +1,8 @@
 var operation = {
   // 外框切换
   initIndexWin: function () {
-    // this.loginAnalog();
-    this.inputBuyPassWord();//临时
+    this.loginAnalog();
+    // this.inputBuyPassWord();//临时
     this.exitClearInterval();
   },
   //打开operationGroup
@@ -152,45 +152,55 @@ var operation = {
       '      <i class="exitWindow"></i>' +
       '    </div>' +
       '  </div>';
-    var userPhone = localStorage.getItem("userId");
-    api.ajax({
-      url: url() + 'userManager/checkUserStatusByPhone',
-      data: {
-        values: {
-          // phone: localStorage.getItem("userId")
-          phone: '18310499911'
+    var userId = $api.getStorage("userId");
+    console.log("用户校验"+JSON.stringify(userId))
+    if(userId != null || userId != undefined){
+      api.ajax({
+        url: url() + 'userManager/checkUserStatusByPhone',
+        data: {
+          values: {
+            phone: userId
+            // phone: '18310499911'
+          }
         }
-      }
-    }, function (ret, err) {
-      if (ret.success) {
-        if (ret.userStatus == "1") {
-          // 未提交审核
-          $("body").append(DOM1);
-          $("#openBtn").click(function () {
-            $(".stateLayer").remove();
-            $("body").append(DOM4);
+      }, function (ret, err) {
+        console.log("用户状态"+JSON.stringify(ret))
+        if (ret.success) {
+          if (ret.userStatus == "1") {
+        //     // 未提交审核
+            $("body").append(DOM1);
+            $("#openBtn").click(function () {
+              $(".stateLayer").remove();
+              $("body").append(DOM4);
+              $this.analogSetDeal();
+            })
+          } else if (ret.userStatus == "2") {
+            // 审核ing
+            $("body").append(DOM3);
+          } else if (ret.userStatus == "3") {
+            // 审核未通过
+            $("body").append(DOM2);
+          } else if (ret.userStatus == "4") {
+            // 审核通过
+            console.log("审核通过");
+            $("body").append(DOM5);
             $this.analogSetDeal();
-          })
-        } else if (ret.userStatus == "2") {
-          // 审核ing
-          $("body").append(DOM3);
-        } else if (ret.userStatus == "3") {
-          // 审核未通过
-          $("body").append(DOM2);
-        } else if (ret.userStatus == "4") {
-          // 审核通过
-          console.log("审核通过");
-          $("body").append(DOM5);
-          $this.analogSetDeal();
-   
+          }
+        } else {
+          commonAlertWindow({
+            message: "系统异常"
+          });
+          closeWindow('analog');
         }
-      } else {
-        commonAlertWindow({
-          message: ret.errMsg
-        });
-        closeWindow('analog');
-      }
-    })
+      })
+    }else{
+      commonAlertWindow({
+        message: "请登录"
+      });
+      setTimeout(function(){
+        openWindow('login', {}, 'push');
+      },2000)
+    }
   },
   // 校验交易密码
   analogSetDeal: function () {
@@ -200,7 +210,7 @@ var operation = {
       max: 6,
       type: "password",
       callback: function (arr) {
-        $("#inputtype").html(arr);
+        // $("#inputtype").html(arr);
         pwd = arr;
       }
     })
@@ -218,15 +228,16 @@ var operation = {
   inputBuyPassWord: function (pwd) {
     var $this = this;
     console.log("校验交易密码是否正确"+JSON.stringify(pwd));
-    // if (pwd == "" || pwd == undefined) {
-    //   commonAlertWindow({
-    //     message: "请输入6位</br>交易密码"
-    //   });
-    // } else {
-      var phone = localStorage.getItem("userId");
-      var pwd = pwd;
+    if (pwd == "" || pwd == undefined) {
+      commonAlertWindow({
+        message: "请输入6位</br>交易密码"
+      });
+    } else {
+      var phone = $api.getStorage("phone");
+      // var pwd = pwd;
       console.log("输入"+ phone, pwd);
-      var data = { userName: 'test01', passWord: '111111' };
+      var data = { userName: phone, passWord: pwd };
+      // var data = { userName: "test01", passWord: "111111" };
       api.ajax({
         url: url3() + "openapi/v1/login",
         data:{
@@ -244,15 +255,16 @@ var operation = {
           });
           var token = ret.info.result.accessToken;
           console.log(JSON.stringify(token));
-          localStorage.setItem("token", token)
+          $api.setStorage("token", token)
           $this.openFrameGroup();
           $this.frameGroupResponse();
           $this.frameGroupClick();
           $this.exitClearInterval();
         }
       })
-    // }
+    }
   },
+  // 设置交易密码
   loginSetBuy: function (pwd) {
     console.log(JSON.stringify(pwd))
     if (pwd == "" || pwd == undefined) {
@@ -260,27 +272,34 @@ var operation = {
         message: "请输入6位</br>交易密码"
       });
     } else {
-      var phone = localStorage.getItem('userId');
-      var data = { userName: 'test01', passWord: pwd };
-      console.log("设置密码"+JSON.stringify(data));
+      var phone = $api.getStorage('phone');
+      console.log("设置密码", phone, pwd);
       api.ajax({
-        url: url3() + 'openapi/v1/login',
+        url: url3() + 'userManager/saveTradePassword',
         data: {
           values: {
-            paraJson:JSON.stringify(data)
+            sessionId:phone,
+            tradePwd:pwd
           }
         }
       }, function (ret, err) {
-        if(ret.success){
-          var token = ret.token;
-          localStorage.setItem('token', token);
+        console.log("设置交易密码"+JSON.stringify(ret))
+        if(ret.rescode = "success"){
+          $(".stateLayer").remove();
+          commonAlertWindow({
+            message: "提交成功</br>等待审核"
+          });
+          setTimeout(function () {
+            closeWindow('analog');
+          }, 2000)
+        }else{
+          commonAlertWindow({
+            message: "提交失败"
+          });
+          setTimeout(function () {
+            closeWindow('analog');
+          }, 2000)
         }
-      commonAlertWindow({
-        message: "提交成功</br>等待审核"
-      });
-      setTimeout(function () {
-        closeWindow('analog');
-      }, 2000)
       })
     }
   }

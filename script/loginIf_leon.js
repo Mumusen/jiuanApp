@@ -8,7 +8,7 @@ var login = {
   },
   loginBtn: function () {
     $('#loginBtn').click(function () {
-      var userId = $api.getStorage("userId");
+      var userId = $api.getStorage("phone");
       // console.log(userId)
       var hrefArr = window.location.href.split('/');
       var frame = hrefArr[hrefArr.length - 1].replace('.html', '');
@@ -23,7 +23,7 @@ var login = {
   },
   userList: function () {
     // 获取用户name   1.22 get wechat name first!!
-    var userId = $api.getStorage("userId");
+    var userId = $api.getStorage("phone");
     var wxName = $api.getStorage("wxName");
     // var wxName = '名字';
     var str = userId.substr(0, 3) + "****" + userId.substr(7);
@@ -38,6 +38,7 @@ var login = {
     $('#appVersion').html(appVersion);
     $("#singOut").click(function () {
       $api.rmStorage('userId');
+      $api.rmStorage('phone');
       $api.rmStorage('wxCode');
       // $api.rmStorage('check');
       var js = 'location.reload();';

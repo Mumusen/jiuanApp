@@ -533,6 +533,7 @@ function stockTimeIf() {
 // 保留2位小数点，补充00
 function returnFloat(value) {
   var value = Math.floor(value * 100) / 100;
+  var num = Math.floor(value);
   var xsd = value.toString().split(".");
   if (xsd.length == 1) {
     value = value.toString() + ".00";
@@ -544,12 +545,40 @@ function returnFloat(value) {
     }
     return value;
   }
+  if (num.length > 3) {
+    str.replace(/^\d+$/g, function (match) { return (match / 1e4).toFixed(2) + '万'; })
+  }
 }
 
+function unitConvert(num) {
+  var moneyUnits = ["", "万", "亿", "万亿"]
+  var dividend = 10000;
+  var curentNum = num;
+  //转换数字 
+  var curentUnit = moneyUnits[0];
+  //转换单位 
+  for (var i = 0; i < 4; i++) {
+    curentUnit = moneyUnits[i];
+    if (strNumSize(curentNum) < 5) { break; }
+    curentNum = curentNum / dividend;
+  }
+  var m = { num: 0, unit: "" };
+  m.num = curentNum.toFixed(2);
+  m.unit = curentUnit;
+  return m.num + m.unit;
+}
+function strNumSize(tempNum) {
+  var stringNum = tempNum.toString();
+  var index = stringNum.indexOf(".");
+  var newNum = stringNum;
+  if (index != -1) {
+    newNum = stringNum.substring(0, index);
+  } return newNum.length
+}
 //ajax url公共配置
 function url() {
-  return 'http://39.107.14.227:80/';
-  // return 'http://192.168.0.225:8080/';
+  // return 'http://99shengshi.com/';
+  return 'http://192.168.0.225:8080/';
 }
 function url3() {
   return 'http://106.75.20.234/';
