@@ -154,53 +154,53 @@ var operation = {
       '  </div>';
     var userId = $api.getStorage("userId");
     console.log("用户校验"+JSON.stringify(userId))
-    if(userId != null || userId != undefined){
-      api.ajax({
-        url: url() + 'userManager/checkUserStatusByPhone',
-        data: {
-          values: {
-            phone: userId
-            // phone: '18310499911'
-          }
-        }
-      }, function (ret, err) {
-        console.log("用户状态"+JSON.stringify(ret))
-        if (ret.success) {
-          if (ret.userStatus == "1") {
-        //     // 未提交审核
-            $("body").append(DOM1);
-            $("#openBtn").click(function () {
-              $(".stateLayer").remove();
-              $("body").append(DOM4);
-              $this.analogSetDeal();
-            })
-          } else if (ret.userStatus == "2") {
-            // 审核ing
-            $("body").append(DOM3);
-          } else if (ret.userStatus == "3") {
-            // 审核未通过
-            $("body").append(DOM2);
-          } else if (ret.userStatus == "4") {
+    // if(userId != null || userId != undefined){
+    //   api.ajax({
+    //     url: url() + 'userManager/checkUserStatusByPhone',
+    //     data: {
+    //       values: {
+    //         phone: userId
+    //         // phone: '18310499911'
+    //       }
+    //     }
+    //   }, function (ret, err) {
+    //     console.log("用户状态"+JSON.stringify(ret))
+    //     if (ret.success) {
+    //       if (ret.userStatus == "1") {
+    //     //     // 未提交审核
+    //         $("body").append(DOM1);
+    //         $("#openBtn").click(function () {
+    //           $(".stateLayer").remove();
+    //           $("body").append(DOM4);
+    //           $this.analogSetDeal();
+    //         })
+    //       } else if (ret.userStatus == "2") {
+    //         // 审核ing
+    //         $("body").append(DOM3);
+    //       } else if (ret.userStatus == "3") {
+    //         // 审核未通过
+    //         $("body").append(DOM2);
+    //       } else if (ret.userStatus == "4") {
             // 审核通过
             console.log("审核通过");
             $("body").append(DOM5);
             $this.analogSetDeal();
-          }
-        } else {
-          commonAlertWindow({
-            message: "系统异常"
-          });
-          closeWindow('analog');
-        }
-      })
-    }else{
-      commonAlertWindow({
-        message: "请登录"
-      });
-      setTimeout(function(){
-        openWindow('login', {}, 'push');
-      },2000)
-    }
+    //       }
+    //     } else {
+    //       commonAlertWindow({
+    //         message: "系统异常"
+    //       });
+    //       closeWindow('analog');
+    //     }
+    //   })
+    // }else{
+    //   commonAlertWindow({
+    //     message: "请登录"
+    //   });
+    //   setTimeout(function(){
+    //     openWindow('login', {}, 'push');
+    //   },2000)
+    // }
   },
   // 校验交易密码
   analogSetDeal: function () {
@@ -236,8 +236,8 @@ var operation = {
       var phone = $api.getStorage("phone");
       // var pwd = pwd;
       console.log("输入"+ phone, pwd);
-      var data = { userName: phone, passWord: pwd };
-      // var data = { userName: "test01", passWord: "111111" };
+      // var data = { userName: phone, passWord: pwd };
+      var data = { userName: "test01", passWord: "111111" };
       api.ajax({
         url: url3() + "openapi/v1/login",
         data:{

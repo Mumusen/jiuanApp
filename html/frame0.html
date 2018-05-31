@@ -48,50 +48,25 @@
 <script src="../script/index.js"></script>
 <script src="../script/loginIf_leon.js"></script>
 <script src="../script/infor_leon.js"></script>
-<!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-
 <script>
   apiready = function () {
     $.binLib.loginUser();
-    // $.binLib.indexTheme();
-    // $.binLib.inforAjaxBtn();
+    $.binLib.indexTheme();
+    $.binLib.inforAjaxBtn();
     this.downRefresh();
     scroLL();
     $(".btn-more-news").click(function () {
       api.execScript({
         name: 'root',
-        script: '$("#footer .flex-wrap li:last-child").addClass("active").siblings().removeClass("active")'
+        script: '$("#footer .flex-wrap li:nth-child(4)").addClass("active").siblings().removeClass("active")'
       })
       api.setFrameGroupIndex({
         name: 'group',
-        index: 4,
+        index: 3,
         reload: true
       });
     })
     autoAjax();
-    // axios.post('http://106.75.20.234/openapi/v1/login', {
-    //   params: {
-    //     paraJson: JSON.stringify(data)
-    //   }
-    // })
-    //   .then(function (response) {
-    //     console.log(JSON.stringify(response.data.info.result));
-    //   })
-    //   .catch(function (err) {
-    //     console.log(err);
-    //   });
-    // var data = {"header":{"action":"U092","code":"0","devicetype":"3","msgtype":0,"sendingtime":"2018-05-28-09:47:18.008","version":"1.0.01"},"phone":"13325718723","password":"a906449d5769fa7361d7ecc6aa3f6d28"};
-    // api.ajax({
-    //   url: 'http://192.168.0.225:8080/registration/loginMthodForClient',
-    //   data: {
-    //     values: {
-    //       body: JSON.stringify(data)
-    //     }
-    //   }
-    // }, function (ret, err) {
-    //   console.log("ret"+JSON.stringify(ret))
-    //   console.log("err"+JSON.stringify(err))
-    // })
   };
 </script>
 

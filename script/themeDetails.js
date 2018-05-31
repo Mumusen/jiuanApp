@@ -14,7 +14,7 @@ var themeDetails = {
     var parm = api.pageParam;
     var id = parm.id;
     $('#infoId').val(id);
-    // console.log('ID' + id);
+    console.log('ID' + id,userPhone);
     var themeName = parm.themeName;
     $('#themeName').html(themeName);
     var waitLoading = new WaitLoading();

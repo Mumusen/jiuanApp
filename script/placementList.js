@@ -22,9 +22,9 @@ var placement = {
           console.log("333" + JSON.stringify(msg))
           html += $this.placementDom(msg);
         }
-        if(html != ""){
+        if (html != "") {
           $("#todayEntrustList").append(html);
-        }else{
+        } else {
           $(".noDataBj").remove();
           $("#todayEntrustList").append('<div class="noDataBj"></div>');
         }
@@ -90,9 +90,9 @@ var placement = {
           console.log("333" + JSON.stringify(msg))
           html += $this.todayDealDom(msg);
         }
-        if(html != ""){
+        if (html != "") {
           $("#todayDealList").append(html);
-        }else{
+        } else {
           $(".noDataBj").remove();
           $("#todayDealList").append('<div class="noDataBj"></div>');
         }
@@ -155,27 +155,52 @@ var placement = {
   },
   ifHistory: function () {
     var $this = this;
-    $("#queryBtn").click(function () {
-      var timeStar = $("#timeStar").val();
-      var timeEnd = $("#timeEnd").val();
-      var btn = $(this).attr("data-btn");
-      var token = $api.getStorage("token");
-    // console.log("time",timeStar,timeEnd);
-      if (timeStar != "" && timeEnd != "") {
-        console.log("time", timeStar, timeEnd);
-        if (btn == 0) {
-          console.log("历史委托")
-          $this.placemenHistory(token, timeStar, timeEnd, 1, 20);
-        } else {
-          console.log("历史成交")
-          // $this.queryPlacementFillHistory(token, timeStar, timeEnd, 1, 20);
+    var star = end = "";
+    var token = $api.getStorage("token");
+    $('#timeStar').bind('input propertychange', function() {  
+      // $('#result').val($(this).val());  
+      star = $(this).val();
+      ajax = $(this).attr("data-type");
+      console.log(star)
+      if(end != "" && star != ""){
+        if(end >= star){
+          console.log("通过")
+          if(ajax == "0"){
+            // 历史委托
+            $this.placemenHistory(token, star, end, 1, 20);
+          }else{
+            // 历史成功
+            $this.queryPlacementFillHistory(token, star, end, 1, 20);
+          }
+        }else{
+          commonAlertWindow({
+            message: "起始日期必须</br>小于截止日期"
+          });
         }
-      } else {
-        commonAlertWindow({
-          message: "请选择日期"
-        });
       }
-    })
+    });  
+    $('#timeEnd').bind('input propertychange', function() {  
+      // $('#result').val($(this).val());  
+      end = $(this).val();
+      ajax = $(this).attr("data-type");
+      console.log($(this).val());
+      if(end != "" && star != ""){
+        if(end >= star){
+          console.log("通过");
+          if(ajax == "0"){
+            // 历史委托
+            $this.placemenHistory(token, star, end, 1, 20);
+          }else{
+            // 历史成功
+            $this.queryPlacementFillHistory(token, star, end, 1, 20);
+          }
+        }else{
+          commonAlertWindow({
+            message: "起始日期必须</br>小于截止日期"
+          });
+        }
+      }
+		});  
   },
   // 历史委托
   placemenHistory: function (token, startDate, endDate, page, pageSize) {
@@ -206,9 +231,10 @@ var placement = {
           html += $this.placementDom(msg);
         }
         console.log(JSON.stringify(html));
-        if(html != ""){
+        if (html != "") {
           $("#todayEntrustList").append(html);
-        }else{
+        } else {
+          $(".noDataBj").remove();
           $("#todayEntrustList").append('<div class="noDataBj"></div>');
         }
       } else {
@@ -241,22 +267,37 @@ var placement = {
   queryPlacementFillHistory: function (token, startDate, endDate, page, pageSize) {
     console.log("历史成交:" + token, startDate, endDate, page, pageSize)
     var $this = this;
+    var html = "";
+    var data = {
+      token: token,
+      startDate: startDate,
+      endDate: endDate,
+      page: page,
+      pageSize: pageSize,
+    }
     api.ajax({
-      url: 'http://hangqingjingling.com/openapi/v1/queryPlacementFillHistoryByConditionsByPage',
+      url: url3() + 'openapi/v1/queryPlacementFillHistoryByConditionsByPage',
       data: {
         values: {
-          token: token,
-          startDate: startDate,
-          endDate: endDate,
-          page: page,
-          pageSize: pageSize,
+          paraJson: JSON.stringify(data)
         }
       }
     }, function (ret, err) {
-      var ret = ret.info;
-      if (ret.rescode == success) {
-        var msg = ret.result;
-        html = $this.fillHistoryDom(msg);
+      console.log(JSON.stringify(ret));
+      if (ret.info.rescode == "success") {
+        var data = ret.info.result.dataList;
+        for (var i = 0; i < data.length; i++) {
+          var msg = data[i];
+          console.log("333" + JSON.stringify(msg))
+          html += $this.placementDom(msg);
+        }
+        console.log(JSON.stringify(html));
+        if (html != "") {
+          $("#todayEntrustList").append(html);
+        } else {
+          $(".noDataBj").remove();
+          $("#todayEntrustList").append('<div class="noDataBj"></div>');
+        }
       } else {
         commonAlertWindow({
           message: "网络异常"

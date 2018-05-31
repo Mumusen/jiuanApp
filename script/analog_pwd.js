@@ -57,7 +57,7 @@ var analog = {
         commonAlertWindow({
           message: '输入不能为空'
         })
-      } else if (!testPnumberPwdwd(pwd)) {
+      } else if (pwd.val().length != 6) {
         commonAlertWindow({
           message: '请输入6位数字密码'
         })
@@ -66,7 +66,7 @@ var analog = {
           message: '两次输入的密码' + '</br>' + '不同,请重新输入'
         })
       } else {
-        if($(this).attr("data-code") == "0"){
+        if ($(this).attr("data-code") == "0") {
           api.ajax({
             url: url() + 'userManager/saveTradePassword',
             method: 'post',
@@ -95,7 +95,7 @@ var analog = {
               })
             }
           })
-        }else{
+        } else {
           console.log("重置")
           api.ajax({
             url: 'http://106.75.17.91/frontUser/resetUserPwd',
@@ -109,8 +109,8 @@ var analog = {
               }
             }
           }, function (ret, err) {
-            console.log("重置交易密码"+JSON.stringify(ret))
-            if(ret.status == "success"){
+            console.log("重置交易密码" + JSON.stringify(ret))
+            if (ret.status == "success") {
               commonAlertWindow({
                 message: '设置密码成功'
               })
@@ -119,7 +119,97 @@ var analog = {
                   name: 'analogUser'
                 });
               }, 2000);
-            }else{
+            } else {
+              commonAlertWindow({
+                message: ret.message
+              })
+              setTimeout(function () {
+                api.closeToWin({
+                  name: 'analogUser'
+                });
+              }, 2000);
+            }
+          })
+        }
+      }
+    })
+  },
+  // 修改交易密码
+  setForBuyPwd: function () {
+    $("#registerConfirm").click(function () {
+      var pwd = $("#userPassword");
+      var pwdCon = $("#userPasswordConfirm");
+      var userId = $api.getStorage('userId');
+      if (testNull(pwd) || testNull(pwdCon)) {
+        commonAlertWindow({
+          message: '输入不能为空'
+        })
+      } else if (pwd.val().length != 6) {
+        commonAlertWindow({
+          message: '请输入6位数字密码'
+        })
+      } else if (pwd.val() !== pwdCon.val()) {
+        commonAlertWindow({
+          message: '两次输入的密码' + '</br>' + '不同,请重新输入'
+        })
+      } else {
+        console.log($(this).attr("data-code"), "设置交易密码")
+        console.log("设置交易密码" + $api.getStorage("userId"), pwdCon.val())
+        if ($(this).attr("data-code") == "0") {
+          console.log("修改交易密码" + $api.getStorage("userId"), pwdCon.val())
+          api.ajax({
+            url: url() + 'userManager/updateTransPassword',
+            method: 'post',
+            data: {
+              values: {
+                // sessionId: '18310499911',
+                sessionId: $api.getStorage("userId"),
+                tradePwd: pwdCon.val()
+              }
+            }
+          }, function (ret, err) {
+            console.log(JSON.stringify(ret))
+            if (ret.success === true) {
+              commonAlertWindow({
+                message: '设置密码成功'
+              })
+              setTimeout(function () {
+                api.closeToWin({
+                  name: 'analogUser'
+                });
+              }, 2000);
+              //如果不成功
+            } else {
+              commonAlertWindow({
+                message: '提交失败，请检查网络'
+              })
+            }
+          })
+        } else {
+          console.log("重置")
+          api.ajax({
+            url: 'http://106.75.17.91/frontUser/resetUserPwd',
+            data: {
+              values: {
+                sysUserName: 'admin',
+                sysPwd: 'Lever_2018',
+                // userName: '18310499911',
+                userName: $api.getStorage("phone"),
+                pwd: pwdCon.val()
+              }
+            }
+          }, function (ret, err) {
+            console.log("重置交易密码" + JSON.stringify(ret))
+            if (ret.status == "success") {
+              commonAlertWindow({
+                message: '设置密码成功'
+              })
+              setTimeout(function () {
+                api.closeToWin({
+                  name: 'analogUser'
+                });
+              }, 2000);
+            } else {
               commonAlertWindow({
                 message: ret.message
               })
@@ -136,13 +226,15 @@ var analog = {
   },
   // 忘记交易密码
   fyFindBuyPwd: function () {
+    var phone = $api.getStorage("phone");
+    $('#userPhone').val(phone);
     this.forgetTestCodeClick();
     this.registerNext('FindsetBuyPwd');
   },
   // 修改密码
   // /userManager/checkOldTransPwd?sessionId=手机号&tradePwd=旧密码
-  tradeBuyPwd:function(){
-    $("#registerBtn").click(function(){
+  tradeBuyPwd: function () {
+    $("#registerBtn").click(function () {
       var pwd = $("#tradePwd");
       var userId = $api.getStorage('userId');
       // var userId = '18310499911';
@@ -154,7 +246,7 @@ var analog = {
         commonAlertWindow({
           message: '请输入6位数字密码'
         })
-      } else{
+      } else {
         api.ajax({
           url: url() + 'userManager/checkOldTransPwd',
           method: 'post',
@@ -165,11 +257,11 @@ var analog = {
             }
           }
         }, function (ret, err) {
-          console.log("校验旧密码"+JSON.stringify(ret));
-          if(ret.success === true){
+          console.log("校验旧密码" + JSON.stringify(ret));
+          if (ret.success === true) {
             console.log('校验旧密码通过');
-            openWindow('setBuyPwd', {}, 'push');
-          }else{
+            openWindow('setForDealPwd', {}, 'push');
+          } else {
             console.log('校验旧密码失败');
             $("#forgetTxt").show();
             commonAlertWindow({
@@ -178,7 +270,7 @@ var analog = {
           }
         })
       }
-      
+
     })
   },
   //获取验证码倒计时
@@ -196,7 +288,7 @@ var analog = {
           url: url() + 'member/mobileSendMessageService',
           data: {
             values: {
-              phone: $('#userPhone').val(), 
+              phone: $('#userPhone').val(),
               // phone: '18310499911',
               tradeSms: 1
             }
@@ -261,7 +353,7 @@ var analog = {
       }
     })
   },
-  
+
 }
 
 // 判断是否注册配资账户
@@ -272,10 +364,14 @@ $.binLib.ifPwdAnalog = function () {
 $.binLib.setPwdAnalog = function () {
   analog.setBuyPwd();
 };
+// 修改配资账户
+$.binLib.setForPwdAnalog = function () {
+  analog.setForBuyPwd();
+};
 // 忘记交易密码
 $.binLib.FindsetPwdAnalog = function () {
   analog.fyFindBuyPwd();
 };
-$.binLib.tradePwd = function(){
+$.binLib.tradePwd = function () {
   analog.tradeBuyPwd();
 }

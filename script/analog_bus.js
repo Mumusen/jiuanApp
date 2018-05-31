@@ -5,7 +5,7 @@ var analog = {
     this.timer = setInterval(function () {
       console.log('股票代码' + code);
       if (code >= 6) {
-        $this.stockBtnAjax(code);
+        $this.stockBtnAjaxFive(code);
       }
     }, 3000);
   },
@@ -19,7 +19,7 @@ var analog = {
     }
   },
   // 买
-  buyList: function () {
+  buyListQuery: function () {
     this.queryAllSecurityModel();
     this.queryAjax();
     this.queryHoldStockList(1);
@@ -51,6 +51,7 @@ var analog = {
     var $this = this;
     searchStocks.keyup(function (e) {
       var val = $(this).val();
+      console.log(JSON.stringify(val))
       if (val === '') {
         stocksInterface.hide();
       } else {
@@ -149,6 +150,70 @@ var analog = {
             $this.cansellNumber(code);
           }
           waitLoading.close();
+          $this.timeAjaxStock(code);
+          $this.buyNumBtn();
+        } else {
+          commonAlertWindow({
+            message: "已停牌"
+          });
+        }
+      } else {
+        commonAlertWindow({
+          message: "已停牌"
+        });
+      }
+    });
+  },
+  // 请求五档查询
+  stockBtnAjaxFive: function (code) {
+    // console.log(JSON.stringify(code))
+    var $this = this;
+    var waitLoading = new WaitLoading();
+    var data = { securityCode: code };
+    // console.log(JSON.stringify(data))
+    api.ajax({
+      // 查询 单独服务器 与其他接口不一样
+      url: 'http://md.icaopan.com/openapi/queryMarketDataBySecurityCode',
+      data: {
+        values: {
+          securityCode: code
+        }
+      }
+    }, function (ret, err) {
+      console.log("请求", JSON.stringify(ret))
+      clearInterval($this.timer);
+      if (ret.info.result != null) {
+        var ret = ret.info.result;
+        if (ret.suspensionFlag == false) {
+          $("#downLimit").html('跌停' + ret.downLimit);
+          $("#upLimit").html('涨停' + ret.upLimit);
+          $("#askPrice1").html(parseInt(ret.askPrice1));//卖1价
+          $("#askVolume1").html(parseInt(ret.askVolume1));//卖1量
+          $("#askPrice2").html(parseInt(ret.askPrice2));//卖2价
+          $("#askVolume2").html(parseInt(ret.askVolume2));//卖2量
+          $("#askPrice3").html(parseInt(ret.askPrice3));//卖3价
+          $("#askVolume3").html(parseInt(ret.askVolume3));//卖3量
+          $("#askPrice4").html(parseInt(ret.askPrice4));//卖4价
+          $("#askVolume4").html(parseInt(ret.askVolume4));//卖4量
+          $("#askPrice5").html(parseInt(ret.askPrice5));//卖5价
+          $("#askVolume5").html(parseInt(ret.askVolume5));//卖5量
+          $("#bidPrice1").html(parseInt(ret.bidPrice1));//买1价
+          $("#bidVolume1").html(parseInt(ret.bidVolume1));//买1量
+          $("#bidPrice2").html(parseInt(ret.bidPrice2));//买2价
+          $("#bidVolume2").html(parseInt(ret.bidVolume2));//买2量
+          $("#bidPrice3").html(parseInt(ret.bidPrice3));//买3价
+          $("#bidVolume3").html(parseInt(ret.bidVolume3));//买3量
+          $("#bidPrice4").html(parseInt(ret.bidPrice4));//买4价
+          $("#bidVolume4").html(parseInt(ret.bidVolume4));//买4量
+          $("#bidPrice5").html(parseInt(ret.bidPrice5));//买5价
+          $("#bidVolume5").html(parseInt(ret.bidVolume5));//买5量
+          // 查可买量
+          // $("#buyNum").html(ret.buyNum);
+          if ($("#buyNum").attr("data-type") == "0") {
+            $this.canBuyNumber();
+          } else {
+            $this.cansellNumber(code);
+          }
           $this.timeAjaxStock(code);
           $this.buyNumBtn();
         } else {
@@ -318,7 +383,9 @@ var analog = {
         commonAlertWindow({
           message: ret.info.result
         });
-        $("#buyNumBtn").val("");
+        setTimeout(function(){
+          location.reload();
+        },2000)
       } else {
         commonAlertWindow({
           message: ret.info.result
@@ -346,12 +413,12 @@ var analog = {
         // console.log("的法萨芬" + JSON.stringify(ret))
         var ret = ret.info;
         if (ret.rescode == 'success') {
-          console.log("12121")
+          // console.log("12121")
           var data = ret.result.dataList;
-          console.log("222" + JSON.stringify(data))
+          // console.log("222" + JSON.stringify(data))
           for (var i = 0; i < data.length; i++) {
             var msg = data[i];
-            console.log("333" + JSON.stringify(msg))
+            // console.log("333" + JSON.stringify(msg))
             html += $this.holdStockDom(msg);
           }
           $("#holdStockList").append(html);
@@ -572,7 +639,7 @@ var analog = {
     $("#buyBtnAjax").click(function () {
       $this.inputBuyPassWord(pwd);
     })
-    $(".exitWindow").click(function(){
+    $(".exitWindow").click(function () {
       $(".check-layer").remove();
     })
   },
@@ -588,8 +655,8 @@ var analog = {
       var phone = $api.getStorage("phone");
       // var pwd = pwd;
       console.log("输入" + phone, pwd);
-      var data = { userName: phone, passWord: pwd };
-      // var data = { userName: "test01", passWord: "111111" };
+      // var data = { userName: phone, passWord: pwd };
+      var data = { userName: "test01", passWord: "111111" };
       api.ajax({
         url: url3() + "openapi/v1/login",
         data: {
@@ -623,7 +690,11 @@ var analog = {
     }
   },
 }
-// 买卖交易
+
+// 买交易
+$.binLib.analogBuyQuery = function () {
+  analog.buyListQuery();
+};// 卖交易
 $.binLib.analogBuy = function () {
   analog.buyList();
 };

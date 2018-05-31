@@ -396,7 +396,6 @@ header{
   padding: s($px:90) s($px:40) s($px:70);
   border-radius: s($px:20);
   p{
-
     color:#fff;
     text-indent: s($px:48);
     font-size: s($px:28);
@@ -409,13 +408,14 @@ header{
     line-height: s($px:60);
     text-align: center;
     position: absolute;
-    top: 0;
+    top: s($px:20);
     left: 50%;
     margin-left: s($px:-110);
-    border-radius: 0 0 s($px:10) s($px:10);
+    border-radius: s($px:60);
     text-indent: 0;
     font-size: s($px:24);
     color: #fff;
+    background-color: #ea1f38;
   }
   .down{
     background-color:#39c922;
@@ -447,16 +447,13 @@ header{
   padding-bottom: s($px:30);
   padding-top:0;
   .topTheme{
-    padding:0 s($px:60);
-    background: url("../image/themeBg.png") center center no-repeat;
-    background-size:100%;
+    // background: url("../image/themeBg.png") center center no-repeat;
     position: relative;
     border-radius: s($px:16);
     color:#fff;
     margin: 0 s($px:30);
     .themeDescribe{
-      padding-top:s($px:80);
-      padding-bottom:s($px:60);
+      padding-top:s($px:10);
       font-size:s($px:28);
       line-height:s($px:36);
       text-indent: s($px:55);
@@ -781,7 +778,7 @@ header{
   width:s($px:102);
   height: s($px:52);
   background-image: url("../image/icon-long1.png");
-  background-size: 100%;
+  background-size: cover;
   top: s($px:22);
   right: s($px:30);
   position: absolute;
@@ -924,7 +921,7 @@ header{
     .titleCol{
       span{
         width:25%;
-        font-size: s($px:28);
+        font-size: s($px:26);
         color:#333;
       }
     }

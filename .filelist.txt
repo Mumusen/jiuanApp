@@ -338,6 +338,7 @@
 /A6071336160248/fonts/PingFangRegular.ttf
 /A6071336160248/html/moreThemeRankingSearch.html
 /A6053389311004/script/text_leon.js
+/A6071336160248/html/setForDealPwd.html
 /A6071336160248/script/userFollow.js
 /A6053389311004/image/icon_search.png
 /A6053389311004/script/inviteLeon.js
